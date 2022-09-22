@@ -1,6 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from '../screens/Login';
+import OnboardingScreen from '../screens/OnboardingScreen';
 import Register from '../screens/Register';
 import Splash from '../screens/Splash';
 
@@ -23,6 +24,11 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name="Register"
           component={Register}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="Onboarding"
+          component={OnboardingScreen}
           options={screenOptions}
         />
       </Stack.Navigator>
