@@ -1,9 +1,11 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Login from '../screens/Login';
+import ForgotPassword from '../screens/Authentication/ForgotPassword';
+import Login from '../screens/Authentication/Login';
 import OnboardingScreen from '../screens/OnboardingScreen';
-import Register from '../screens/Register';
+import Register from '../screens/Authentication/Register';
 import Splash from '../screens/Splash';
+import LoginWithSMS from '../screens/Authentication/LoginWithSMS';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,11 +23,9 @@ const Navigator: React.FC = () => {
           options={screenOptions}
         />
         <Stack.Screen name="Login" component={Login} options={screenOptions} />
-        <Stack.Screen
-          name="Register"
-          component={Register}
-          options={screenOptions}
-        />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+        <Stack.Screen name="LoginSMS" component={LoginWithSMS} />
+        <Stack.Screen name="Register" component={Register} />
         <Stack.Screen
           name="Onboarding"
           component={OnboardingScreen}
