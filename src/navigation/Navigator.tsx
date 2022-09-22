@@ -4,6 +4,7 @@ import Login from '../screens/Login';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import Register from '../screens/Register';
 import Splash from '../screens/Splash';
+import TabBar from './TabBar';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,11 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name="Onboarding"
           component={OnboardingScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="TabBar"
+          component={TabBar}
           options={screenOptions}
         />
       </Stack.Navigator>

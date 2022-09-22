@@ -73,7 +73,7 @@ const OnboardingScreen: React.FC = () => {
         <BtnIcon
           icon={faArrowRight}
           style="mr-8"
-          onPress={() => navigation.navigate('Login')}
+          onPress={() => navigation.navigate('TabBar')}
         />
       )}
     />
