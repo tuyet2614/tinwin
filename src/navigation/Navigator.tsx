@@ -6,6 +6,9 @@ import OnboardingScreen from '../screens/OnboardingScreen';
 import Register from '../screens/Authentication/Register';
 import Splash from '../screens/Splash';
 import LoginWithSMS from '../screens/Authentication/LoginWithSMS';
+import OTP from '../screens/Authentication/OTPAuthen';
+import FormForgotPassword from '../screens/Authentication/FormResetPassword';
+import FormRegister from '../screens/Authentication/FormRegister';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +29,9 @@ const Navigator: React.FC = () => {
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="LoginSMS" component={LoginWithSMS} />
         <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="OTPAuthen" component={OTP} />
+        <Stack.Screen name="FormResetPassword" component={FormForgotPassword} />
+        <Stack.Screen name="FormRegister" component={FormRegister} />
         <Stack.Screen
           name="Onboarding"
           component={OnboardingScreen}

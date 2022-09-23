@@ -188,4 +188,14 @@ export const styleRegister = StyleSheet.create({
     lineHeight: 22,
     color: '#FC832D',
   },
+  textPolicy: {
+    fontSize: 12,
+    fontWeight: '500',
+    lineHeight: 18,
+    color: '#858585',
+    textAlign: 'center',
+  },
+  textPolicyBlack: {
+    color: '#1F1F1F',
+  },
 });

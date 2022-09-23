@@ -1,10 +1,3 @@
-import {
-  faApple,
-  faFacebook,
-  faGooglePlus,
-} from '@fortawesome/free-brands-svg-icons';
-import {faEyeSlash} from '@fortawesome/free-regular-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useNavigation} from '@react-navigation/native';
 import {useEffect, useState} from 'react';
 import {
@@ -22,7 +15,7 @@ const Register: React.FC = ({}) => {
   const navigation = useNavigation();
   const [userName, setUserName] = useState<string>('');
   const options = {
-    title: 'Đăng nhập OTP',
+    title: '',
     headerTintColor: 'black',
     headerStyle: {
       backgroundColor: '#f2f2f2',
@@ -65,7 +58,11 @@ const Register: React.FC = ({}) => {
             end={{x: 1, y: 0.5}}
             locations={[0, 1]}
             style={{alignItems: 'center', height: 50}}>
-            <TouchableOpacity className="p-3">
+            <TouchableOpacity
+              className="p-3"
+              onPress={() =>
+                navigation.navigate('OTPAuthen', {title: 'Đăng ký'})
+              }>
               <Text
                 style={{
                   color: '#FFF',
@@ -79,6 +76,14 @@ const Register: React.FC = ({}) => {
             </TouchableOpacity>
           </LinearGradient>
         </View>
+      </View>
+      <View style={{width: 260, alignSelf: 'center'}}>
+        <Text style={style.textPolicy} className="self-center">
+          Bằng cách tạo một tài khoản, bạn đồng ý với{' '}
+          <Text style={style.textPolicyBlack}>Thỏa thuận Người dùng</Text> và{' '}
+          <Text style={style.textPolicyBlack}>Chính sách Quyền riêng tư</Text>{' '}
+          của TinWin
+        </Text>
       </View>
       <View
         style={{

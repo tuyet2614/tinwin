@@ -17,12 +17,13 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import ModalAuthen from './ModalAuthen';
 
-const ForgotPassword: React.FC = () => {
+const FormForgotPassword: React.FC = () => {
   const navigation = useNavigation();
   const [userName, setUserName] = useState<string>('');
   const options = {
-    title: 'Gửi lại mật khẩu',
+    title: 'Đặt lại mật khẩu',
     headerTintColor: 'black',
     headerStyle: {
       backgroundColor: '#f2f2f2',
@@ -37,13 +38,79 @@ const ForgotPassword: React.FC = () => {
     <SafeAreaView style={style.container}>
       <View style={style.loginView}>
         <View style={{marginBottom: 20}}>
-          <Text style={style.textDescription}>Email / Số điện thoại</Text>
+          <Text style={style.textDescription}>
+            Mật khẩu mới <Text style={{color: '#FF3B30'}}>*</Text>
+          </Text>
           <TextInput
             style={style.input}
-            value={userName}
-            placeholder="Nhập Email / Số điện thoại"
-            onChange={text => setUserName(text)}
+            placeholder="Nhập mật khẩu"
+            autoCapitalize="none"
+            // value={password}
+            // secureTextEntry={isPasswordSecure}
+            // onChange={value => setPassword(value)}
           />
+          <View
+            style={{
+              position: 'absolute',
+              right: 20,
+              top: 40,
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <TouchableOpacity
+            // onPressIn={() => setIsPasswordSecure(!isPasswordSecure)}
+            // onPressOut={() => setIsPasswordSecure(!isPasswordSecure)}
+            >
+              <FontAwesomeIcon icon={faEyeSlash} size={20} color="#AEAEB2" />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View>
+          <Text style={style.textDescription}>
+            Nhập lại mật khẩu mới <Text style={{color: '#FF3B30'}}>*</Text>
+          </Text>
+          <TextInput
+            style={style.input}
+            placeholder="Nhập mật khẩu"
+            autoCapitalize="none"
+            // value={password}
+            // secureTextEntry={isPasswordSecure}
+            // onChange={value => setPassword(value)}
+          />
+          <View
+            style={{
+              position: 'absolute',
+              right: 20,
+              top: 40,
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <TouchableOpacity
+            // onPressIn={() => setIsPasswordSecure(!isPasswordSecure)}
+            // onPressOut={() => setIsPasswordSecure(!isPasswordSecure)}
+            >
+              <FontAwesomeIcon icon={faEyeSlash} size={20} color="#AEAEB2" />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View
+          style={{
+            width: 299,
+            alignSelf: 'center',
+            marginTop: 10,
+            marginBottom: 40,
+          }}>
+          <Text
+            style={{
+              color: '#636366',
+              fontWeight: '500',
+              fontSize: 14,
+              lineHeight: 18,
+              textAlign: 'center',
+            }}>
+            Mật khẩu phải dài từ 8-16 kí tự (Bao gồm tối thiểu 1 chữ viết hoa và
+            1 kí tự đặc biệt)
+          </Text>
         </View>
       </View>
       <View>
@@ -56,9 +123,10 @@ const ForgotPassword: React.FC = () => {
           style={{alignItems: 'center', height: 50}}>
           <TouchableOpacity
             className="p-3"
-            onPress={() =>
-              navigation.navigate('OTPAuthen', {title: 'Nhập mã xác minh'})
-            }>
+            // onPress={() =>
+            //   navigation.navigate('OTPAuthen', {title: 'Nhập mã xác minh'})
+            // }
+          >
             <Text
               style={{
                 color: '#FFF',
@@ -71,6 +139,7 @@ const ForgotPassword: React.FC = () => {
             </Text>
           </TouchableOpacity>
         </LinearGradient>
+        {/* <ModalAuthen /> */}
       </View>
     </SafeAreaView>
   );
@@ -137,4 +206,4 @@ export const style = StyleSheet.create({
     color: '#FC832D',
   },
 });
-export default ForgotPassword;
+export default FormForgotPassword;
