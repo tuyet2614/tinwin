@@ -11,6 +11,7 @@ import OTP from '../screens/Authentication/OTPAuthen';
 import FormForgotPassword from '../screens/Authentication/FormResetPassword';
 import FormRegister from '../screens/Authentication/FormRegister';
 import TabBar from './TabBar';
+import Cart from '../screens/Cart/CartScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +40,7 @@ const Navigator: React.FC = () => {
         <Stack.Screen name="OTPAuthen" component={OTP} />
         <Stack.Screen name="FormResetPassword" component={FormForgotPassword} />
         <Stack.Screen name="FormRegister" component={FormRegister} />
+        <Stack.Screen name="Cart" component={Cart} />
         <Stack.Screen
           name="TabBar"
           component={TabBar}

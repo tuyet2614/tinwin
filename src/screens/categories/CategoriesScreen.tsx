@@ -1,9 +1,16 @@
-import {SafeAreaView, Text} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {SafeAreaView, Text, TouchableOpacity} from 'react-native';
 
 const CategoriesScreen: React.FC = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView>
-      <Text>Categories</Text>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Cart');
+        }}>
+        <Text>Categories</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
