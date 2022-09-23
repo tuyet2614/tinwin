@@ -44,6 +44,7 @@ const AccountScreen: React.FC = () => {
           {
             icon: require('../../assets/icons/account/location.png'),
             text: 'Địa chỉ giao hàng',
+            onPress: () => navigation.navigate('Address'),
           },
         ]}
       />

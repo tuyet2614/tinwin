@@ -15,13 +15,16 @@ const UpdateAvatarModal: React.FC<Props> = (props: Props) => {
     <SafeAreaView>
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
         <TouchableOpacity
-          className={`flex-1`}
+          style={{backgroundColor: 'rgba(90, 90, 90, 0.7)'}}
+          className={`flex-1 `}
           onPress={() => {
             setModalVisible(false);
           }}></TouchableOpacity>
         <View
           className={`bg-white justify-end pb-20 shadow-xl rounded-t-lg pt-5`}>
           <ModalBtn
+            textColor="white"
+            color="orange-primary"
             text="Chọn ảnh từ thư viện"
             onPress={() => {
               launchImageLibrary(
@@ -41,6 +44,8 @@ const UpdateAvatarModal: React.FC<Props> = (props: Props) => {
             }}
           />
           <ModalBtn
+            textColor="white"
+            color="orange-primary"
             text="Chụp ảnh"
             onPress={() => {
               launchCamera(
@@ -63,6 +68,8 @@ const UpdateAvatarModal: React.FC<Props> = (props: Props) => {
             }}
           />
           <ModalBtn
+            textColor="orange-primary"
+            color="gray-100"
             text="Thoát"
             onPress={() => {
               setModalVisible(false);

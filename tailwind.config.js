@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         'orange-primary': '#FD7D00',
         'red-danger': '#FF3B30',
+        'black-opacity': 'rgba(90, 90, 90, 0.7)',
       },
     },
   },
