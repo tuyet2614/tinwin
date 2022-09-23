@@ -1,6 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ForgotPassword from '../screens/Authentication/ForgotPassword';
+import AddressScreen from '../screens/account/AddressScreen';
 import Login from '../screens/Authentication/Login';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import Register from '../screens/Authentication/Register';
@@ -9,6 +10,7 @@ import LoginWithSMS from '../screens/Authentication/LoginWithSMS';
 import OTP from '../screens/Authentication/OTPAuthen';
 import FormForgotPassword from '../screens/Authentication/FormResetPassword';
 import FormRegister from '../screens/Authentication/FormRegister';
+import TabBar from './TabBar';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,8 +35,23 @@ const Navigator: React.FC = () => {
         <Stack.Screen name="FormResetPassword" component={FormForgotPassword} />
         <Stack.Screen name="FormRegister" component={FormRegister} />
         <Stack.Screen
-          name="Onboarding"
-          component={OnboardingScreen}
+          name="TabBar"
+          component={TabBar}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="Address"
+          component={AddressScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="TabBar"
+          component={TabBar}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="Address"
+          component={AddressScreen}
           options={screenOptions}
         />
       </Stack.Navigator>
