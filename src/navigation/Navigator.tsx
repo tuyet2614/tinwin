@@ -27,6 +27,11 @@ const Navigator: React.FC = () => {
           component={Splash}
           options={screenOptions}
         />
+        <Stack.Screen
+          name="Onboarding"
+          component={OnboardingScreen}
+          options={screenOptions}
+        />
         <Stack.Screen name="Login" component={Login} options={screenOptions} />
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="LoginSMS" component={LoginWithSMS} />
@@ -34,16 +39,6 @@ const Navigator: React.FC = () => {
         <Stack.Screen name="OTPAuthen" component={OTP} />
         <Stack.Screen name="FormResetPassword" component={FormForgotPassword} />
         <Stack.Screen name="FormRegister" component={FormRegister} />
-        <Stack.Screen
-          name="TabBar"
-          component={TabBar}
-          options={screenOptions}
-        />
-        <Stack.Screen
-          name="Address"
-          component={AddressScreen}
-          options={screenOptions}
-        />
         <Stack.Screen
           name="TabBar"
           component={TabBar}

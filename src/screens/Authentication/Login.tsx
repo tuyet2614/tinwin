@@ -96,7 +96,9 @@ const Login: React.FC = ({}) => {
           end={{x: 1, y: 0.5}}
           locations={[0, 1]}
           style={{alignItems: 'center', height: 50}}>
-          <TouchableOpacity className="p-3">
+          <TouchableOpacity
+            className="p-3"
+            onPress={() => navigation.navigate('TabBar')}>
             <Text
               style={{
                 color: '#FFF',
