@@ -2,6 +2,7 @@ import {faClose, faEllipsisVertical} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useState} from 'react';
 import {Image, Modal, Text, TouchableOpacity, View} from 'react-native';
+import BtnPrimary from '../BtnPrimary';
 
 interface Props {
   name: string;

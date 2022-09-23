@@ -11,6 +11,7 @@ import OTP from '../screens/Authentication/OTPAuthen';
 import FormForgotPassword from '../screens/Authentication/FormResetPassword';
 import FormRegister from '../screens/Authentication/FormRegister';
 import TabBar from './TabBar';
+import AddNewAddressScreen from '../screens/account/AddNewAddressScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -47,6 +48,11 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name="Address"
           component={AddressScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="AddNewAddress"
+          component={AddNewAddressScreen}
           options={screenOptions}
         />
       </Stack.Navigator>
