@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import AddressContainer from '../../components/address/AddressContainer';
 import BtnPrimary from '../../components/BtnPrimary';
 import HeaderStack from '../../components/HeaderStack';
@@ -34,11 +34,15 @@ const AddressScreen: React.FC = () => {
 
       <AddressContainer data={data} />
 
-      <BtnPrimary
-        text="Thêm địa chỉ mới"
-        style="mx-3 items-center"
-        onPress={() => navigation.navigate('AddNewAddress')}
-      />
+      <View className="m-3">
+        <BtnPrimary
+          text="Thêm địa chỉ mới"
+          style="items-center p-3"
+          onPress={() =>
+            navigation.navigate('AddNewAddress', {title: 'Địa chỉ giao hàng'})
+          }
+        />
+      </View>
     </SafeAreaView>
   );
 };

@@ -16,6 +16,7 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import BtnPrimary from '../../components/BtnPrimary';
 import {style} from './style';
 
 const Login: React.FC = ({}) => {
@@ -89,28 +90,11 @@ const Login: React.FC = ({}) => {
         </TouchableOpacity>
       </View>
       <View style={{marginTop: 40, marginBottom: 31}}>
-        <LinearGradient
-          className={`${style} rounded-md`}
-          colors={['#FD7D00', '#FEB336']}
-          start={{x: 0, y: 0.5}}
-          end={{x: 1, y: 0.5}}
-          locations={[0, 1]}
-          style={{alignItems: 'center', height: 50}}>
-          <TouchableOpacity
-            className="p-3"
-            onPress={() => navigation.navigate('TabBar')}>
-            <Text
-              style={{
-                color: '#FFF',
-                alignSelf: 'center',
-                fontSize: 16,
-                fontWeight: '600',
-                lineHeight: 22,
-              }}>
-              Đăng nhập
-            </Text>
-          </TouchableOpacity>
-        </LinearGradient>
+        <BtnPrimary
+          style="items-center p-3"
+          text="Đăng nhập"
+          onPress={() => navigation.navigate('TabBar')}
+        />
       </View>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <View style={{flex: 1, height: 1, backgroundColor: '#F2F2F2'}} />

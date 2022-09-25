@@ -1,8 +1,8 @@
 import {faClose, faEllipsisVertical} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {useNavigation} from '@react-navigation/native';
 import {useState} from 'react';
 import {Image, Modal, Text, TouchableOpacity, View} from 'react-native';
-import BtnPrimary from '../BtnPrimary';
 
 interface Props {
   name: string;
@@ -12,13 +12,24 @@ interface Props {
 
 const AddressItem: React.FC<Props> = (props: Props) => {
   const {name, phone, address} = props;
-
-  console.log(props);
   const [optionsVisible, setOptionsVisible] = useState(false);
 
+  const navigation = useNavigation();
+
   return (
-    <View style={{zIndex: 1}}>
-      <TouchableOpacity className="flex-row p-5 justify-between relative">
+    <View>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('AddNewAddress', {
+            title: 'Sửa địa chỉ',
+            item: {
+              name: name,
+              phone: phone,
+              address: address,
+            },
+          })
+        }
+        className="flex-row p-5 justify-between relative">
         <View className="flex-row">
           <Image
             source={require('../../assets/icons/account/location.png')}
@@ -60,7 +71,18 @@ const AddressItem: React.FC<Props> = (props: Props) => {
               <TouchableOpacity className="p-3 border-orange-primary border-2 rounded-lg">
                 <Text className="text-orange-primary">Đặt làm mặc định</Text>
               </TouchableOpacity>
-              <TouchableOpacity className="p-3 border-orange-primary border-2 rounded-lg">
+              <TouchableOpacity
+                className="p-3 border-orange-primary border-2 rounded-lg"
+                onPress={() =>
+                  navigation.navigate('AddNewAddress', {
+                    title: 'Sửa địa chỉ',
+                    item: {
+                      name: name,
+                      phone: phone,
+                      address: address,
+                    },
+                  })
+                }>
                 <Text className="text-orange-primary">Chỉnh sửa</Text>
               </TouchableOpacity>
               <TouchableOpacity className="p-3 border-orange-primary border-2 rounded-lg">

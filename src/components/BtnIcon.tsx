@@ -16,12 +16,12 @@ const BtnIcon: React.FC<Props> = props => {
 
   return (
     <LinearGradient
-      className={`${style} rounded-md`}
+      className={`rounded-md`}
       colors={['#FD7D00', '#FEB336']}
       start={{x: 0, y: 0.5}}
       end={{x: 1, y: 0.5}}
       locations={[0, 1]}>
-      <TouchableOpacity className="p-3" onPress={onPress} {...prop}>
+      <TouchableOpacity className={style} onPress={onPress} {...prop}>
         <FontAwesomeIcon icon={icon} color="white" />
       </TouchableOpacity>
     </LinearGradient>

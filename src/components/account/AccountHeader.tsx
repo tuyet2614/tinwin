@@ -20,7 +20,7 @@ const AccountHeader: React.FC = () => {
 
         <View className="flex-row w-16 justify-between">
           <SettingsBtn />
-          <CartBtn />
+          <CartBtn color="white" />
         </View>
       </View>
     </LinearGradient>
