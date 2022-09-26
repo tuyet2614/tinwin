@@ -12,8 +12,9 @@ import FormForgotPassword from '../screens/Authentication/FormResetPassword';
 import FormRegister from '../screens/Authentication/FormRegister';
 import TabBar from './TabBar';
 import Cart from '../screens/Cart/CartScreen';
-import Search from '../screens/Search/Search';
-import SearchResult from '../screens/Search/SearchResult';
+import SearchScreen from '../screens/Search/SearchScreen';
+import AddNewAddressScreen from '../screens/account/AddNewAddressScreen';
+import SearchResultScreen from '../screens/Search/SearchResultScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -55,14 +56,17 @@ const Navigator: React.FC = () => {
         />
         <Stack.Screen
           name="Search"
-          component={Search}
+          component={SearchScreen}
           options={screenOptions}
         />
         <Stack.Screen
           name="SearchResult"
-          component={SearchResult}
+          component={SearchResultScreen}
           options={screenOptions}
         />
+        <Stack.Screen
+          name="AddNewAddress"
+          component={AddNewAddressScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

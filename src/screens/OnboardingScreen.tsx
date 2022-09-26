@@ -60,7 +60,9 @@ const OnboardingScreen: React.FC = () => {
       DotComponent={Square}
       pages={pages}
       NextButtonComponent={({isLight, ...props}) => (
-        <BtnIcon icon={faArrowRight} style="mr-8" prop={{...props}} />
+        <View className="mr-8">
+          <BtnIcon icon={faArrowRight} style="p-3" prop={{...props}} />
+        </View>
       )}
       SkipButtonComponent={() => (
         <BtnBorder
@@ -70,11 +72,13 @@ const OnboardingScreen: React.FC = () => {
         />
       )}
       DoneButtonComponent={() => (
-        <BtnIcon
-          icon={faArrowRight}
-          style="mr-8"
-          onPress={() => navigation.navigate('Login')}
-        />
+        <View className="mr-8">
+          <BtnIcon
+            icon={faArrowRight}
+            style="p-3"
+            onPress={() => navigation.navigate('Login')}
+          />
+        </View>
       )}
     />
   );

@@ -1,8 +1,12 @@
-import {SafeAreaView} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {SafeAreaView, View} from 'react-native';
 import AddressContainer from '../../components/address/AddressContainer';
+import BtnPrimary from '../../components/BtnPrimary';
 import HeaderStack from '../../components/HeaderStack';
 
 const AddressScreen: React.FC = () => {
+  const navigation = useNavigation();
+
   const data: object[] = [
     {
       id: 1,
@@ -29,6 +33,16 @@ const AddressScreen: React.FC = () => {
       <HeaderStack text="Địa chỉ giao hàng" isGoback={true} />
 
       <AddressContainer data={data} />
+
+      <View className="m-3">
+        <BtnPrimary
+          text="Thêm địa chỉ mới"
+          style="items-center p-3"
+          onPress={() =>
+            navigation.navigate('AddNewAddress', {title: 'Địa chỉ giao hàng'})
+          }
+        />
+      </View>
     </SafeAreaView>
   );
 };

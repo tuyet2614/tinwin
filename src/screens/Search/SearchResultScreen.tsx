@@ -36,7 +36,7 @@ const Item: React.FC<tagSearch> = (item) => (
 
 )
 
-const SearchResult: React.FC = () => {
+const SearchResultScreen: React.FC = () => {
     const [search, setSearch] = useState('')
     const navigation = useNavigation()
 
@@ -86,5 +86,5 @@ const SearchResult: React.FC = () => {
     );
 };
 
-export default SearchResult;
+export default SearchResultScreen;
 

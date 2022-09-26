@@ -7,6 +7,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {Platform} from 'react-native';
 import AccountNavigator from '../screens/account/AccountNavigator';
 import CategoriesScreen from '../screens/categories/CategoriesScreen';
 import HomeScreen from '../screens/home/HomeScreen';
@@ -36,7 +37,7 @@ const TabBar: React.FC = () => {
     },
     tabBarActiveTintColor: '#FD7D00',
     tabBarStyle: {
-      height: 70,
+      height: Platform.OS === 'ios' ? 100 : 70,
       paddingTop: 10,
     },
     tabBarOptions: {
