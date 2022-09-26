@@ -1,5 +1,5 @@
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ForgotPassword from '../screens/Authentication/ForgotPassword';
 import AddressScreen from '../screens/account/AddressScreen';
 import Login from '../screens/Authentication/Login';
@@ -12,6 +12,8 @@ import FormForgotPassword from '../screens/Authentication/FormResetPassword';
 import FormRegister from '../screens/Authentication/FormRegister';
 import TabBar from './TabBar';
 import Cart from '../screens/Cart/CartScreen';
+import Search from '../screens/Search/Search';
+import SearchResult from '../screens/Search/SearchResult';
 
 const Stack = createNativeStackNavigator();
 
@@ -49,6 +51,16 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name="Address"
           component={AddressScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="Search"
+          component={Search}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="SearchResult"
+          component={SearchResult}
           options={screenOptions}
         />
       </Stack.Navigator>

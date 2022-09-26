@@ -1,9 +1,14 @@
-import {SafeAreaView, Text} from 'react-native';
+import { SafeAreaView, Text, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen: React.FC = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView>
-      <Text>Home</Text>
+      <TouchableOpacity onPress={() => { navigation.navigate('Search') }}>
+        <Text>Home</Text>
+      </TouchableOpacity>
+
     </SafeAreaView>
   );
 };

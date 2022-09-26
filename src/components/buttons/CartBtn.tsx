@@ -1,6 +1,6 @@
-import {faCartShopping} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {TouchableOpacity} from 'react-native';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { TouchableOpacity } from 'react-native';
 
 const CartBtn: React.FC = () => {
   return (
