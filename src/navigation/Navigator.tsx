@@ -12,7 +12,8 @@ import FormForgotPassword from '../screens/Authentication/FormResetPassword';
 import FormRegister from '../screens/Authentication/FormRegister';
 import TabBar from './TabBar';
 import AddNewAddressScreen from '../screens/account/AddNewAddressScreen';
-import ProductDetailScreen from '../screens/ProductDetailScreen';
+import ProductDetailScreen from '../screens/ProductDetail/ProductDetailScreen';
+import RatingScreen from '../screens/ProductDetail/RatingScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -59,6 +60,11 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name="ProductDetail"
           component={ProductDetailScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="Rating"
+          component={RatingScreen}
           options={screenOptions}
         />
       </Stack.Navigator>

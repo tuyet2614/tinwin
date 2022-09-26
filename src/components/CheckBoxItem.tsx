@@ -14,6 +14,7 @@ const CheckBoxItem: React.FC<Props> = (props: Props) => {
   return (
     <View className={`flex-row items-center ${style}`}>
       <CheckBox
+        boxType="square"
         style={{padding: 10}}
         onChange={() => setIsChecked(!isChecked)}
         value={isChecked}
