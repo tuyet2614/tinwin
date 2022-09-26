@@ -71,7 +71,7 @@ const FilterBtn: React.FC = () => {
                     keyboardType="number-pad"
                   />
                 </View>
-                {/* <RnRangeSlider
+                <RnRangeSlider
                   min={5000}
                   max={5000000}
                   step={20000}
@@ -90,7 +90,7 @@ const FilterBtn: React.FC = () => {
                   )}
                   renderLabel={value => <Text>{value}</Text>}
                   renderNotch={() => <View></View>}
-                /> */}
+                />
                 <Slider
                   onValueChange={value => setMaxPrice(value)}
                   style={{height: 40}}
