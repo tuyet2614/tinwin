@@ -13,7 +13,7 @@ interface Props {
 }
 
 const HomeTitle: React.FC<Props> = (props: Props) => {
-  const {title, icon, textBtn} = props;
+  const { title, icon, textBtn } = props;
 
   return (
     <View className="m-3 flex-row items-center justify-between">
@@ -22,11 +22,9 @@ const HomeTitle: React.FC<Props> = (props: Props) => {
         <Text className="ml-3 font-bold text-lg">{title}</Text>
       </View>
 
-      {textBtn !== '' && (
-        <TouchableOpacity>
-          <Text className="text-orange-primary bg-blue-100 py-1 px-3 rounded-lg">
-            {textBtn}
-          </Text>
+      {textBtn && (
+        <TouchableOpacity className="rounded-lg bg-orange-100 py-1 px-3">
+          <Text className="text-orange-primary">{textBtn}</Text>
         </TouchableOpacity>
       )}
     </View>

@@ -27,7 +27,7 @@ export const SearchBar: React.FC<TextFieldProps> = ({
     return (
 
         <View className={`flex-row  h-[45px] py-3.5
-        rounded-lg border-solid border-[1px] border-Rectanger px-3.5`}
+        rounded-lg border-solid border-[1px] border-gray-200 px-3.5`}
             style={{ width: width }}
         >
             <FontAwesomeIcon icon={faMagnifyingGlass} color='#7B7B80' />

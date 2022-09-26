@@ -14,7 +14,13 @@ import TabBar from './TabBar';
 import Cart from '../screens/Cart/CartScreen';
 import SearchScreen from '../screens/Search/SearchScreen';
 import AddNewAddressScreen from '../screens/account/AddNewAddressScreen';
+
 import SearchResultScreen from '../screens/Search/SearchResultScreen';
+
+import ProductDetailScreen from '../screens/ProductDetailScreen';
+import TopTabNavigation from './TopTabNavigation';
+import TopBar from './TopBar';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -65,8 +71,15 @@ const Navigator: React.FC = () => {
           options={screenOptions}
         />
         <Stack.Screen
+
           name="AddNewAddress"
           component={AddNewAddressScreen} />
+        <Stack.Screen
+          name="ProductDetail"
+          component={ProductDetailScreen}
+          options={screenOptions}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

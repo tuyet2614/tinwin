@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, Text, Image, View, TouchableOpacity, StyleSheet, FlatList, ListRenderItem } from 'react-native';
+import { SafeAreaView, Text, Image, View, TouchableOpacity, Animated, FlatList, ListRenderItem, ScrollView } from 'react-native';
 import { SearchBar } from '../../components/SearchField';
 import { Categories } from '../../assets/Data';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -7,12 +7,17 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigation } from '@react-navigation/native';
 import FilterBtn from '../../components/buttons/FilterBtn';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import ProductsContainer from '../../components/product/ProductsContainer';
+import CartBtn from '../../components/buttons/CartBtn';
+import TopBar from '../../navigation/TopBar';
+import TopTabNavigation from '../../navigation/TopTabNavigation';
 
 const DATA = [
     { id: 'a', title: 'Nước tăng lực', icon: require('../../images/cancel.png') },
     { id: 'b', title: 'Chăm sóc cá nhân', icon: require('../../images/cancel.png') },
     { id: 'c', title: 'Coca cola', icon: require('../../images/cancel.png') }
 ];
+
 
 
 
@@ -46,8 +51,9 @@ const SearchResultScreen: React.FC = () => {
         )
     }
     return (
-        <SafeAreaView>
-            <View className={`px-6`}>
+        <SafeAreaView className="bg-white h-full">
+
+            <View className={`mx-2`}>
                 <View className={`flex-row`}>
                     <View className={'self-center mr-4'}>
                         <TouchableOpacity onPress={() => { navigation.goBack() }}>
@@ -60,13 +66,10 @@ const SearchResultScreen: React.FC = () => {
                     <View>
                         <FilterBtn />
                     </View>
-
-                    <View className={' ml-2 border-[1px] w-[45px] h-[45px] rounded-lg justify-center items-center'}>
-                        <Image source={require('../../images/cart.png')} />
-                    </View>
-                    <View>
-
-                    </View>
+                    <CartBtn
+                        color="#FD7D00"
+                        style="border border-gray-200 justify-center px-3 ml-3 rounded-lg"
+                    />
 
                 </View>
 
@@ -75,12 +78,15 @@ const SearchResultScreen: React.FC = () => {
                         data={DATA}
                         renderItem={renderItem}
                         numColumns={2}
-
                     />
 
                 </View>
 
             </View>
+            <View >
+                <TopBar />
+            </View>
+
 
         </SafeAreaView>
     );

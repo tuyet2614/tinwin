@@ -1,4 +1,5 @@
 import {faCartArrowDown} from '@fortawesome/free-solid-svg-icons';
+import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity, Image, Text, View} from 'react-native';
 import {Rating} from 'react-native-ratings';
 import BtnIcon from '../BtnIcon';
@@ -8,11 +9,13 @@ interface Props {
 }
 
 const ProductCard: React.FC<Props> = (props: Props) => {
+  const navigation = useNavigation();
   const {item} = props;
 
   return (
     <TouchableOpacity
-      className="p-3 border-2 border-gray-200 rounded-lg mb-3"
+      onPress={() => navigation.navigate('ProductDetail', {id: item.id})}
+      className="p-3 border border-gray-200 rounded-lg mb-3"
       style={{width: 185}}>
       <Image source={item.image} className={`w-full h-32`} />
       <Text className="text-lg font-bold text-black">{item.name}</Text>
@@ -29,10 +32,8 @@ const ProductCard: React.FC<Props> = (props: Props) => {
         {item.price}
       </Text>
       <View className="flex-row justify-between">
-        <TouchableOpacity className="">
-          <Text className="text-black bg-blue-100 px-5 py-2 rounded-lg">
-            Mua ngay
-          </Text>
+        <TouchableOpacity className=" rounded-lg px-5 py-2 bg-orange-100">
+          <Text className="text-black">Mua ngay</Text>
         </TouchableOpacity>
         <BtnIcon icon={faCartArrowDown} style="py-2 px-4" />
       </View>
