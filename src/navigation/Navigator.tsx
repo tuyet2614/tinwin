@@ -12,6 +12,7 @@ import FormForgotPassword from '../screens/Authentication/FormResetPassword';
 import FormRegister from '../screens/Authentication/FormRegister';
 import TabBar from './TabBar';
 import AddNewAddressScreen from '../screens/account/AddNewAddressScreen';
+import ProductDetailScreen from '../screens/ProductDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -53,6 +54,11 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name="AddNewAddress"
           component={AddNewAddressScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="ProductDetail"
+          component={ProductDetailScreen}
           options={screenOptions}
         />
       </Stack.Navigator>

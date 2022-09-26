@@ -31,7 +31,7 @@ const InputItem: React.FC<Props> = (props: Props) => {
         onChangeText={e => setValue !== undefined && setValue(e)}
         value={value}
         placeholder={placeholder}
-        className={`border-2 border-gray-200 p-3 rounded-lg ${
+        className={`border border-gray-200 p-3 rounded-lg ${
           placeholder === 'Nhập từ khoá tìm kiếm' && 'pl-10'
         }`}
       />

@@ -1,9 +1,9 @@
 import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
 import CartBtn from '../../components/buttons/CartBtn';
+import SearchBtnHome from '../../components/buttons/SearchBtnHome';
 import CategoriesContainer from '../../components/categories/CategoriesContainer';
 import HomeHeader from '../../components/home/HomeHeader';
 import WalletCard from '../../components/home/WalletCard';
-import InputItem from '../../components/InputItem';
 import ProductsContainer from '../../components/product/ProductsContainer';
 
 export const data = [
@@ -70,10 +70,10 @@ const HomeScreen: React.FC = () => {
     <SafeAreaView className="bg-white h-full">
       <HomeHeader />
       <View className="flex-row mx-3">
-        <InputItem placeholder="Nhập từ khoá tìm kiếm" style="flex-1" />
+        <SearchBtnHome />
         <CartBtn
           color="#FD7D00"
-          style="border-2 border-gray-200 justify-center px-3 ml-3 rounded-lg"
+          style="border border-gray-200 justify-center px-3 ml-3 rounded-lg"
         />
       </View>
       <ScrollView>
