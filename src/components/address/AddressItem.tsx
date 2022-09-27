@@ -8,10 +8,11 @@ interface Props {
   name: string;
   phone: string;
   address: string;
+  onPress?: () => void;
 }
 
 const AddressItem: React.FC<Props> = (props: Props) => {
-  const {name, phone, address} = props;
+  const {name, phone, address, onPress} = props;
   const [optionsVisible, setOptionsVisible] = useState(false);
 
   const navigation = useNavigation();
@@ -19,16 +20,7 @@ const AddressItem: React.FC<Props> = (props: Props) => {
   return (
     <View>
       <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('AddNewAddress', {
-            title: 'Sửa địa chỉ',
-            item: {
-              name: name,
-              phone: phone,
-              address: address,
-            },
-          })
-        }
+        onPress={onPress}
         className="flex-row p-5 justify-between relative">
         <View className="flex-row">
           <Image

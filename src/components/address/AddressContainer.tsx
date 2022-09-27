@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import {FlatList, View, VirtualizedList} from 'react-native';
 import AddressItem from './AddressItem';
 
@@ -7,6 +8,8 @@ interface Props {
 
 const AddressContainer: React.FC<Props> = (props: Props) => {
   const {data} = props;
+
+  const navigation = useNavigation();
 
   return (
     <VirtualizedList
@@ -23,6 +26,16 @@ const AddressContainer: React.FC<Props> = (props: Props) => {
       keyExtractor={key => key.id}
       renderItem={({item}) => (
         <AddressItem
+          onPress={() =>
+            navigation.navigate('AddNewAddress', {
+              title: 'Sửa địa chỉ',
+              item: {
+                name: item.name,
+                phone: item.phone,
+                address: item.address,
+              },
+            })
+          }
           name={item.name}
           phone={item.phone}
           address={item.address}

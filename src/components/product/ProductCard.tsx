@@ -2,6 +2,8 @@ import {faCartArrowDown} from '@fortawesome/free-solid-svg-icons';
 import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity, Image, Text, View} from 'react-native';
 import {Rating} from 'react-native-ratings';
+import useConvertToVND from '../../hooks/useConvertToVND';
+import useAddToWishlist from '../../hooks/wishlist/useAddToWishlist';
 import BtnIcon from '../BtnIcon';
 
 interface Props {
@@ -11,6 +13,8 @@ interface Props {
 const ProductCard: React.FC<Props> = (props: Props) => {
   const navigation = useNavigation();
   const {item} = props;
+
+  const dispatchAddToWishlist = useAddToWishlist();
 
   return (
     <TouchableOpacity
@@ -29,13 +33,17 @@ const ProductCard: React.FC<Props> = (props: Props) => {
         ratingCount={5}
       />
       <Text className="text-orange-primary text-xl font-bold my-2">
-        {item.price}
+        {useConvertToVND(item.price)}
       </Text>
       <View className="flex-row justify-between">
         <TouchableOpacity className=" rounded-lg px-5 py-2 bg-orange-100">
           <Text className="text-black">Mua ngay</Text>
         </TouchableOpacity>
-        <BtnIcon icon={faCartArrowDown} style="py-2 px-4" />
+        <BtnIcon
+          icon={faCartArrowDown}
+          style="py-2 px-4"
+          onPress={() => dispatchAddToWishlist({...item, quantity: 1})}
+        />
       </View>
     </TouchableOpacity>
   );

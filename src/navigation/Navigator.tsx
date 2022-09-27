@@ -15,6 +15,8 @@ import AddNewAddressScreen from '../screens/account/AddNewAddressScreen';
 import ProductDetailScreen from '../screens/ProductDetail/ProductDetailScreen';
 import RatingScreen from '../screens/ProductDetail/RatingScreen';
 import FilterScreen from '../screens/categories/FilterScreen';
+import CartScreen from '../screens/cart/CartScreen';
+import CartNavigator from '../screens/cart/CartNavigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -71,6 +73,11 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name="Filter"
           component={FilterScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="CartNavigator"
+          component={CartNavigator}
           options={screenOptions}
         />
       </Stack.Navigator>

@@ -12,7 +12,6 @@ interface Props {
 
 const BtnIcon: React.FC<Props> = props => {
   const {icon, style, onPress, prop} = props;
-  console.log(prop);
 
   return (
     <LinearGradient
