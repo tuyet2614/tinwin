@@ -11,7 +11,9 @@ import OTP from '../screens/Authentication/OTPAuthen';
 import FormForgotPassword from '../screens/Authentication/FormResetPassword';
 import FormRegister from '../screens/Authentication/FormRegister';
 import TabBar from './TabBar';
-import Cart from '../screens/Cart/CartScreen';
+import Cart from '../screens/StatusOrder/CartScreen';
+import Review from '../screens/StatusOrder/ReviewScreen';
+import DetailOrder from '../screens/StatusOrder/DetailOrder';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,11 +42,37 @@ const Navigator: React.FC = () => {
         <Stack.Screen name="OTPAuthen" component={OTP} />
         <Stack.Screen name="FormResetPassword" component={FormForgotPassword} />
         <Stack.Screen name="FormRegister" component={FormRegister} />
-        <Stack.Screen name="Cart" component={Cart} />
+        <Stack.Screen
+          name="DetailOrder"
+          component={DetailOrder}
+          options={({}) => ({
+            headerShadowVisible: false,
+            headerBackTitleVisible: false,
+            // cardStyle: {backgroundColor: '#fff'},
+          })}
+        />
+        <Stack.Screen
+          name="Cart"
+          component={Cart}
+          options={({}) => ({
+            headerShadowVisible: false,
+            headerBackTitleVisible: false,
+            // cardStyle: {backgroundColor: '#fff'},
+          })}
+        />
         <Stack.Screen
           name="TabBar"
           component={TabBar}
           options={screenOptions}
+        />
+        <Stack.Screen
+          name="Review"
+          component={Review}
+          options={({}) => ({
+            headerShadowVisible: false, // applied here
+            headerBackTitleVisible: false,
+            // cardStyle: {backgroundColor: '#fff'},
+          })}
         />
         <Stack.Screen
           name="Address"
