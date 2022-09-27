@@ -69,7 +69,7 @@ const HomeScreen: React.FC = () => {
   return (
     <SafeAreaView className="bg-white h-full">
       <HomeHeader />
-      <View className="flex-row mx-3">
+      <View className="flex-row mx-3 mb-3">
         <SearchBtnHome />
         <CartBtn
           color="#FD7D00"

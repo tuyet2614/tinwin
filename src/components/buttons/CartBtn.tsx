@@ -22,9 +22,11 @@ const CartBtn: React.FC<Props> = (props: Props) => {
       className={`${style}`}
       onPress={() => navigation.navigate('CartNavigator')}>
       <FontAwesomeIcon icon={faCartShopping} color={color} size={25} />
-      <View className="bg-blue-200 w-4 h-4 absolute items-center justify-center rounded-full top-2 right-2">
-        <Text className="text-white text-xs">{wishlist.length}</Text>
-      </View>
+      {wishlist.length > 0 && (
+        <View className="bg-blue-200 w-4 h-4 absolute items-center justify-center rounded-full top-2 right-2">
+          <Text className="text-orange-primary text-xs">{wishlist.length}</Text>
+        </View>
+      )}
     </TouchableOpacity>
   );
 };

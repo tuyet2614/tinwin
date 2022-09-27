@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {faInfoCircle} from '@fortawesome/free-solid-svg-icons';
 import {useRoute} from '@react-navigation/native';
 import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
@@ -10,10 +11,15 @@ import ProductDetailContainer from '../../components/productDetail/ProductDetail
 import ProductInfoContainer from '../../components/productDetail/ProductInfoContainer';
 import RatingContainer from '../../components/productDetail/RatingContainer';
 import StallAccount from '../../components/stall/StallAccount';
+import useAddToWishlist from '../../hooks/wishlist/useAddToWishlist';
+import useGetProductById from '../../hooks/productDetail/useGetProductById';
+import {data} from '../home/HomeScreen';
 
 const ProductDetailScreen: React.FC = () => {
   const route = useRoute();
   const {id} = route.params;
+  const dispatchAddToWishlist = useAddToWishlist();
+  const product = useGetProductById(id, data);
 
   const arr = [
     {
@@ -86,7 +92,13 @@ const ProductDetailScreen: React.FC = () => {
         <RatingContainer />
       </ScrollView>
       <View className="flex-row m-3">
-        <BtnBorder text="Thêm vào giỏ" style="p-3 flex-1 items-center mr-3" />
+        <BtnBorder
+          text="Thêm vào giỏ"
+          style="p-3 flex-1 items-center mr-3"
+          onPress={() => {
+            dispatchAddToWishlist({...product, quantity: 1});
+          }}
+        />
         <BtnPrimary text="Mua ngay" style="px-14 py-3" />
       </View>
     </SafeAreaView>

@@ -9,10 +9,11 @@ import SelectAllCartItem from './SelectAllCartItem';
 interface Props {
   title: string;
   data: object[];
+  onPress?: () => void;
 }
 
 const CartContainer: React.FC<Props> = (props: Props) => {
-  const {title, data} = props;
+  const {title, data, onPress} = props;
 
   const totalPrice = useTotalPrice(data);
 
@@ -22,6 +23,7 @@ const CartContainer: React.FC<Props> = (props: Props) => {
         title={title}
         icon={faStore}
         iconRight={faAngleRight}
+        onPress={onPress}
       />
       <FlatList
         contentContainerStyle={{marginHorizontal: 20}}

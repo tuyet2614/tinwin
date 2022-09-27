@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {faCartArrowDown} from '@fortawesome/free-solid-svg-icons';
 import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity, Image, Text, View} from 'react-native';
@@ -5,6 +6,8 @@ import {Rating} from 'react-native-ratings';
 import useConvertToVND from '../../hooks/useConvertToVND';
 import useAddToWishlist from '../../hooks/wishlist/useAddToWishlist';
 import BtnIcon from '../BtnIcon';
+import useShowNotification from '../../hooks/useShowNotification';
+import {faCheckCircle} from '@fortawesome/free-regular-svg-icons';
 
 interface Props {
   item: object;
@@ -42,7 +45,9 @@ const ProductCard: React.FC<Props> = (props: Props) => {
         <BtnIcon
           icon={faCartArrowDown}
           style="py-2 px-4"
-          onPress={() => dispatchAddToWishlist({...item, quantity: 1})}
+          onPress={() => {
+            dispatchAddToWishlist({...item, quantity: 1});
+          }}
         />
       </View>
     </TouchableOpacity>

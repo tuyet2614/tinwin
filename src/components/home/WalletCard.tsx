@@ -13,7 +13,7 @@ const WalletCard: React.FC = () => {
 
   return (
     <LinearGradient
-      className={`rounded-lg p-3 m-3`}
+      className={`rounded-lg p-3 mx-3 mb-3`}
       colors={['#FD7D00', '#FEB336', '#FD7D00']}
       start={{x: 0, y: 0.5}}
       end={{x: 1, y: 0.5}}

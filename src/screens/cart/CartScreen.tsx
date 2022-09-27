@@ -7,6 +7,7 @@ import BtnPrimary from '../../components/BtnPrimary';
 import CartContainer from '../../components/cart/CartContainer';
 import SelectAllCartItem from '../../components/cart/SelectAllCartItem';
 import HeaderStack from '../../components/HeaderStack';
+import useDeleteAllWishlist from '../../hooks/wishlist/useDeleteAllWishlist';
 import {getWishlistState} from '../../redux/wishlist/selectors';
 
 const CartScreen: React.FC = () => {
@@ -14,6 +15,7 @@ const CartScreen: React.FC = () => {
 
   const wishlist = wishlistSelector.wishlist;
   const navigation = useNavigation();
+  const deleteAllWishlist = useDeleteAllWishlist();
 
   return (
     <SafeAreaView className="bg-white flex-1">
@@ -27,7 +29,11 @@ const CartScreen: React.FC = () => {
         />
         {wishlist.length > 0 ? (
           <View>
-            <SelectAllCartItem title="Tất cả" iconRight={faTrash} />
+            <SelectAllCartItem
+              title="Tất cả"
+              iconRight={faTrash}
+              onPress={() => deleteAllWishlist()}
+            />
             <View className="h-0.5 bg-gray-200"></View>
             <CartContainer data={wishlist} title="Xiaomi Viêtj Nam" />
           </View>

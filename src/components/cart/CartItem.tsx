@@ -17,7 +17,6 @@ const CartItem: React.FC<Props> = (props: Props) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const dispatchDeleteFromWishlist = useDeleteFromWishlist();
-  console.log(item);
 
   return (
     <View>
