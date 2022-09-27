@@ -16,16 +16,20 @@ import BtnBorder from '../BtnBorder';
 import BtnPrimary from '../BtnPrimary';
 import CloseBtn from './CloseBtn';
 
-const FilterBtn: React.FC = () => {
+interface Props {
+    style?: string;
+    color?: string;
+}
+const FilterBtn: React.FC<Props> = (props) => {
     const [modalVisible, setModalVisible] = useState<boolean>(false);
-
+    const { style, color } = props;
 
     return (
         <View>
             <TouchableOpacity
                 onPress={() => setModalVisible(true)}
                 className={`border border-gray-200 justify-center px-4 py-3 ml-3 rounded-lg`}>
-                <Image source={require('../../assets/icons/filter.png')} />
+                <Image source={require('../../assets/icons/filter.png')} style={{ tintColor: color }} />
             </TouchableOpacity>
             <Modal animationType="slide" transparent={true} visible={modalVisible}>
                 <SafeAreaView>

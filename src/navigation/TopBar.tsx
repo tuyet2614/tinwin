@@ -15,22 +15,20 @@ const TabBar: React.FC = () => {
 
         tabBarIndicatorStyle: {
             backgroundColor: '#FC832D',
+            height: 3,
+
         },
         tabBarActiveTintColor: '#636366',
         tabBarStyle: {
-            tabBarActiveTintColor: '#636366',
-            marginLeft: 10,
-            marginRight: 10,
+            margin: 10,
+            backgroundColor: 'white',
 
         },
-        tabBarOptions: {
-            keyboardHidesTabBar: true,
+        indicatorStyle: {
+            backgroundColor: '#333',
+            height: 4,
 
-            style: {
-                color: "#f20",
-            }
-        },
-
+        }
 
     });
 

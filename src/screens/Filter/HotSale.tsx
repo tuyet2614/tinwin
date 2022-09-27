@@ -63,7 +63,7 @@ export const data = [
 
 const HotSale: React.FC = () => {
     return (
-        <ScrollView className="bg-white h-full">
+        <ScrollView className="bg-white h-full mb-48">
             <View >
                 <ProductsContainer
                     flatlistStyle={{ justifyContent: 'space-evenly' }}

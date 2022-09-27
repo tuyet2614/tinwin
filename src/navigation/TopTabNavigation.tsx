@@ -7,16 +7,16 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { SafeAreaView, } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { View } from 'react-native';
 
 const Tab = createMaterialTopTabNavigator();
 
 const TopTabNavigation: React.FC = () => {
     return (
+       <View style={{ flexDirection: 'row', paddingTop: 20 }}>
 
-        <TopBar />
-
-
-    );
+       </View>
+    )
 }
 
 export default TopTabNavigation

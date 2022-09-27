@@ -20,6 +20,7 @@ import SearchResultScreen from '../screens/Search/SearchResultScreen';
 import ProductDetailScreen from '../screens/ProductDetailScreen';
 import TopTabNavigation from './TopTabNavigation';
 import TopBar from './TopBar';
+import ShopDetailScreen from '../screens/Shop/ShopDetailScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -77,6 +78,11 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name="ProductDetail"
           component={ProductDetailScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name='ShopDetail'
+          component={ShopDetailScreen}
           options={screenOptions}
         />
 
