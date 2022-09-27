@@ -29,7 +29,7 @@ const InputItem: React.FC<Props> = (props: Props) => {
         </View>
       )}
       <TextInput
-        maxLength={keyboardType !== undefined ? 8 : undefined}
+        maxLength={keyboardType !== undefined ? 9 : undefined}
         keyboardType={keyboardType}
         onChangeText={e => setValue !== undefined && setValue(e)}
         value={value}

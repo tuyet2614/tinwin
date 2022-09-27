@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import CartBtn from '../../components/buttons/CartBtn';
 import FilterBtn from '../../components/buttons/FilterBtn';
