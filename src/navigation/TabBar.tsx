@@ -16,7 +16,7 @@ const TabBar: React.FC = () => {
   const Tab = createBottomTabNavigator();
 
   const screenOptions = ({route}) => ({
-    headerShown: false,
+    // headerShown: false,
     tabBarIcon: ({focused, color, size}) => {
       return (
         <FontAwesomeIcon
@@ -52,7 +52,14 @@ const TabBar: React.FC = () => {
     <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen name="Trang chủ" component={HomeScreen} />
       <Tab.Screen name="Danh mục" component={CategoriesScreen} />
-      <Tab.Screen name="Thông báo" component={NotificationScreen} />
+      <Tab.Screen
+        name="Thông báo"
+        component={NotificationScreen}
+        options={{
+          headerShadowVisible: false,
+          headerBackTitleVisible: false,
+        }}
+      />
       <Tab.Screen name="Tôi" component={AccountNavigator} />
     </Tab.Navigator>
   );
