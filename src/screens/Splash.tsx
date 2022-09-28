@@ -3,6 +3,7 @@ import {colors} from '../assets/colors';
 import LinearGradient from 'react-native-linear-gradient';
 import {useEffect, useState} from 'react';
 import {StackActions, useNavigation} from '@react-navigation/native';
+import {NAVIGATE_ONBOARDING} from '../navigation/navigate';
 
 const Splash: React.FC = () => {
   const [logoOpacity, setLogoOpacity] = useState(new Animated.Value(0));
@@ -16,7 +17,7 @@ const Splash: React.FC = () => {
         useNativeDriver: true,
       }),
     ]).start(() => {
-      navigation.dispatch(StackActions.replace('Onboarding'));
+      navigation.dispatch(StackActions.replace(NAVIGATE_ONBOARDING));
     });
   }, []);
 

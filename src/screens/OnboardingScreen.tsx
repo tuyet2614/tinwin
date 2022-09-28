@@ -7,6 +7,7 @@ import BtnIcon from '../components/BtnIcon';
 import ImageOnboarding from '../components/onboarding/ImageOnboarding';
 import SubTitleOnboarding from '../components/onboarding/SubTitleOnboarding';
 import TitleOnboarding from '../components/onboarding/TitleOnboarding';
+import {NAVIGATE_LOGIN} from '../navigation/navigate';
 
 const pages: object[] = [
   {
@@ -68,7 +69,7 @@ const OnboardingScreen: React.FC = () => {
         <BtnBorder
           text="Bỏ qua"
           style="ml-8 px-3 py-2"
-          onPress={() => navigation.navigate('Login')}
+          onPress={() => navigation.navigate(NAVIGATE_LOGIN)}
         />
       )}
       DoneButtonComponent={() => (
@@ -76,7 +77,7 @@ const OnboardingScreen: React.FC = () => {
           <BtnIcon
             icon={faArrowRight}
             style="p-3"
-            onPress={() => navigation.navigate('Login')}
+            onPress={() => navigation.navigate(NAVIGATE_LOGIN)}
           />
         </View>
       )}

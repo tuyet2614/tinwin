@@ -3,6 +3,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useNavigation} from '@react-navigation/native';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {useSelector} from 'react-redux';
+import {NAVIGATE_CART} from '../../navigation/navigate';
 import {getWishlistState} from '../../redux/wishlist/selectors';
 
 interface Props {
@@ -20,7 +21,7 @@ const CartBtn: React.FC<Props> = (props: Props) => {
   return (
     <TouchableOpacity
       className={`${style}`}
-      onPress={() => navigation.navigate('CartNavigator')}>
+      onPress={() => navigation.navigate(NAVIGATE_CART)}>
       <FontAwesomeIcon icon={faCartShopping} color={color} size={25} />
       {wishlist.length > 0 && (
         <View className="bg-blue-200 w-4 h-4 absolute items-center justify-center rounded-full top-2 right-2">

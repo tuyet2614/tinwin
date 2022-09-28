@@ -54,7 +54,7 @@ const AddNewAddressScreen: React.FC = () => {
     <SafeAreaView className="bg-white h-full">
       <HeaderStack text={title} isGoback={true} />
 
-      <ScrollView>
+      <ScrollView className="mb-3">
         <TitleItem title="Liên hệ" />
 
         <View className="mx-5">

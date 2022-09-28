@@ -23,7 +23,7 @@ const useAddToWishlist = () => {
                       dispatchShowNotification({
                         visible: false,
                       }),
-                    3000,
+                    1000,
                   );
             }
         else {
@@ -38,7 +38,7 @@ const useAddToWishlist = () => {
                   dispatchShowNotification({
                     visible: false,
                   }),
-                3000,
+                1000,
               );
         }
     }

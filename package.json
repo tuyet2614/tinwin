@@ -31,6 +31,7 @@
     "react-native-onboarding-swiper": "^1.2.0",
     "react-native-options-button": "^1.0.0",
     "react-native-pager-view": "^6.0.0",
+    "react-native-paper": "5.0.0-rc.6",
     "react-native-ratings": "^8.1.0",
     "react-native-safe-area-context": "^4.3.4",
     "react-native-screens": "^3.17.0",

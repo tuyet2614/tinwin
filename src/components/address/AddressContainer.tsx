@@ -1,13 +1,21 @@
 import {useNavigation} from '@react-navigation/native';
-import {FlatList, View, VirtualizedList} from 'react-native';
+import {
+  FlatList,
+  ImageSourcePropType,
+  View,
+  VirtualizedList,
+} from 'react-native';
+import {NAVIGATE_ADD_NEW_ADDRESS} from '../../navigation/navigate';
 import AddressItem from './AddressItem';
 
 interface Props {
   data: object[];
+  icon?: ImageSourcePropType;
+  setValue?: React.Dispatch<React.SetStateAction<any>>;
 }
 
 const AddressContainer: React.FC<Props> = (props: Props) => {
-  const {data} = props;
+  const {data, icon, setValue} = props;
 
   const navigation = useNavigation();
 
@@ -26,15 +34,18 @@ const AddressContainer: React.FC<Props> = (props: Props) => {
       keyExtractor={key => key.id}
       renderItem={({item}) => (
         <AddressItem
+          icon={icon}
           onPress={() =>
-            navigation.navigate('AddNewAddress', {
-              title: 'Sửa địa chỉ',
-              item: {
-                name: item.name,
-                phone: item.phone,
-                address: item.address,
-              },
-            })
+            icon !== undefined
+              ? navigation.navigate(NAVIGATE_ADD_NEW_ADDRESS, {
+                  title: 'Sửa địa chỉ',
+                  item: {
+                    name: item.name,
+                    phone: item.phone,
+                    address: item.address,
+                  },
+                })
+              : setValue(item.address)
           }
           name={item.name}
           phone={item.phone}

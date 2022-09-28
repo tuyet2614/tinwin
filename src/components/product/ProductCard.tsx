@@ -8,6 +8,7 @@ import useAddToWishlist from '../../hooks/wishlist/useAddToWishlist';
 import BtnIcon from '../BtnIcon';
 import useShowNotification from '../../hooks/useShowNotification';
 import {faCheckCircle} from '@fortawesome/free-regular-svg-icons';
+import {NAVIGATE_PRODUCT_DETAIL} from '../../navigation/navigate';
 
 interface Props {
   item: object;
@@ -21,7 +22,9 @@ const ProductCard: React.FC<Props> = (props: Props) => {
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate('ProductDetail', {id: item.id})}
+      onPress={() =>
+        navigation.navigate(NAVIGATE_PRODUCT_DETAIL, {id: item.id})
+      }
       className="p-3 border border-gray-200 rounded-lg mb-3"
       style={{width: 185}}>
       <Image source={item.image} className={`w-full h-32`} />

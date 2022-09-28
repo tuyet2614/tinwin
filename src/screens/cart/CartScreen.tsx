@@ -8,6 +8,7 @@ import CartContainer from '../../components/cart/CartContainer';
 import SelectAllCartItem from '../../components/cart/SelectAllCartItem';
 import HeaderStack from '../../components/HeaderStack';
 import useDeleteAllWishlist from '../../hooks/wishlist/useDeleteAllWishlist';
+import {NAVIGATE_CART_ADDRESS} from '../../navigation/navigate';
 import {getWishlistState} from '../../redux/wishlist/selectors';
 
 const CartScreen: React.FC = () => {
@@ -22,10 +23,11 @@ const CartScreen: React.FC = () => {
       <HeaderStack text="Giỏ hàng" isGoback={true} />
       <ScrollView className="h-full">
         <AddressItem
+          icon={require('../../assets/icons/account/location.png')}
           address="abc"
           name="Long"
           phone="0123456789"
-          onPress={() => navigation.navigate('CartAddress')}
+          onPress={() => navigation.navigate(NAVIGATE_CART_ADDRESS)}
         />
         {wishlist.length > 0 ? (
           <View>
