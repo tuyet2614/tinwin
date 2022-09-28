@@ -1,19 +1,23 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import ForgotPassword from '../screens/Authentication/ForgotPassword';
 import AddressScreen from '../screens/account/AddressScreen';
+import ForgotPassword from '../screens/Authentication/ForgotPassword';
+import FormRegister from '../screens/Authentication/FormRegister';
+import FormForgotPassword from '../screens/Authentication/FormResetPassword';
 import Login from '../screens/Authentication/Login';
-import OnboardingScreen from '../screens/OnboardingScreen';
-import Register from '../screens/Authentication/Register';
-import Splash from '../screens/Splash';
 import LoginWithSMS from '../screens/Authentication/LoginWithSMS';
 import OTP from '../screens/Authentication/OTPAuthen';
-import FormForgotPassword from '../screens/Authentication/FormResetPassword';
-import FormRegister from '../screens/Authentication/FormRegister';
-import TabBar from './TabBar';
+import Register from '../screens/Authentication/Register';
+import OnboardingScreen from '../screens/OnboardingScreen';
+import DebitCard from '../screens/Payment/DebitCard';
+import InternetBanking from '../screens/Payment/InternetBanking';
+import OrderSuccess from '../screens/Payment/OrderSuccess';
+import Payment from '../screens/Payment/Payment';
+import Splash from '../screens/Splash';
 import Cart from '../screens/StatusOrder/CartScreen';
-import Review from '../screens/StatusOrder/ReviewScreen';
 import DetailOrder from '../screens/StatusOrder/DetailOrder';
+import Review from '../screens/StatusOrder/ReviewScreen';
+import TabBar from './TabBar';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,7 +25,10 @@ const Navigator: React.FC = () => {
   const screenOptions = {
     headerShown: false,
   };
-
+  const options = ({}) => ({
+    headerShadowVisible: false,
+    headerBackTitleVisible: false,
+  });
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Splash">
@@ -43,37 +50,33 @@ const Navigator: React.FC = () => {
         <Stack.Screen name="FormResetPassword" component={FormForgotPassword} />
         <Stack.Screen name="FormRegister" component={FormRegister} />
         <Stack.Screen
-          name="DetailOrder"
-          component={DetailOrder}
-          options={({}) => ({
-            headerShadowVisible: false,
-            headerBackTitleVisible: false,
-            // cardStyle: {backgroundColor: '#fff'},
-          })}
+          name="OrderSuccess"
+          component={OrderSuccess}
+          options={options}
         />
         <Stack.Screen
-          name="Cart"
-          component={Cart}
-          options={({}) => ({
-            headerShadowVisible: false,
-            headerBackTitleVisible: false,
-            // cardStyle: {backgroundColor: '#fff'},
-          })}
+          name="InternetBanking"
+          component={InternetBanking}
+          options={options}
         />
+        <Stack.Screen name="Payment" component={Payment} options={options} />
+        <Stack.Screen
+          name="DebitCard"
+          component={DebitCard}
+          options={options}
+        />
+        <Stack.Screen
+          name="DetailOrder"
+          component={DetailOrder}
+          options={options}
+        />
+        <Stack.Screen name="Cart" component={Cart} options={options} />
         <Stack.Screen
           name="TabBar"
           component={TabBar}
           options={screenOptions}
         />
-        <Stack.Screen
-          name="Review"
-          component={Review}
-          options={({}) => ({
-            headerShadowVisible: false, // applied here
-            headerBackTitleVisible: false,
-            // cardStyle: {backgroundColor: '#fff'},
-          })}
-        />
+        <Stack.Screen name="Review" component={Review} options={options} />
         <Stack.Screen
           name="Address"
           component={AddressScreen}

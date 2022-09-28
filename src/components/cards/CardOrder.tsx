@@ -26,6 +26,9 @@ const CardOrder: React.FC<Props> = props => {
       navigation.navigate('DetailOrder');
     }
     setModalVisible(!modalVisible);
+    if (titleBtn === 'Đã nhận') {
+      navigation.navigate('OrderSuccess');
+    }
   };
   return (
     <View style={styles.card}>
