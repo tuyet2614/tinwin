@@ -1,10 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import {
-  FlatList,
-  ImageSourcePropType,
-  View,
-  VirtualizedList,
-} from 'react-native';
+import {FlatList, ImageSourcePropType} from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import {NAVIGATE_ADD_NEW_ADDRESS} from '../../navigation/navigate';
 import AddressItem from './AddressItem';
