@@ -5,6 +5,7 @@ import {
   View,
   VirtualizedList,
 } from 'react-native';
+import tw from 'tailwind-react-native-classnames';
 import {NAVIGATE_ADD_NEW_ADDRESS} from '../../navigation/navigate';
 import AddressItem from './AddressItem';
 
@@ -35,7 +36,7 @@ const AddressContainer: React.FC<Props> = (props: Props) => {
   return (
     <FlatList
       className="relative z-0"
-      contentContainerStyle={{height: '100%'}}
+      contentContainerStyle={tw`h-full`}
       data={data}
       keyExtractor={key => key.id}
       renderItem={({item}) => (
