@@ -1,0 +1,13 @@
+export const orangeLight = '#FD7D00';
+export const orangeDark = '#FEB336';
+export const grey = '#8E8E93';
+export const lightGrey = '#AEAEB2';
+export const red = '#FF3B30';
+export const moreLightGrey = '#F2F2F2';
+export const darkGrey = '#A2A2A2';
+export const anotherOrange = '#FC832D';
+export const blueGrey = '#3D5E96';
+export const darkBlue = '#5089E8';
+export const black = '#000000';
+export const white = '#f2f2f2';
+export const anotherGrey = '#7B7B80';

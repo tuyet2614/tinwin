@@ -1,5 +1,6 @@
 import {TouchableOpacity, Text} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {orangeDark, orangeLight} from '../../constant/const';
 
 interface Props {
   style: string;
@@ -15,7 +16,7 @@ const BtnOrder: React.FC<Props> = props => {
   return (
     <LinearGradient
       className={`${style} rounded-md`}
-      colors={['#FD7D00', '#FEB336']}
+      colors={[orangeLight, orangeDark]}
       start={{x: 0, y: 0.5}}
       end={{x: 1, y: 0.5}}
       locations={[0, 1]}>

@@ -10,12 +10,14 @@ import {useEffect, useState} from 'react';
 import {
   Image,
   SafeAreaView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {orangeDark, orangeLight} from '../../constant/const';
 import {styleSMS as style} from './style';
 
 const LoginWithSMS: React.FC = ({}) => {
@@ -28,6 +30,12 @@ const LoginWithSMS: React.FC = ({}) => {
       backgroundColor: '#f2f2f2',
     },
     headerShadowVisible: false, // applied here
+  };
+  const setUser = (text: string) => {
+    setUser(text);
+  };
+  const navigate = () => {
+    navigation.navigate('OTPAuthen', {title: 'Đăng nhập OTP'});
   };
   useEffect(() => {
     navigation.setOptions(options);
@@ -46,7 +54,7 @@ const LoginWithSMS: React.FC = ({}) => {
             style={style.input}
             value={userName}
             placeholder="Nhập Email / Số điện thoại"
-            onChange={text => setUserName(text)}
+            onChange={text => setUser(text)}
           />
         </View>
       </View>
@@ -57,17 +65,13 @@ const LoginWithSMS: React.FC = ({}) => {
       </View>
       <View style={{marginTop: 40, marginBottom: 31}}>
         <LinearGradient
-          className={`${style} rounded-md`}
-          colors={['#FD7D00', '#FEB336']}
+          className={` rounded-md`}
+          colors={[orangeLight, orangeDark]}
           start={{x: 0, y: 0.5}}
           end={{x: 1, y: 0.5}}
           locations={[0, 1]}
-          style={{alignItems: 'center', height: 50}}>
-          <TouchableOpacity
-            className="p-3"
-            onPress={() =>
-              navigation.navigate('OTPAuthen', {title: 'Đăng nhập OTP'})
-            }>
+          style={style1.btnNext}>
+          <TouchableOpacity className="p-3" onPress={navigate}>
             <Text
               style={{
                 color: '#FFF',
@@ -84,5 +88,5 @@ const LoginWithSMS: React.FC = ({}) => {
     </SafeAreaView>
   );
 };
-
+const style1 = StyleSheet.create({btnNext: {alignItems: 'center', height: 50}});
 export default LoginWithSMS;

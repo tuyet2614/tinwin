@@ -36,20 +36,11 @@ const ModalAuthen = () => {
                 alignItems: 'center',
                 marginTop: 32,
               }}>
-              <View
-                style={{
-                  flex: 1,
-                  height: 1,
-                  backgroundColor: '#0000001F',
-                  minWidth: 320,
-                }}
-              />
+              <View style={styles.viewOk} />
               {/* <View>
                 <Text style={{width: 50, textAlign: 'center'}}>Hello</Text>
               </View> */}
-              <View
-                style={{flex: 1, height: 1, backgroundColor: '#0000001F'}}
-              />
+              <View style={styles.abc} />
             </View>
 
             <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
@@ -126,6 +117,13 @@ const styles = StyleSheet.create({
   modalContent: {
     marginTop: 8,
   },
+  viewOk: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#0000001F',
+    minWidth: 320,
+  },
+  abc: {flex: 1, height: 1, backgroundColor: '#0000001F'},
 });
 
 export default ModalAuthen;

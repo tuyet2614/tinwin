@@ -7,69 +7,41 @@ import {
   TextInput,
 } from 'react-native';
 import React from 'react';
-import {styles} from '../StatusOrder/style';
 import BtnOrder from '../../components/buttons/BtnOrder';
-
+import {
+  red,
+  black,
+  blueGrey,
+  darkBlue,
+  darkGrey,
+  grey,
+  moreLightGrey,
+  orangeDark,
+  orangeLight,
+} from '../../constant/const';
 type Props = {};
 
 const DebitCard = (props: Props) => {
   return (
     <SafeAreaView>
-      <View
-        style={{
-          marginLeft: 24,
-          marginRight: 24,
-          marginTop: 7,
-          marginBottom: 8,
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}>
-        <Text
-          style={{
-            fontWeight: '500',
-            fontSize: 14,
-            lineHeight: 18,
-            color: '#3A3A3C',
-          }}>
-          Thông tin thẻ
-        </Text>
-        <View
-          style={{
-            justifyContent: 'center',
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
+      <View style={style1.title}>
+        <Text style={style1.textTitle}>Thông tin thẻ</Text>
+        <View style={style1.boxCard}>
           <Image
             source={require('../../assets/payment/cc-visa.png')}
-            style={{width: 23, height: 18}}></Image>
+            style={style1.imageCard}></Image>
           <Image
             source={require('../../assets/payment/cc-mastercard.png')}
-            style={{width: 23, height: 18}}></Image>
+            style={style1.imageCard}></Image>
           <Image
             source={require('../../assets/payment/cc-jcb.png')}
-            style={{width: 23, height: 18}}></Image>
+            style={style1.imageCard}></Image>
         </View>
       </View>
-      <View
-        style={{
-          backgroundColor: '#fff',
-          paddingBottom: 30,
-          paddingLeft: 24,
-          paddingRight: 24,
-          paddingTop: 30,
-          height: '100%',
-        }}>
-        <View style={{height: '88%'}}>
-          <Text
-            style={{
-              fontWeight: '500',
-              fontSize: 14,
-              lineHeight: 20,
-              color: '#7B7B80',
-              marginBottom: 5,
-            }}>
-            Số thẻ<Text style={{color: '#FF3B30'}}>*</Text>
+      <View style={style1.container}>
+        <View style={style1.h88}>
+          <Text style={style1.textInput}>
+            Số thẻ<Text style={style1.redText}>*</Text>
           </Text>
           <View
             className={`flex-row  h-[45px] py-3.5 rounded-lg border-solid border-[1px] border-gray-200 px-3.5 mb-2`}
@@ -83,16 +55,8 @@ const DebitCard = (props: Props) => {
               // value={searchText}
             />
           </View>
-          <Text
-            style={{
-              fontWeight: '500',
-              fontSize: 14,
-              lineHeight: 20,
-              color: '#7B7B80',
-              marginBottom: 5,
-              marginTop: 10,
-            }}>
-            Tên chủ thẻ<Text style={{color: '#FF3B30'}}>*</Text>
+          <Text style={[style1.textInput, style1.margin]}>
+            Tên chủ thẻ<Text style={style1.redText}>*</Text>
           </Text>
           <View
             className={`flex-row  h-[45px] py-3.5 rounded-lg border-solid border-[1px] border-gray-200 px-3.5`}
@@ -107,22 +71,14 @@ const DebitCard = (props: Props) => {
             />
           </View>
 
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={style1.flex}>
             <View>
-              <Text
-                style={{
-                  fontWeight: '500',
-                  fontSize: 14,
-                  lineHeight: 20,
-                  color: '#7B7B80',
-                  marginBottom: 5,
-                  marginTop: 10,
-                }}>
-                Ngày hết hạn<Text style={{color: '#FF3B30'}}>*</Text>
+              <Text style={[style1.textInput, style1.margin]}>
+                Ngày hết hạn<Text style={style1.redText}>*</Text>
               </Text>
               <View
                 className={`flex-row  h-[45px] py-3.5 rounded-lg border-solid border-[1px] border-gray-200 px-3.5`}
-                style={{width: 181}}>
+                style={style1.w}>
                 <TextInput
                   className={`pl-2`}
                   placeholder={'Nhập ngày hết hạn'}
@@ -134,20 +90,12 @@ const DebitCard = (props: Props) => {
               </View>
             </View>
             <View>
-              <Text
-                style={{
-                  fontWeight: '500',
-                  fontSize: 14,
-                  lineHeight: 20,
-                  color: '#7B7B80',
-                  marginBottom: 5,
-                  marginTop: 10,
-                }}>
-                CCV<Text style={{color: '#FF3B30'}}>*</Text>
+              <Text style={[style1.textInput, style1.margin]}>
+                CCV<Text style={style1.redText}>*</Text>
               </Text>
               <View
                 className={`flex-row  h-[45px] py-3.5 rounded-lg border-solid border-[1px] border-gray-200 px-3.5`}
-                style={{width: 136}}>
+                style={style1.w1}>
                 <TextInput
                   className={`pl-2`}
                   placeholder={'Nhập mã'}
@@ -165,5 +113,51 @@ const DebitCard = (props: Props) => {
     </SafeAreaView>
   );
 };
-
+const style1 = StyleSheet.create({
+  title: {
+    marginLeft: 24,
+    marginRight: 24,
+    marginTop: 7,
+    marginBottom: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  textTitle: {
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 18,
+    color: '#3A3A3C',
+  },
+  boxCard: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  imageCard: {width: 23, height: 18},
+  container: {
+    backgroundColor: '#fff',
+    paddingBottom: 30,
+    paddingLeft: 24,
+    paddingRight: 24,
+    paddingTop: 30,
+    height: '100%',
+  },
+  h88: {height: '88%'},
+  textInput: {
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 20,
+    color: '#7B7B80',
+    marginBottom: 5,
+  },
+  margin: {
+    marginBottom: 5,
+    marginTop: 10,
+  },
+  redText: {color: red},
+  flex: {flexDirection: 'row', justifyContent: 'space-between'},
+  w: {width: 181},
+  w1: {width: 136},
+});
 export default DebitCard;

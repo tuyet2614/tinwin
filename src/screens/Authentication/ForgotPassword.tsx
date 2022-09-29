@@ -17,6 +17,7 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {orangeDark, orangeLight} from '../../constant/const';
 
 const ForgotPassword: React.FC = () => {
   const navigation = useNavigation();
@@ -29,6 +30,13 @@ const ForgotPassword: React.FC = () => {
     },
     headerShadowVisible: false, // applied here
   };
+
+  const navigate = () => {
+    navigation.navigate('OTPAuthen', {title: 'Nhập mã xác minh'});
+  };
+  const setUser = (text: string) => {
+    setUserName(text);
+  };
   useEffect(() => {
     navigation.setOptions(options);
   }, []);
@@ -36,39 +44,26 @@ const ForgotPassword: React.FC = () => {
   return (
     <SafeAreaView style={style.container}>
       <View style={style.loginView}>
-        <View style={{marginBottom: 20}}>
+        <View style={style.marginBot}>
           <Text style={style.textDescription}>Email / Số điện thoại</Text>
           <TextInput
             style={style.input}
             value={userName}
             placeholder="Nhập Email / Số điện thoại"
-            onChange={text => setUserName(text)}
+            onChange={setUser}
           />
         </View>
       </View>
       <View>
         <LinearGradient
-          className={`${style} rounded-md`}
-          colors={['#FD7D00', '#FEB336']}
+          className={` rounded-md`}
+          colors={[orangeLight, orangeDark]}
           start={{x: 0, y: 0.5}}
           end={{x: 1, y: 0.5}}
           locations={[0, 1]}
-          style={{alignItems: 'center', height: 50}}>
-          <TouchableOpacity
-            className="p-3"
-            onPress={() =>
-              navigation.navigate('OTPAuthen', {title: 'Nhập mã xác minh'})
-            }>
-            <Text
-              style={{
-                color: '#FFF',
-                alignSelf: 'center',
-                fontSize: 16,
-                fontWeight: '600',
-                lineHeight: 22,
-              }}>
-              Tiếp theo
-            </Text>
+          style={style.boxNext}>
+          <TouchableOpacity className="p-3" onPress={navigate}>
+            <Text style={style.textNext}>Tiếp theo</Text>
           </TouchableOpacity>
         </LinearGradient>
       </View>
@@ -136,5 +131,14 @@ export const style = StyleSheet.create({
     lineHeight: 22,
     color: '#FC832D',
   },
+  textNext: {
+    color: '#FFF',
+    alignSelf: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+    lineHeight: 22,
+  },
+  boxNext: {alignItems: 'center', height: 50},
+  marginBot: {marginBottom: 20},
 });
 export default ForgotPassword;

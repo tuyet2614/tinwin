@@ -10,12 +10,24 @@ import {useState} from 'react';
 import {
   Image,
   SafeAreaView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {
+  anotherOrange,
+  black,
+  blueGrey,
+  darkBlue,
+  darkGrey,
+  grey,
+  moreLightGrey,
+  orangeDark,
+  orangeLight,
+} from '../../constant/const';
 import {style} from './style';
 
 const Login: React.FC = ({}) => {
@@ -23,6 +35,28 @@ const Login: React.FC = ({}) => {
   const [isPasswordSecure, setIsPasswordSecure] = useState(true);
   const [userName, setUserName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+
+  const setUser = (text: string) => {
+    setUserName(text);
+  };
+  const setPass = (text: string) => {
+    setPassword(text);
+  };
+  const setPassSecu = () => {
+    setIsPasswordSecure(!isPasswordSecure);
+  };
+  const navigate = () => {
+    navigation.navigate('ForgotPassword');
+  };
+  const navigateLoginSMS = () => {
+    navigation.navigate('LoginSMS');
+  };
+  const navigateTabBar = () => {
+    navigation.navigate('TabBar');
+  };
+  const navigateRegister = () => {
+    navigation.navigate('Register');
+  };
   return (
     <SafeAreaView style={style.container}>
       <View>
@@ -42,7 +76,7 @@ const Login: React.FC = ({}) => {
             style={style.input}
             value={userName}
             placeholder="Nhập Email / Số điện thoại"
-            onChange={text => setUserName(text)}
+            onChange={setUser}
           />
         </View>
         <View>
@@ -53,7 +87,7 @@ const Login: React.FC = ({}) => {
             autoCapitalize="none"
             value={password}
             secureTextEntry={isPasswordSecure}
-            onChange={value => setPassword(value)}
+            onChange={setPass}
           />
           <View
             style={{
@@ -63,26 +97,18 @@ const Login: React.FC = ({}) => {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <TouchableOpacity
-              onPressIn={() => setIsPasswordSecure(!isPasswordSecure)}
-              onPressOut={() => setIsPasswordSecure(!isPasswordSecure)}>
-              <FontAwesomeIcon icon={faEyeSlash} size={20} color="#AEAEB2" />
+            <TouchableOpacity onPressIn={setPassSecu} onPressOut={setPassSecu}>
+              <FontAwesomeIcon icon={faEyeSlash} size={20} color={grey} />
             </TouchableOpacity>
-            <Text style={{color: '#AEAEB2'}}> | </Text>
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('ForgotPassword');
-              }}>
+            <Text style={{color: grey}}> | </Text>
+            <TouchableOpacity onPress={navigate}>
               <Text style={style.textForgot}>Quên ?</Text>
             </TouchableOpacity>
           </View>
         </View>
       </View>
       <View>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('LoginSMS');
-          }}>
+        <TouchableOpacity onPress={navigateLoginSMS}>
           <Text style={style.textSMS} className="self-end mr-4">
             Đăng nhập bằng sms
           </Text>
@@ -90,73 +116,71 @@ const Login: React.FC = ({}) => {
       </View>
       <View style={{marginTop: 40, marginBottom: 31}}>
         <LinearGradient
-          className={`${style} rounded-md`}
-          colors={['#FD7D00', '#FEB336']}
+          className={`rounded-md`}
+          colors={[orangeLight, orangeDark]}
           start={{x: 0, y: 0.5}}
           end={{x: 1, y: 0.5}}
           locations={[0, 1]}
-          style={{alignItems: 'center', height: 50}}>
-          <TouchableOpacity
-            className="p-3"
-            onPress={() => navigation.navigate('TabBar')}>
-            <Text
-              style={{
-                color: '#FFF',
-                alignSelf: 'center',
-                fontSize: 16,
-                fontWeight: '600',
-                lineHeight: 22,
-              }}>
-              Đăng nhập
-            </Text>
+          style={style1.btnLogin}>
+          <TouchableOpacity className="p-3" onPress={navigateTabBar}>
+            <Text style={style1.textLogin}>Đăng nhập</Text>
           </TouchableOpacity>
         </LinearGradient>
       </View>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{flex: 1, height: 1, backgroundColor: '#F2F2F2'}} />
+      <View style={style1.rowCenter}>
+        <View style={{flex: 1, height: 1, backgroundColor: moreLightGrey}} />
         <View>
-          <Text style={{width: 130, textAlign: 'center', color: '#A2A2A2'}}>
+          <Text style={{width: 130, textAlign: 'center', color: darkGrey}}>
             Hoặc tiếp tục với
           </Text>
         </View>
-        <View style={{flex: 1, height: 1, backgroundColor: '#F2F2F2'}} />
+        <View style={{flex: 1, height: 1, backgroundColor: moreLightGrey}} />
       </View>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          width: 200,
-          alignSelf: 'center',
-          marginTop: 30,
-        }}>
-        <FontAwesomeIcon icon={faFacebook} color="#3D5E96" size={55} />
-        <FontAwesomeIcon icon={faGooglePlus} color="#5089E8" size={55} />
-        <FontAwesomeIcon icon={faApple} color="#000000" size={55} />
+      <View style={style1.loginWith}>
+        <FontAwesomeIcon icon={faFacebook} color={blueGrey} size={55} />
+        <FontAwesomeIcon icon={faGooglePlus} color={darkBlue} size={55} />
+        <FontAwesomeIcon icon={faApple} color={black} size={55} />
       </View>
-      <View
-        style={{
-          alignSelf: 'center',
-          justifyContent: 'flex-end',
-          marginTop: 140,
-        }}>
-        <Text
-          style={{
-            color: '#8E8E93',
-            fontSize: 14,
-            fontWeight: '400',
-            lineHeight: 18,
-          }}>
+      <View style={style1.boxRegister}>
+        <Text style={style1.textRegister}>
           Bạn mới biết đến tinwin?{' '}
-          <TouchableOpacity
-            className="mt-3"
-            onPress={() => navigation.navigate('Register')}>
-            <Text style={{color: '#FC832D', marginTop: 3}}>Đăng ký</Text>
+          <TouchableOpacity className="mt-3" onPress={navigateRegister}>
+            <Text style={style1.registerPrimary}>Đăng ký</Text>
           </TouchableOpacity>
         </Text>
       </View>
     </SafeAreaView>
   );
 };
-
+const style1 = StyleSheet.create({
+  textLogin: {
+    color: '#FFF',
+    alignSelf: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+    lineHeight: 22,
+  },
+  rowCenter: {flexDirection: 'row', alignItems: 'center'},
+  loginWith: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: 200,
+    alignSelf: 'center',
+    marginTop: 30,
+  },
+  boxRegister: {
+    alignSelf: 'center',
+    justifyContent: 'flex-end',
+    marginTop: 140,
+  },
+  textRegister: {
+    color: '#8E8E93',
+    fontSize: 14,
+    fontWeight: '400',
+    lineHeight: 18,
+  },
+  registerPrimary: {color: anotherOrange, marginTop: 3},
+  btnLogin: {alignItems: 'center', height: 50},
+});
 export default Login;

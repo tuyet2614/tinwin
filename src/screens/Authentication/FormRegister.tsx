@@ -11,6 +11,7 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {lightGrey, orangeDark, orangeLight, red} from '../../constant/const';
 
 const FormRegister: React.FC = () => {
   const navigation = useNavigation();
@@ -30,6 +31,21 @@ const FormRegister: React.FC = () => {
   useEffect(() => {
     navigation.setOptions(options);
   }, []);
+  const setUser = (text: string) => {
+    setUserName(text);
+  };
+  const setPass = (text: string) => {
+    setPassword(text);
+  };
+  const setPassSecu = () => {
+    setIsPasswordSecure(!isPasswordSecure);
+  };
+  const setCon = (value: any) => {
+    setComfirm(value);
+  };
+  const setPasswordSecureComfirm = () => {
+    setIsPasswordSecureComfirm(!isPasswordSecureComfirm);
+  };
 
   return (
     <SafeAreaView style={style.container}>
@@ -40,7 +56,7 @@ const FormRegister: React.FC = () => {
             style={style.input}
             value={userName}
             placeholder="Nhập tên hiển thị"
-            onChange={text => setUserName(text)}
+            onChange={setUser}
           />
         </View>
         <View style={{marginBottom: 20}}>
@@ -53,26 +69,17 @@ const FormRegister: React.FC = () => {
             autoCapitalize="none"
             value={password}
             secureTextEntry={isPasswordSecure}
-            onChange={value => setPassword(value)}
+            onChange={setPass}
           />
-          <View
-            style={{
-              position: 'absolute',
-              right: 20,
-              top: 40,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <TouchableOpacity
-              onPressIn={() => setIsPasswordSecure(!isPasswordSecure)}
-              onPressOut={() => setIsPasswordSecure(!isPasswordSecure)}>
+          <View style={style.eye}>
+            <TouchableOpacity onPressIn={setPassSecu} onPressOut={setPassSecu}>
               <FontAwesomeIcon icon={faEyeSlash} size={20} color="#AEAEB2" />
             </TouchableOpacity>
           </View>
         </View>
         <View>
           <Text style={style.textDescription}>
-            Nhập lại mật khẩu <Text style={{color: '#FF3B30'}}>*</Text>
+            Nhập lại mật khẩu <Text style={{color: red}}>*</Text>
           </Text>
           <TextInput
             style={style.input}
@@ -80,42 +87,18 @@ const FormRegister: React.FC = () => {
             autoCapitalize="none"
             value={comfirm}
             secureTextEntry={isPasswordSecureComfirm}
-            onChange={value => setComfirm(value)}
+            onChange={setCon}
           />
-          <View
-            style={{
-              position: 'absolute',
-              right: 20,
-              top: 40,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
+          <View style={style.eyeForgot}>
             <TouchableOpacity
-              onPressIn={() =>
-                setIsPasswordSecureComfirm(!isPasswordSecureComfirm)
-              }
-              onPressOut={() =>
-                setIsPasswordSecureComfirm(!isPasswordSecureComfirm)
-              }>
-              <FontAwesomeIcon icon={faEyeSlash} size={20} color="#AEAEB2" />
+              onPressIn={setPasswordSecureComfirm}
+              onPressOut={setPasswordSecureComfirm}>
+              <FontAwesomeIcon icon={faEyeSlash} size={20} color={lightGrey} />
             </TouchableOpacity>
           </View>
         </View>
-        <View
-          style={{
-            width: 299,
-            alignSelf: 'center',
-            marginTop: 10,
-            marginBottom: 40,
-          }}>
-          <Text
-            style={{
-              color: '#636366',
-              fontWeight: '500',
-              fontSize: 14,
-              lineHeight: 18,
-              textAlign: 'center',
-            }}>
+        <View style={style.boxWarning}>
+          <Text style={style.textWarning}>
             Mật khẩu phải dài từ 8-16 kí tự (Bao gồm tối thiểu 1 chữ viết hoa và
             1 kí tự đặc biệt)
           </Text>
@@ -124,32 +107,24 @@ const FormRegister: React.FC = () => {
       <View>
         <LinearGradient
           className={`${style} rounded-md`}
-          colors={['#FD7D00', '#FEB336']}
+          colors={[orangeLight, orangeDark]}
           start={{x: 0, y: 0.5}}
           end={{x: 1, y: 0.5}}
           locations={[0, 1]}
-          style={{alignItems: 'center', height: 50}}>
+          style={style.btnNext}>
           <TouchableOpacity
             className="p-3"
             onPress={() =>
               navigation.navigate('OTPAuthen', {title: 'Nhập mã xác minh'})
             }>
-            <Text
-              style={{
-                color: '#FFF',
-                alignSelf: 'center',
-                fontSize: 16,
-                fontWeight: '600',
-                lineHeight: 22,
-              }}>
-              Tiếp theo
-            </Text>
+            <Text style={style.textNext}>Tiếp theo</Text>
           </TouchableOpacity>
         </LinearGradient>
       </View>
     </SafeAreaView>
   );
 };
+
 export const style = StyleSheet.create({
   image: {
     width: 92,
@@ -210,6 +185,41 @@ export const style = StyleSheet.create({
     fontWeight: '500',
     lineHeight: 22,
     color: '#FC832D',
+  },
+  eye: {
+    position: 'absolute',
+    right: 20,
+    top: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  eyeForgot: {
+    position: 'absolute',
+    right: 20,
+    top: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  boxWarning: {
+    width: 299,
+    alignSelf: 'center',
+    marginTop: 10,
+    marginBottom: 40,
+  },
+  textWarning: {
+    color: '#636366',
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 18,
+    textAlign: 'center',
+  },
+  btnNext: {alignItems: 'center', height: 50},
+  textNext: {
+    color: '#FFF',
+    alignSelf: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+    lineHeight: 22,
   },
 });
 export default FormRegister;

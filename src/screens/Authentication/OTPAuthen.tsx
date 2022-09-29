@@ -5,12 +5,14 @@ import {useEffect, useRef, useState} from 'react';
 import {
   Image,
   SafeAreaView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {orangeDark, orangeLight, red, white} from '../../constant/const';
 import {styleSMS as style} from './style';
 
 const OTP: React.FC = ({route}) => {
@@ -22,7 +24,7 @@ const OTP: React.FC = ({route}) => {
     title: title,
     headerTintColor: 'black',
     headerStyle: {
-      backgroundColor: '#f2f2f2',
+      backgroundColor: white,
     },
     headerShadowVisible: false, // applied here
   };
@@ -70,35 +72,13 @@ const OTP: React.FC = ({route}) => {
           returnKeyType="done"
           keyboardType="numeric"
           style={{display: 'none'}}></TextInput>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginTop: 60,
-          }}>
+        <View style={style1.OTPContainer}>
           {Array(lengthInput)
             .fill()
             .map((data, index) => (
-              <View
-                key={index}
-                style={{
-                  paddingVertical: 11,
-                  width: 40,
-                  margin: 5,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderBottomWidth: 1.5,
-                  borderColor: '#E5E5EA',
-                }}>
+              <View key={index} style={style1.boxOTP}>
                 <Text
-                  style={{
-                    textAlign: 'center',
-                    fontSize: 32,
-                    fontWeight: '400',
-                    lineHeight: 40,
-                    color: '#48484A',
-                  }}
+                  style={style1.numberOTP}
                   onPress={() => textInput.focus()}>
                   {OTPComfirm && OTPComfirm.length > 0 ? OTPComfirm[index] : ''}
                 </Text>
@@ -106,15 +86,8 @@ const OTP: React.FC = ({route}) => {
             ))}
         </View>
       </View>
-      <View style={{width: 288, alignSelf: 'center'}}>
-        <Text
-          style={{
-            color: '#636366',
-            fontWeight: '500',
-            fontSize: 14,
-            lineHeight: 18,
-            textAlign: 'center',
-          }}>
+      <View style={style1.boxNoti}>
+        <Text style={style1.textNoti}>
           Quý khách vui lòng nhập mã xác thực gồm 6 chữ số đã được gửi về số
           điện thoại 091****678
         </Text>
@@ -122,23 +95,14 @@ const OTP: React.FC = ({route}) => {
       {OTPComfirm.length === lengthInput ? (
         <View style={{marginTop: 40, marginBottom: 31}}>
           <LinearGradient
-            className={`${style} rounded-md`}
-            colors={['#FD7D00', '#FEB336']}
+            className={` rounded-md`}
+            colors={[orangeLight, orangeDark]}
             start={{x: 0, y: 0.5}}
             end={{x: 1, y: 0.5}}
             locations={[0, 1]}
-            style={{alignItems: 'center', height: 50}}>
+            style={style1.boxNext}>
             <TouchableOpacity className="p-3" onPress={onNavigate}>
-              <Text
-                style={{
-                  color: '#FFF',
-                  alignSelf: 'center',
-                  fontSize: 16,
-                  fontWeight: '600',
-                  lineHeight: 22,
-                }}>
-                Tiếp tục
-              </Text>
+              <Text style={style1.textNext}>Tiếp tục</Text>
             </TouchableOpacity>
           </LinearGradient>
         </View>
@@ -148,61 +112,99 @@ const OTP: React.FC = ({route}) => {
       {OTPComfirm.length === lengthInput ? (
         <></>
       ) : timeOut !== 0 ? (
-        <View style={{marginTop: 47, alignSelf: 'center'}}>
-          <Text
-            style={{
-              textAlign: 'center',
-              color: '#7B7B80',
-              fontSize: 12,
-              fontWeight: '500',
-              lineHeight: 14,
-            }}>
-            Vui lòng chờ <Text style={{color: '#FF3B30'}}>{timeOut}s</Text> để
-            nhận lại mã xác thực{' '}
+        <View style={style1.boxWait}>
+          <Text style={style1.textWait}>
+            Vui lòng chờ <Text style={{color: red}}>{timeOut}s</Text> để nhận
+            lại mã xác thực{' '}
           </Text>
         </View>
       ) : (
-        <View style={{marginTop: 40, alignSelf: 'center'}}>
-          <Text
-            style={{
-              textAlign: 'center',
-              color: '#8E8E93',
-              fontSize: 12,
-              fontWeight: '500',
-              lineHeight: 14,
-            }}>
-            Bạn vẫn chưa nhận được mã?
-          </Text>
-          <TouchableOpacity
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              alignSelf: 'center',
-            }}>
+        <View style={style1.boxAgain}>
+          <Text style={style1.textAgain}>Bạn vẫn chưa nhận được mã?</Text>
+          <TouchableOpacity style={style1.btnAgain}>
             <FontAwesomeIcon
               icon={faArrowRotateRight}
-              style={{
-                color: '#FF3B30',
-                marginRight: 5,
-                marginTop: 9,
-              }}
+              style={style1.icon}
               size={12}></FontAwesomeIcon>
-            <Text
-              style={{
-                textAlign: 'center',
-                color: '#FF3B30',
-                fontSize: 12,
-                fontWeight: '500',
-                lineHeight: 14,
-                marginTop: 9,
-              }}>
-              Nhấn gửi lại mã
-            </Text>
+            <Text style={style1.textSendAgain}>Nhấn gửi lại mã</Text>
           </TouchableOpacity>
         </View>
       )}
     </SafeAreaView>
   );
 };
-
+const style1 = StyleSheet.create({
+  OTPContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 60,
+  },
+  boxOTP: {
+    paddingVertical: 11,
+    width: 40,
+    margin: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderBottomWidth: 1.5,
+    borderColor: '#E5E5EA',
+  },
+  numberOTP: {
+    textAlign: 'center',
+    fontSize: 32,
+    fontWeight: '400',
+    lineHeight: 40,
+    color: '#48484A',
+  },
+  boxNoti: {width: 288, alignSelf: 'center'},
+  textNoti: {
+    color: '#636366',
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 18,
+    textAlign: 'center',
+  },
+  boxNext: {alignItems: 'center', height: 50},
+  textNext: {
+    color: '#FFF',
+    alignSelf: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+    lineHeight: 22,
+  },
+  boxWait: {marginTop: 47, alignSelf: 'center'},
+  textWait: {
+    textAlign: 'center',
+    color: '#7B7B80',
+    fontSize: 12,
+    fontWeight: '500',
+    lineHeight: 14,
+  },
+  boxAgain: {marginTop: 40, alignSelf: 'center'},
+  textAgain: {
+    textAlign: 'center',
+    color: '#8E8E93',
+    fontSize: 12,
+    fontWeight: '500',
+    lineHeight: 14,
+  },
+  btnAgain: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'center',
+  },
+  icon: {
+    color: '#FF3B30',
+    marginRight: 5,
+    marginTop: 9,
+  },
+  textSendAgain: {
+    textAlign: 'center',
+    color: '#FF3B30',
+    fontSize: 12,
+    fontWeight: '500',
+    lineHeight: 14,
+    marginTop: 9,
+  },
+});
 export default OTP;

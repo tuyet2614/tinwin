@@ -2,6 +2,7 @@ import {GestureResponderEvent, TouchableOpacity} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {IconDefinition} from '@fortawesome/fontawesome-svg-core';
 import LinearGradient from 'react-native-linear-gradient';
+import {orangeDark, orangeLight} from '../constant/const';
 
 interface Props {
   icon: IconDefinition;
@@ -17,7 +18,7 @@ const BtnIcon: React.FC<Props> = props => {
   return (
     <LinearGradient
       className={`${style} rounded-md`}
-      colors={['#FD7D00', '#FEB336']}
+      colors={[orangeLight, orangeDark]}
       start={{x: 0, y: 0.5}}
       end={{x: 1, y: 0.5}}
       locations={[0, 1]}>

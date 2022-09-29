@@ -3,6 +3,7 @@ import React from 'react';
 import {styles} from '../StatusOrder/style';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import {anotherGrey} from '../../constant/const';
 
 type Props = {};
 
@@ -11,8 +12,8 @@ const InternetBanking = (props: Props) => {
     <View style={styles.card}>
       <View
         className={`flex-row  h-[45px] py-3.5 rounded-lg border-solid border-[1px] border-gray-200 px-3.5`}
-        style={{width: '100%'}}>
-        <FontAwesomeIcon icon={faMagnifyingGlass} color="#7B7B80" />
+        style={style1.w100}>
+        <FontAwesomeIcon icon={faMagnifyingGlass} color={anotherGrey} />
 
         <TextInput
           className={`pl-2`}
@@ -23,67 +24,44 @@ const InternetBanking = (props: Props) => {
           // value={searchText}
         />
       </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-        }}>
-        <View
-          style={{
-            width: '30%',
-            height: 107,
-            borderWidth: 1,
-            borderRadius: 8,
-            borderColor: '#0000001A',
-            marginTop: 11,
-            justifyContent: 'center',
-          }}>
+      <View style={style1.viewBox}>
+        <View style={style1.boxBank}>
           <Image
             source={require('../../assets/payment/Techcombank.png')}
-            style={{alignSelf: 'center', width: 48, height: 48}}
+            style={style1.imgBank}
           />
-          <Text
-            style={{
-              alignSelf: 'center',
-              fontWeight: '400',
-              fontSize: 10,
-              lineHeight: 12,
-              color: '#636366',
-            }}>
-            Bank Name
-          </Text>
+          <Text style={style1.nameBank}>Bank Name</Text>
         </View>
-        <View
-          style={{
-            width: '30%',
-            height: 107,
-            borderWidth: 1,
-            borderRadius: 8,
-            borderColor: '#0000001A',
-            marginTop: 11,
-          }}></View>
-        <View
-          style={{
-            width: '30%',
-            height: 107,
-            borderWidth: 1,
-            borderRadius: 8,
-            borderColor: '#0000001A',
-            marginTop: 11,
-          }}></View>
-        <View
-          style={{
-            width: '30%',
-            height: 107,
-            borderWidth: 1,
-            borderRadius: 8,
-            borderColor: '#0000001A',
-            marginTop: 11,
-          }}></View>
+        <View style={style1.boxBank}></View>
+        <View style={style1.boxBank}></View>
+        <View style={style1.boxBank}></View>
       </View>
     </View>
   );
 };
-
+const style1 = StyleSheet.create({
+  boxBank: {
+    width: '30%',
+    height: 107,
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: '#0000001A',
+    marginTop: 11,
+    justifyContent: 'center',
+  },
+  nameBank: {
+    alignSelf: 'center',
+    fontWeight: '400',
+    fontSize: 10,
+    lineHeight: 12,
+    color: '#636366',
+  },
+  imgBank: {alignSelf: 'center', width: 48, height: 48},
+  viewBox: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  w100: {width: '100%'},
+});
 export default InternetBanking;

@@ -1,30 +1,28 @@
-import {View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import {grey} from '../../constant/const';
 
 export function RadioButton(props) {
   return (
-    <View
-      style={[
-        {
-          height: 20,
-          width: 20,
-          borderRadius: 12,
-          borderWidth: 1,
-          borderColor: '#8E8E93',
-          alignItems: 'center',
-          justifyContent: 'center',
-        },
-        props.style,
-      ]}>
-      {props.selected ? (
-        <View
-          style={{
-            height: 10,
-            width: 10,
-            borderRadius: 6,
-            backgroundColor: '#8E8E93',
-          }}
-        />
-      ) : null}
+    <View style={[props.style, style.border]}>
+      {props.selected ? <View style={style.inline} /> : null}
     </View>
   );
 }
+
+const style = StyleSheet.create({
+  border: {
+    height: 20,
+    width: 20,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: grey,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inline: {
+    height: 10,
+    width: 10,
+    borderRadius: 6,
+    backgroundColor: grey,
+  },
+});

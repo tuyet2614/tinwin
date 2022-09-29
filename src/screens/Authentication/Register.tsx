@@ -3,12 +3,14 @@ import {useEffect, useState} from 'react';
 import {
   Image,
   SafeAreaView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {white} from '../../constant/const';
 import {styleRegister as style} from './style';
 
 const Register: React.FC = ({}) => {
@@ -18,9 +20,12 @@ const Register: React.FC = ({}) => {
     title: '',
     headerTintColor: 'black',
     headerStyle: {
-      backgroundColor: '#f2f2f2',
+      backgroundColor: white,
     },
     headerShadowVisible: false, // applied here
+  };
+  const navigate = () => {
+    navigation.navigate('OTPAuthen', {title: 'Đăng ký'});
   };
   useEffect(() => {
     navigation.setOptions(options);
@@ -58,26 +63,13 @@ const Register: React.FC = ({}) => {
             end={{x: 1, y: 0.5}}
             locations={[0, 1]}
             style={{alignItems: 'center', height: 50}}>
-            <TouchableOpacity
-              className="p-3"
-              onPress={() =>
-                navigation.navigate('OTPAuthen', {title: 'Đăng ký'})
-              }>
-              <Text
-                style={{
-                  color: '#FFF',
-                  alignSelf: 'center',
-                  fontSize: 16,
-                  fontWeight: '600',
-                  lineHeight: 22,
-                }}>
-                Tạo tài khoản
-              </Text>
+            <TouchableOpacity className="p-3" onPress={navigate}>
+              <Text style={style1.textCreate}>Tạo tài khoản</Text>
             </TouchableOpacity>
           </LinearGradient>
         </View>
       </View>
-      <View style={{width: 260, alignSelf: 'center'}}>
+      <View style={style1.boxPolicy}>
         <Text style={style.textPolicy} className="self-center">
           Bằng cách tạo một tài khoản, bạn đồng ý với{' '}
           <Text style={style.textPolicyBlack}>Thỏa thuận Người dùng</Text> và{' '}
@@ -85,19 +77,29 @@ const Register: React.FC = ({}) => {
           của TinWin
         </Text>
       </View>
-      <View
-        style={{
-          flex: 1,
-          alignSelf: 'flex-end',
-          bottom: 0,
-          marginTop: 70,
-        }}>
+      <View style={style1.boxVetable}>
         <Image
           source={require('../../assets/authen/vegetable.png')}
-          style={{width: 375, height: 290}}></Image>
+          style={style1.Img}></Image>
       </View>
     </SafeAreaView>
   );
 };
-
+const style1 = StyleSheet.create({
+  textCreate: {
+    color: '#FFF',
+    alignSelf: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+    lineHeight: 22,
+  },
+  boxPolicy: {width: 260, alignSelf: 'center'},
+  boxVetable: {
+    flex: 1,
+    alignSelf: 'flex-end',
+    bottom: 0,
+    marginTop: 70,
+  },
+  Img: {width: 375, height: 290},
+});
 export default Register;
