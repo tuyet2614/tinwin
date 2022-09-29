@@ -33,14 +33,7 @@ const AddressContainer: React.FC<Props> = (props: Props) => {
   };
 
   return (
-    <VirtualizedList
-      getItem={(data, index) => ({
-        id: data[index].id,
-        name: data[index].name,
-        phone: data[index].phone,
-        address: data[index].address,
-      })}
-      getItemCount={data => data.length}
+    <FlatList
       className="relative z-0"
       contentContainerStyle={{height: '100%'}}
       data={data}
