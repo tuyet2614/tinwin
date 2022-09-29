@@ -54,6 +54,10 @@ const ProductDetailScreen: React.FC = () => {
     },
   ];
 
+  const addToCart = () => {
+    dispatchAddToWishlist({...product, quantity: 1});
+  };
+
   return (
     <SafeAreaView className="bg-white h-full">
       <ScrollView>
@@ -95,9 +99,7 @@ const ProductDetailScreen: React.FC = () => {
         <BtnBorder
           text="Thêm vào giỏ"
           style="p-3 flex-1 items-center mr-3"
-          onPress={() => {
-            dispatchAddToWishlist({...product, quantity: 1});
-          }}
+          onPress={addToCart}
         />
         <BtnPrimary text="Mua ngay" style="px-14 py-3" />
       </View>

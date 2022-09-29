@@ -27,6 +27,21 @@ const AddressItem: React.FC<Props> = (props: Props) => {
 
   const navigation = useNavigation();
 
+  const hideOptions = () => {
+    setOptionsVisible(false);
+  };
+
+  const changeAddress = () => {
+    navigation.navigate(NAVIGATE_ADD_NEW_ADDRESS, {
+      title: 'Sửa địa chỉ',
+      item: {
+        name: name,
+        phone: phone,
+        address: address,
+      },
+    });
+  };
+
   return (
     <View>
       <TouchableOpacity
@@ -63,13 +78,13 @@ const AddressItem: React.FC<Props> = (props: Props) => {
           visible={optionsVisible}>
           <TouchableOpacity
             className="bg-black-opacity h-full"
-            onPress={() => setOptionsVisible(false)}></TouchableOpacity>
+            onPress={hideOptions}></TouchableOpacity>
           <View
             className="bg-white w-full rounded-lg absolute self-center bottom-0 justify-evenly"
             style={{elevation: 10}}>
             <View className="flex-row items-center justify-between px-3 py-5">
               <Text className="text-xl text-black">Tuỳ chọn</Text>
-              <TouchableOpacity onPress={() => setOptionsVisible(false)}>
+              <TouchableOpacity onPress={hideOptions}>
                 <FontAwesomeIcon icon={faClose} size={20} />
               </TouchableOpacity>
             </View>
@@ -80,16 +95,7 @@ const AddressItem: React.FC<Props> = (props: Props) => {
               </TouchableOpacity>
               <TouchableOpacity
                 className="p-3 border-orange-primary border-2 rounded-lg"
-                onPress={() =>
-                  navigation.navigate(NAVIGATE_ADD_NEW_ADDRESS, {
-                    title: 'Sửa địa chỉ',
-                    item: {
-                      name: name,
-                      phone: phone,
-                      address: address,
-                    },
-                  })
-                }>
+                onPress={changeAddress}>
                 <Text className="text-orange-primary">Chỉnh sửa</Text>
               </TouchableOpacity>
               <TouchableOpacity className="p-3 border-orange-primary border-2 rounded-lg">

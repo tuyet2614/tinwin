@@ -24,7 +24,7 @@ const Splash: React.FC = () => {
   return (
     <SafeAreaView>
       <LinearGradient
-        colors={['#FD7D00', '#FEB336']}
+        colors={[colors.primary, colors.primaryToGradient]}
         start={{x: 0, y: 0.5}}
         end={{x: 1, y: 0.5}}
         locations={[0, 1]}>

@@ -25,7 +25,6 @@ const ProductsContainer: React.FC<Props> = (props: Props) => {
         showsHorizontalScrollIndicator={false}
         horizontal={title === 'Sản phẩm nổi bật' ? true : false}
         numColumns={title === 'Sản phẩm nổi bật' ? undefined : 2}
-        // contentContainerStyle={flatlistStyle}
         columnWrapperStyle={flatlistStyle}
         data={data}
         keyExtractor={key => key.id}
@@ -41,11 +40,13 @@ const ProductsContainer: React.FC<Props> = (props: Props) => {
           <View
             className={`bg-${
               !isEnd ? 'orange-primary' : 'gray-200'
-            } w-1/2 h-1 rounded-full`}></View>
+            } w-1/2 h-1 rounded-full`}
+          />
           <View
             className={`bg-${
               isEnd ? 'orange-primary' : 'gray-200'
-            } w-1/2 h-1 rounded-full`}></View>
+            } w-1/2 h-1 rounded-full`}
+          />
         </View>
       )}
     </View>

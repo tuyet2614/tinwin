@@ -20,11 +20,17 @@ const ProductCard: React.FC<Props> = (props: Props) => {
 
   const dispatchAddToWishlist = useAddToWishlist();
 
+  const navigateProductDetail = () => {
+    navigation.navigate(NAVIGATE_PRODUCT_DETAIL, {id: item.id});
+  };
+
+  const addToCart = () => {
+    dispatchAddToWishlist({...item, quantity: 1});
+  };
+
   return (
     <TouchableOpacity
-      onPress={() =>
-        navigation.navigate(NAVIGATE_PRODUCT_DETAIL, {id: item.id})
-      }
+      onPress={navigateProductDetail}
       className="p-3 border border-gray-200 rounded-lg mb-3"
       style={{width: 185}}>
       <Image source={item.image} className={`w-full h-32`} />
@@ -45,13 +51,7 @@ const ProductCard: React.FC<Props> = (props: Props) => {
         <TouchableOpacity className=" rounded-lg px-5 py-2 bg-orange-100">
           <Text className="text-black">Mua ngay</Text>
         </TouchableOpacity>
-        <BtnIcon
-          icon={faCartArrowDown}
-          style="py-2 px-4"
-          onPress={() => {
-            dispatchAddToWishlist({...item, quantity: 1});
-          }}
-        />
+        <BtnIcon icon={faCartArrowDown} style="py-2 px-4" onPress={addToCart} />
       </View>
     </TouchableOpacity>
   );

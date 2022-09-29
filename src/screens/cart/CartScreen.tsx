@@ -18,6 +18,10 @@ const CartScreen: React.FC = () => {
   const navigation = useNavigation();
   const deleteAllWishlist = useDeleteAllWishlist();
 
+  const navigateCartAddress = () => {
+    navigation.navigate(NAVIGATE_CART_ADDRESS);
+  };
+
   return (
     <SafeAreaView className="bg-white flex-1">
       <HeaderStack text="Giỏ hàng" isGoback={true} />
@@ -27,7 +31,7 @@ const CartScreen: React.FC = () => {
           address="abc"
           name="Long"
           phone="0123456789"
-          onPress={() => navigation.navigate(NAVIGATE_CART_ADDRESS)}
+          onPress={navigateCartAddress}
         />
         {wishlist.length > 0 ? (
           <View>
@@ -36,7 +40,7 @@ const CartScreen: React.FC = () => {
               iconRight={faTrash}
               onPress={() => deleteAllWishlist()}
             />
-            <View className="h-0.5 bg-gray-200"></View>
+            <View className="h-0.5 bg-gray-200" />
             <CartContainer data={wishlist} title="Xiaomi Viêtj Nam" />
           </View>
         ) : (

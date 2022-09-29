@@ -13,7 +13,6 @@ const ImageOnboarding: React.FC<Props> = (props: Props) => {
         source={require('../../assets/logoTinwinPrimary.png')}
         className="w-18 h-14"
       />
-      {/* <View className="h-32"></View> */}
       <Image
         source={
           image === '1'

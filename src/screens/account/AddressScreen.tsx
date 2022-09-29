@@ -28,6 +28,11 @@ export const dataAddress: object[] = [
 
 const AddressScreen: React.FC = () => {
   const navigation = useNavigation();
+  const onPress = () => {
+    navigation.navigate(NAVIGATE_ADD_NEW_ADDRESS, {
+      title: 'Địa chỉ giao hàng',
+    });
+  };
 
   return (
     <SafeAreaView className="bg-white h-full">
@@ -42,11 +47,7 @@ const AddressScreen: React.FC = () => {
         <BtnPrimary
           text="Thêm địa chỉ mới"
           style="items-center p-3"
-          onPress={() =>
-            navigation.navigate(NAVIGATE_ADD_NEW_ADDRESS, {
-              title: 'Địa chỉ giao hàng',
-            })
-          }
+          onPress={onPress}
         />
       </View>
     </SafeAreaView>

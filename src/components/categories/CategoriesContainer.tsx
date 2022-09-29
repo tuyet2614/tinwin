@@ -25,12 +25,20 @@ const CategoriesContainer: React.FC<Props> = (props: Props) => {
 
   const [isEnd, setIsEnd] = useState(false);
 
+  const end = () => {
+    setIsEnd(false);
+  };
+
+  const start = () => {
+    setIsEnd(true);
+  };
+
   return (
     <View>
       <HomeTitle title={title} icon={icon} textBtn={textBtn} />
       <FlatList
-        onScrollBeginDrag={() => setIsEnd(false)}
-        onEndReached={() => setIsEnd(true)}
+        onScrollBeginDrag={end}
+        onEndReached={start}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={flatlistStyle}
         columnWrapperStyle={

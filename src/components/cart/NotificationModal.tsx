@@ -9,7 +9,6 @@ interface Props {
 }
 
 const NotificationModal: React.FC = () => {
-  // const {modalVisible, setModalVisible} = props;
   const {notification, dispatchShowNotification} = useShowNotification();
   const {icon, text, visible} = notification;
 

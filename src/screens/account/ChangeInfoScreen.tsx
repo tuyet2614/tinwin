@@ -2,12 +2,16 @@ import {faPen} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useState} from 'react';
 import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {colors} from '../../assets/colors';
 import AccountContainer from '../../components/account/AccountContainer';
 import HeaderStack from '../../components/HeaderStack';
 import UpdateAvatarModal from '../../components/updateAvatar/UpdateAvatarModal';
 
 const ChangeInfoScreen: React.FC = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const showModal = () => {
+    setModalVisible(true);
+  };
 
   return (
     <SafeAreaView className="bg-white h-full">
@@ -15,13 +19,13 @@ const ChangeInfoScreen: React.FC = () => {
 
       <TouchableOpacity
         className="relative items-center my-5"
-        onPress={() => setModalVisible(true)}>
+        onPress={showModal}>
         <Image
           className="h-44 w-44 rounded-full"
           source={require('../../assets/logoTinwinPrimary.png')}
         />
         <View className="absolute items-center items-center justify-center h-full">
-          <FontAwesomeIcon icon={faPen} color="#FD7D00" />
+          <FontAwesomeIcon icon={faPen} color={colors.primary} />
           <Text className="text-orange-primary text-xs mt-3">
             Chạm để thay đổi
           </Text>

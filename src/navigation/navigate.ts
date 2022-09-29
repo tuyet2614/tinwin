@@ -8,6 +8,8 @@ const NAVIGATE_CHANGE_INFO: string = 'ChangeInfo'
 const NAVIGATE_FILTER: string = 'Filter'
 const NAVIGATE_CART_ADDRESS: string = 'CartAddress'
 const NAVIGATE_ADD_NEW_ADDRESS: string = 'AddNewAddress'
+const NAVIGATE_RATING: string = 'Rating'
+const NAVIGATE_ADDRESS: string = 'Address'
 
 export {
     NAVIGATE_ONBOARDING, 
@@ -19,5 +21,7 @@ export {
     NAVIGATE_CHANGE_INFO,
     NAVIGATE_FILTER,
     NAVIGATE_CART_ADDRESS,
-    NAVIGATE_ADD_NEW_ADDRESS
+    NAVIGATE_ADD_NEW_ADDRESS,
+    NAVIGATE_RATING,
+    NAVIGATE_ADDRESS
 }

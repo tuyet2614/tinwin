@@ -17,23 +17,35 @@ const FilterScreen: React.FC = () => {
   const [minPrice, setMinPrice] = useState<number>(0);
   const [maxPrice, setMaxPrice] = useState<number>(5000000);
 
+  const onCategoriesFilter = () => {
+    setShowCategoriesFilter(!showCategoriesFilter);
+  };
+
+  const onSupplierFilter = () => {
+    setShowSupplierFilter(!showSupplierFilter);
+  };
+
+  const goBack = () => {
+    navigation.goBack();
+  };
+
   return (
     <SafeAreaView>
       <View className="bg-white p-3 flex-1 h-full">
         <View className="flex-row items-center justify-between">
           <Text className="text-lg font-bold text-black">Bộ lọc tìm kiếm</Text>
-          <CloseBtn onPress={() => navigation.goBack()} />
+          <CloseBtn onPress={goBack} />
         </View>
 
         <ScrollView className="flex-1">
           <FilterContainer
-            onPress={() => setShowCategoriesFilter(!showCategoriesFilter)}
+            onPress={onCategoriesFilter}
             title="Theo danh mục"
             showFilter={showCategoriesFilter}
           />
 
           <FilterContainer
-            onPress={() => setShowSupplierFilter(!showSupplierFilter)}
+            onPress={onSupplierFilter}
             title="Theo nhà cung cấp"
             showFilter={showSupplierFilter}
           />
@@ -68,21 +80,19 @@ const FilterScreen: React.FC = () => {
               }}
               renderThumb={() => {
                 return (
-                  <View className="w-4 h-4 rounded-full bg-orange-primary"></View>
+                  <View className="w-4 h-4 rounded-full bg-orange-primary" />
                 );
               }}
               renderRail={() => {
-                return (
-                  <View className="h-0.5 flex-1 rounded-lg bg-gray-400"></View>
-                );
+                return <View className="h-0.5 flex-1 rounded-lg bg-gray-400" />;
               }}
               renderRailSelected={() => {
                 return (
-                  <View className="h-0.5 flex-1 rounded-lg bg-orange-primary"></View>
+                  <View className="h-0.5 flex-1 rounded-lg bg-orange-primary" />
                 );
               }}
               renderLabel={value => {
-                return <View></View>;
+                return <View />;
               }}
               renderNotch={() => {
                 return <View />;

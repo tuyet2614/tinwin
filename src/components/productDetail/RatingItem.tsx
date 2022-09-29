@@ -1,5 +1,6 @@
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {Rating} from 'react-native-ratings';
+import tw from 'tailwind-react-native-classnames';
 
 interface Props {
   item?: object;
@@ -18,10 +19,7 @@ const RatingItem: React.FC<Props> = (props: Props) => {
         <View className="ml-2">
           <Text>{item.name}</Text>
           <Rating
-            style={{
-              alignItems: 'flex-start',
-              marginEnd: 5,
-            }}
+            style={tw`items-start mr-5`}
             type="star"
             startingValue={item.rating}
             imageSize={10}

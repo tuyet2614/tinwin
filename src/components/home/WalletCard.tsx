@@ -7,14 +7,19 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useState} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {colors} from '../../assets/colors';
 
 const WalletCard: React.FC = () => {
   const [showPrice, setShowPrice] = useState<boolean>(false);
 
+  const onPressEye = () => {
+    setShowPrice(!showPrice);
+  };
+
   return (
     <LinearGradient
       className={`rounded-lg p-3 mx-3 mb-3`}
-      colors={['#FD7D00', '#FEB336', '#FD7D00']}
+      colors={[colors.primary, colors.primaryToGradient, colors.primary]}
       start={{x: 0, y: 0.5}}
       end={{x: 1, y: 0.5}}
       locations={[0, 0.5, 1]}>
@@ -33,9 +38,7 @@ const WalletCard: React.FC = () => {
 
       <View className="flex-row items-center mt-3">
         <Text className="text-white">Số dư ví</Text>
-        <TouchableOpacity
-          className="px-3"
-          onPress={() => setShowPrice(!showPrice)}>
+        <TouchableOpacity className="px-3" onPress={onPressEye}>
           <FontAwesomeIcon icon={faEyeSlash} color="white" />
         </TouchableOpacity>
       </View>

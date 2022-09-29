@@ -19,6 +19,19 @@ const AddressContainer: React.FC<Props> = (props: Props) => {
 
   const navigation = useNavigation();
 
+  const onPress = (item: object) => {
+    icon !== undefined
+      ? navigation.navigate(NAVIGATE_ADD_NEW_ADDRESS, {
+          title: 'Sửa địa chỉ',
+          item: {
+            name: item.name,
+            phone: item.phone,
+            address: item.address,
+          },
+        })
+      : setValue(item.address);
+  };
+
   return (
     <VirtualizedList
       getItem={(data, index) => ({
@@ -35,18 +48,7 @@ const AddressContainer: React.FC<Props> = (props: Props) => {
       renderItem={({item}) => (
         <AddressItem
           icon={icon}
-          onPress={() =>
-            icon !== undefined
-              ? navigation.navigate(NAVIGATE_ADD_NEW_ADDRESS, {
-                  title: 'Sửa địa chỉ',
-                  item: {
-                    name: item.name,
-                    phone: item.phone,
-                    address: item.address,
-                  },
-                })
-              : setValue(item.address)
-          }
+          onPress={() => onPress(item)}
           name={item.name}
           phone={item.phone}
           address={item.address}

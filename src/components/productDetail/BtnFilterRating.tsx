@@ -1,5 +1,6 @@
 import {Text, TouchableOpacity} from 'react-native';
 import {Rating} from 'react-native-ratings';
+import tw from 'tailwind-react-native-classnames';
 
 interface Props {
   text: string;
@@ -27,11 +28,9 @@ const BtnFilterRating: React.FC<Props> = (props: Props) => {
         </Text>
       ) : (
         <Rating
-          style={{
-            alignItems: 'center',
-            justifyContent: 'center',
-            paddingHorizontal: text === undefined ? 9 : 0,
-          }}
+          style={tw`items-center justify-center px-${
+            text === undefined ? '2' : '0'
+          }`}
           type="star"
           startingValue={rating}
           imageSize={10}

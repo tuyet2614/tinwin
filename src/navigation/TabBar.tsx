@@ -8,6 +8,7 @@ import {
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Platform, SafeAreaView} from 'react-native';
+import {colors} from '../assets/colors';
 import NotificationModal from '../components/cart/NotificationModal';
 import AccountNavigator from '../screens/account/AccountNavigator';
 import CategoriesScreen from '../screens/categories/CategoriesScreen';
@@ -36,7 +37,7 @@ const TabBar: React.FC = () => {
         />
       );
     },
-    tabBarActiveTintColor: '#FD7D00',
+    tabBarActiveTintColor: colors.primary,
     tabBarStyle: {
       height: Platform.OS === 'ios' ? 100 : 70,
       paddingTop: 10,

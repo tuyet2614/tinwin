@@ -13,6 +13,11 @@ const CartAddressScreen: React.FC = () => {
   const [value, setValue] = useState(dataAddress[0].address);
 
   const navigation = useNavigation();
+  const navigateAddNewAddress = () => {
+    navigation.navigate(NAVIGATE_ADD_NEW_ADDRESS, {
+      title: 'Địa chỉ giao hàng',
+    });
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-white">
@@ -29,11 +34,7 @@ const CartAddressScreen: React.FC = () => {
         <BtnBorder
           text="Thêm địa chỉ mới"
           style="p-3 items-center mt-3"
-          onPress={() =>
-            navigation.navigate(NAVIGATE_ADD_NEW_ADDRESS, {
-              title: 'Địa chỉ giao hàng',
-            })
-          }
+          onPress={navigateAddNewAddress}
         />
       </View>
     </SafeAreaView>

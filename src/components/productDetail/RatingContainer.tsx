@@ -4,6 +4,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useNavigation} from '@react-navigation/native';
 import {FlatList, Text, TouchableOpacity, View} from 'react-native';
 import {Rating} from 'react-native-ratings';
+import tw from 'tailwind-react-native-classnames';
+import {NAVIGATE_RATING} from '../../navigation/navigate';
 import ProductDetailTitle from './ProductDetailTitle';
 import RatingItem from './RatingItem';
 
@@ -45,13 +47,10 @@ const RatingContainer: React.FC<Props> = (props: Props) => {
       <ProductDetailTitle icon={faStar} title="Đánh giá sản phẩm" />
       <TouchableOpacity
         className="flex-row items-center justify-between mx-5 mb-5"
-        onPress={() => navigation.navigate('Rating')}>
+        onPress={() => navigation.navigate(NAVIGATE_RATING)}>
         <View className="flex-row items-center">
           <Rating
-            style={{
-              alignItems: 'flex-start',
-              marginEnd: 5,
-            }}
+            style={tw`items-start mr-5`}
             type="star"
             startingValue={4.5}
             imageSize={10}

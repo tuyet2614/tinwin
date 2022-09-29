@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {colors} from '../../assets/colors';
 import CartBtn from '../../components/buttons/CartBtn';
 import FilterBtn from '../../components/buttons/FilterBtn';
 import SearchBtnHome from '../../components/buttons/SearchBtnHome';
@@ -14,7 +15,7 @@ const CategoriesScreen: React.FC = () => {
         <SearchBtnHome />
         <FilterBtn />
         <CartBtn
-          color="#FD7D00"
+          color={colors.primary}
           style="border border-gray-200 justify-center px-3 ml-3 rounded-lg"
         />
       </View>

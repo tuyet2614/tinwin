@@ -7,6 +7,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useEffect, useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {colors} from '../../assets/colors';
 import useUpdateQuantity from '../../hooks/wishlist/useUpdateQuantity';
 
 interface Props {
@@ -23,15 +24,21 @@ const Quantity: React.FC<Props> = (props: Props) => {
   }, []);
 
   const dispatchUpdateQuantity = useUpdateQuantity();
+  const onMinus = () => {
+    dispatchUpdateQuantity({id: item.id, quantity: value - 1});
+    setValue(value - 1);
+  };
+
+  const onPlus = () => {
+    dispatchUpdateQuantity({id: item.id, quantity: value + 1});
+    setValue(value + 1);
+  };
 
   return (
     <View className="flex-row items-center">
       <TouchableOpacity
         disabled={value <= 1 ? true : false}
-        onPress={() => {
-          dispatchUpdateQuantity({id: item.id, quantity: value - 1});
-          setValue(value - 1);
-        }}
+        onPress={onMinus}
         className={`p-1 items-center justify-center rounded-full bg-${
           value <= 1 ? 'gray-200' : 'orange-primary'
         }`}>
@@ -44,16 +51,11 @@ const Quantity: React.FC<Props> = (props: Props) => {
       <Text className="mx-2">{value}</Text>
       <LinearGradient
         className="rounded-full"
-        colors={['#FD7D00', '#FEB336']}
+        colors={[colors.primary, colors.primaryToGradient]}
         start={{x: 0, y: 0.5}}
         end={{x: 1, y: 0.5}}
         locations={[0, 1]}>
-        <TouchableOpacity
-          className="p-1"
-          onPress={() => {
-            dispatchUpdateQuantity({id: item.id, quantity: value + 1});
-            setValue(value + 1);
-          }}>
+        <TouchableOpacity className="p-1" onPress={onPlus}>
           <FontAwesomeIcon icon={faPlus} size={10} color="white" />
         </TouchableOpacity>
       </LinearGradient>

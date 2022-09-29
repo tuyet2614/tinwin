@@ -12,8 +12,12 @@ const GoBackBtn: React.FC<Props> = (props: Props) => {
   const navigation = useNavigation();
   const {style, color} = props;
 
+  const goBack = () => {
+    navigation.goBack();
+  };
+
   return (
-    <TouchableOpacity className={style} onPress={() => navigation.goBack()}>
+    <TouchableOpacity className={style} onPress={goBack}>
       <FontAwesomeIcon icon={faAngleLeft} color={color} size={25} />
     </TouchableOpacity>
   );

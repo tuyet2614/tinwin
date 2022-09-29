@@ -1,4 +1,5 @@
 import {FlatList, SafeAreaView, View} from 'react-native';
+import tw from 'tailwind-react-native-classnames';
 import HeaderStack from '../../components/HeaderStack';
 import BtnFilterRating from '../../components/productDetail/BtnFilterRating';
 import {arr} from '../../components/productDetail/RatingContainer';
@@ -52,11 +53,7 @@ const RatingScreen: React.FC = () => {
       <View className="">
         <FlatList
           horizontal
-          contentContainerStyle={{
-            width: '100%',
-            flexWrap: 'wrap',
-            justifyContent: 'space-evenly',
-          }}
+          contentContainerStyle={tw`w-full flex-wrap justify-evenly`}
           data={arrFilter}
           keyExtractor={key => key.id}
           renderItem={({item}) => (
@@ -72,7 +69,7 @@ const RatingScreen: React.FC = () => {
         <View className="h-2 bg-gray-100"></View>
 
         <FlatList
-          contentContainerStyle={{marginHorizontal: 20, marginVertical: 10}}
+          contentContainerStyle={tw`m-5`}
           data={arr}
           keyExtractor={key => key.id}
           renderItem={({item}) => <RatingItem item={item} />}

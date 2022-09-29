@@ -41,7 +41,8 @@
     "redux": "^4.2.0",
     "redux-saga": "^1.2.1",
     "reselect": "^4.1.6",
-    "rn-range-slider": "^2.1.1"
+    "rn-range-slider": "^2.1.1",
+    "tailwind-react-native-classnames": "^1.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

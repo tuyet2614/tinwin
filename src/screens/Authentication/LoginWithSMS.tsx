@@ -16,6 +16,7 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {colors} from '../../assets/colors';
 import {styleSMS as style} from './style';
 
 const LoginWithSMS: React.FC = ({}) => {
@@ -58,7 +59,7 @@ const LoginWithSMS: React.FC = ({}) => {
       <View style={{marginTop: 40, marginBottom: 31}}>
         <LinearGradient
           className={`${style} rounded-md`}
-          colors={['#FD7D00', '#FEB336']}
+          colors={[colors.primary, colors.primaryToGradient]}
           start={{x: 0, y: 0.5}}
           end={{x: 1, y: 0.5}}
           locations={[0, 1]}

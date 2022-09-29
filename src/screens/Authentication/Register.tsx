@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {colors} from '../../assets/colors';
 import {styleRegister as style} from './style';
 
 const Register: React.FC = ({}) => {
@@ -53,7 +54,7 @@ const Register: React.FC = ({}) => {
         <View>
           <LinearGradient
             className={`${style} rounded-md`}
-            colors={['#FD7D00', '#FEB336']}
+            colors={[colors.primary, colors.primaryToGradient]}
             start={{x: 0, y: 0.5}}
             end={{x: 1, y: 0.5}}
             locations={[0, 1]}

@@ -13,11 +13,14 @@ const HeaderStack: React.FC<Props> = (props: Props) => {
   const {text, textBtnRight, isGoback} = props;
 
   const navigation = useNavigation();
+  const goBack = () => {
+    navigation.goBack();
+  };
 
   return (
     <View className="flex-row p-5 items-center justify-between">
       {isGoback ? (
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity onPress={goBack}>
           <FontAwesomeIcon icon={faAngleLeft} size={25} />
         </TouchableOpacity>
       ) : (

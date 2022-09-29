@@ -17,6 +17,7 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {colors} from '../../assets/colors';
 import ModalAuthen from './ModalAuthen';
 
 const FormForgotPassword: React.FC = () => {
@@ -116,7 +117,7 @@ const FormForgotPassword: React.FC = () => {
       <View>
         <LinearGradient
           className={`${style} rounded-md`}
-          colors={['#FD7D00', '#FEB336']}
+          colors={[colors.primary, colors.primaryToGradient]}
           start={{x: 0, y: 0.5}}
           end={{x: 1, y: 0.5}}
           locations={[0, 1]}

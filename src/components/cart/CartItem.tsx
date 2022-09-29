@@ -1,6 +1,7 @@
 import CheckBox from '@react-native-community/checkbox';
 import {useState} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {colors} from '../../assets/colors';
 import useConvertToVND from '../../hooks/useConvertToVND';
 import useDeleteFromWishlist from '../../hooks/wishlist/useDeleteFromWishlist';
 import Quantity from './Quantity';
@@ -17,6 +18,10 @@ const CartItem: React.FC<Props> = (props: Props) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const dispatchDeleteFromWishlist = useDeleteFromWishlist();
+  const checked = () => {
+    setIsChecked(!isChecked);
+    onChange !== undefined && onChange();
+  };
 
   return (
     <View>
@@ -24,13 +29,10 @@ const CartItem: React.FC<Props> = (props: Props) => {
         <CheckBox
           boxType="square"
           style={{padding: 10}}
-          onChange={() => {
-            setIsChecked(!isChecked);
-            onChange !== undefined && onChange();
-          }}
+          onChange={checked}
           value={isCheckAll ? isCheckAll : isChecked}
           tintColor="#FD7D00"
-          tintColors={{true: '#FD7D00', false: 'rgba(90, 90, 90, 0.7)'}}
+          tintColors={{true: colors.primary, false: 'rgba(90, 90, 90, 0.7)'}}
         />
         <Image source={item.image} />
         <View className="ml-3 flex-1">

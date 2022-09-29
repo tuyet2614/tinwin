@@ -15,6 +15,9 @@ const FilterContainer: React.FC<Props> = (props: Props) => {
   const {onPress, title, showFilter} = props;
 
   const [value, setValue] = useState<string>('');
+  const clearSearchText = () => {
+    setValue('');
+  };
 
   return (
     <View>
@@ -36,7 +39,7 @@ const FilterContainer: React.FC<Props> = (props: Props) => {
               value={value}
               setValue={setValue}
             />
-            <TouchableOpacity className="mx-3" onPress={() => setValue('')}>
+            <TouchableOpacity className="mx-3" onPress={clearSearchText}>
               <Text className="text-orange-primary text-lg">Xoá</Text>
             </TouchableOpacity>
           </View>

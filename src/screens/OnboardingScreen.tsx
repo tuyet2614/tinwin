@@ -48,6 +48,9 @@ const Square: React.FC = ({isLight, selected}) => {
 
 const OnboardingScreen: React.FC = () => {
   const navigation = useNavigation();
+  const onPress = () => {
+    navigation.navigate(NAVIGATE_LOGIN);
+  };
 
   return (
     <Onboarding
@@ -66,19 +69,11 @@ const OnboardingScreen: React.FC = () => {
         </View>
       )}
       SkipButtonComponent={() => (
-        <BtnBorder
-          text="Bỏ qua"
-          style="ml-8 px-3 py-2"
-          onPress={() => navigation.navigate(NAVIGATE_LOGIN)}
-        />
+        <BtnBorder text="Bỏ qua" style="ml-8 px-3 py-2" onPress={onPress} />
       )}
       DoneButtonComponent={() => (
         <View className="mr-8">
-          <BtnIcon
-            icon={faArrowRight}
-            style="p-3"
-            onPress={() => navigation.navigate(NAVIGATE_LOGIN)}
-          />
+          <BtnIcon icon={faArrowRight} style="p-3" onPress={onPress} />
         </View>
       )}
     />

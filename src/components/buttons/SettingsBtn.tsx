@@ -7,8 +7,12 @@ import {NAVIGATE_SETTINGS} from '../../navigation/navigate';
 const SettingsBtn: React.FC = () => {
   const navigation = useNavigation();
 
+  const navigateSettings = () => {
+    navigation.navigate(NAVIGATE_SETTINGS);
+  };
+
   return (
-    <TouchableOpacity onPress={() => navigation.navigate(NAVIGATE_SETTINGS)}>
+    <TouchableOpacity onPress={navigateSettings}>
       <FontAwesomeIcon icon={faGear} color="white" size={25} />
     </TouchableOpacity>
   );

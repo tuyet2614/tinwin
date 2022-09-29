@@ -2,15 +2,20 @@ import {faPen} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useNavigation} from '@react-navigation/native';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {NAVIGATE_CHANGE_INFO} from '../../navigation/navigate';
 
 const AccountInfo: React.FC = () => {
   const navigation = useNavigation();
+
+  const navigateChangeInfo = () => {
+    navigation.navigate(NAVIGATE_CHANGE_INFO);
+  };
 
   return (
     <View className="flex-row p-5">
       <TouchableOpacity
         className="relative mr-5 h-16"
-        onPress={() => navigation.navigate('ChangeInfo')}>
+        onPress={navigateChangeInfo}>
         <Image
           className="h-16 w-16 rounded-full"
           source={require('../../assets/logoTinwinPrimary.png')}
