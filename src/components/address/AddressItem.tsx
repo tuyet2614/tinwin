@@ -11,18 +11,20 @@ import {
   ImageSourcePropType,
 } from 'react-native';
 import {RadioButton} from 'react-native-paper';
+import {colors} from '../../assets/colors';
 import {NAVIGATE_ADD_NEW_ADDRESS} from '../../navigation/navigate';
 
 interface Props {
   name: string;
   phone: string;
   address: string;
+  id: number;
   onPress?: () => void;
   icon?: ImageSourcePropType;
 }
 
 const AddressItem: React.FC<Props> = (props: Props) => {
-  const {name, phone, address, onPress, icon} = props;
+  const {name, phone, address, onPress, icon, id} = props;
   const [optionsVisible, setOptionsVisible] = useState(false);
 
   const navigation = useNavigation();
@@ -52,7 +54,7 @@ const AddressItem: React.FC<Props> = (props: Props) => {
             <Image source={icon} className="m-3 h-6 w-6" />
           ) : (
             <View className="h-3">
-              <RadioButton value={address} color="#FD7D00" />
+              <RadioButton value={id} color={colors.primary} />
             </View>
           )}
           <View>
@@ -78,7 +80,8 @@ const AddressItem: React.FC<Props> = (props: Props) => {
           visible={optionsVisible}>
           <TouchableOpacity
             className="bg-black-opacity h-full"
-            onPress={hideOptions}></TouchableOpacity>
+            onPress={hideOptions}
+          />
           <View
             className="bg-white w-full rounded-lg absolute self-center bottom-0 justify-evenly"
             style={{elevation: 10}}>

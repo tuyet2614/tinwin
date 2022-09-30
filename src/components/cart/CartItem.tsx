@@ -31,10 +31,10 @@ const CartItem: React.FC<Props> = (props: Props) => {
           style={{padding: 10}}
           onChange={checked}
           value={isCheckAll ? isCheckAll : isChecked}
-          tintColor="#FD7D00"
-          tintColors={{true: colors.primary, false: 'rgba(90, 90, 90, 0.7)'}}
+          tintColor={colors.primary}
+          tintColors={{true: colors.primary, false: colors.disable}}
         />
-        <Image source={item.image} />
+        <Image source={item.image} className="border-2 border-gray-200" />
         <View className="ml-3 flex-1">
           <Text className="text-black" numberOfLines={2}>
             {item.name}

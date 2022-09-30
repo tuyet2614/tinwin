@@ -25,7 +25,7 @@ const AddressContainer: React.FC<Props> = (props: Props) => {
             address: item.address,
           },
         })
-      : setValue(item.address);
+      : setValue(item.id);
   };
 
   return (
@@ -36,6 +36,7 @@ const AddressContainer: React.FC<Props> = (props: Props) => {
       keyExtractor={key => key.id}
       renderItem={({item}) => (
         <AddressItem
+          id={item.id}
           icon={icon}
           onPress={() => onPress(item)}
           name={item.name}

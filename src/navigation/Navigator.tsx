@@ -17,6 +17,7 @@ import RatingScreen from '../screens/ProductDetail/RatingScreen';
 import FilterScreen from '../screens/categories/FilterScreen';
 import CartScreen from '../screens/cart/CartScreen';
 import CartNavigator from '../screens/cart/CartNavigator';
+import UpdateInfoScreen from '../screens/account/UpdateInfoScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -78,6 +79,11 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name="CartNavigator"
           component={CartNavigator}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="UpdateInfo"
+          component={UpdateInfoScreen}
           options={screenOptions}
         />
       </Stack.Navigator>

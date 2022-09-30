@@ -7,10 +7,11 @@ import ModalBtn from './ModalBtn';
 interface Props {
   modalVisible: boolean;
   setModalVisible: React.Dispatch<React.SetStateAction<any>>;
+  setValue: React.Dispatch<React.SetStateAction<any>>;
 }
 
 const UpdateAvatarModal: React.FC<Props> = (props: Props) => {
-  const {modalVisible, setModalVisible} = props;
+  const {modalVisible, setModalVisible, setValue} = props;
 
   const onLaunchImageLibrary = () => {
     launchImageLibrary(
@@ -19,10 +20,7 @@ const UpdateAvatarModal: React.FC<Props> = (props: Props) => {
       },
       response => {
         if (response.didCancel != true) {
-          // dispatchSetUserInfo({
-          //   ...userInfo,
-          //   avatar: response.assets[0].uri,
-          // });
+          setValue({uri: response.assets[0].uri});
           setModalVisible(false);
         }
       },
@@ -39,10 +37,7 @@ const UpdateAvatarModal: React.FC<Props> = (props: Props) => {
         if (response.errorCode !== undefined) {
           Alert.alert(response.errorCode);
         } else if (response.didCancel != true) {
-          // dispatchSetUserInfo({
-          //   ...userInfo,
-          //   avatar: response.assets[0].uri,
-          // });
+          setValue({uri: response.assets[0].uri});
           setModalVisible(false);
         }
       },
