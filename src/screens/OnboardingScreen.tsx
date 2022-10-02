@@ -7,7 +7,7 @@ import BtnIcon from '../components/BtnIcon';
 import ImageOnboarding from '../components/onboarding/ImageOnboarding';
 import SubTitleOnboarding from '../components/onboarding/SubTitleOnboarding';
 import TitleOnboarding from '../components/onboarding/TitleOnboarding';
-import {NAVIGATE_LOGIN} from '../navigation/navigate';
+import {NAVIGATE_HOME, NAVIGATE_LOGIN} from '../navigation/navigate';
 
 const pages: object[] = [
   {
@@ -49,8 +49,24 @@ const Square: React.FC = ({isLight, selected}) => {
 const OnboardingScreen: React.FC = () => {
   const navigation = useNavigation();
   const onPress = () => {
-    navigation.navigate(NAVIGATE_LOGIN);
+    navigation.navigate(NAVIGATE_HOME);
   };
+
+  const NextButtonComponent = ({isLight, ...props}) => (
+    <View className="mr-8">
+      <BtnIcon icon={faArrowRight} style="p-3" prop={{...props}} />
+    </View>
+  );
+
+  const SkipButtonComponent = () => (
+    <BtnBorder text="Bỏ qua" style="ml-8 px-3 py-2" onPress={onPress} />
+  );
+
+  const DoneButtonComponent = () => (
+    <View className="mr-8">
+      <BtnIcon icon={faArrowRight} style="p-3" onPress={onPress} />
+    </View>
+  );
 
   return (
     <Onboarding
@@ -63,19 +79,9 @@ const OnboardingScreen: React.FC = () => {
       bottomBarColor="white"
       DotComponent={Square}
       pages={pages}
-      NextButtonComponent={({isLight, ...props}) => (
-        <View className="mr-8">
-          <BtnIcon icon={faArrowRight} style="p-3" prop={{...props}} />
-        </View>
-      )}
-      SkipButtonComponent={() => (
-        <BtnBorder text="Bỏ qua" style="ml-8 px-3 py-2" onPress={onPress} />
-      )}
-      DoneButtonComponent={() => (
-        <View className="mr-8">
-          <BtnIcon icon={faArrowRight} style="p-3" onPress={onPress} />
-        </View>
-      )}
+      NextButtonComponent={NextButtonComponent}
+      SkipButtonComponent={SkipButtonComponent}
+      DoneButtonComponent={DoneButtonComponent}
     />
   );
 };

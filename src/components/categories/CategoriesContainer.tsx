@@ -33,6 +33,13 @@ const CategoriesContainer: React.FC<Props> = (props: Props) => {
     setIsEnd(true);
   };
 
+  const renderItem = ({item}) =>
+    title === 'Ngành hàng' ? (
+      <CategoryCard image={item.image} text={item.name} />
+    ) : (
+      <StallCard image={item.image} text={item.name} />
+    );
+
   return (
     <View>
       <HomeTitle title={title} icon={icon} textBtn={textBtn} />
@@ -50,13 +57,7 @@ const CategoriesContainer: React.FC<Props> = (props: Props) => {
         horizontal={flatlistStyle.num !== undefined ? false : true}
         data={data}
         keyExtractor={key => key.id}
-        renderItem={({item}) =>
-          title === 'Ngành hàng' ? (
-            <CategoryCard image={item.image} text={item.name} />
-          ) : (
-            <StallCard image={item.image} text={item.name} />
-          )
-        }
+        renderItem={renderItem}
       />
       {flatlistStyle.num === undefined ? (
         <View className="bg-gray-200 w-8 h-1 flex-row rounded-full my-5 self-center">

@@ -29,6 +29,21 @@ const FilterScreen: React.FC = () => {
     navigation.goBack();
   };
 
+  const renderThumb = () => (
+    <View className="w-4 h-4 rounded-full bg-orange-primary" />
+  );
+  const renderRail = () => (
+    <View className="h-0.5 flex-1 rounded-lg bg-gray-400" />
+  );
+  const renderRailSelected = () => (
+    <View className="h-0.5 flex-1 rounded-lg bg-orange-primary" />
+  );
+  const renderView = () => <View />;
+  const onValueChanged = (low, high, fromUser) => {
+    setMinPrice(low);
+    setMaxPrice(high);
+  };
+
   return (
     <SafeAreaView>
       <View className="bg-white p-3 flex-1 h-full">
@@ -74,29 +89,12 @@ const FilterScreen: React.FC = () => {
               min={0}
               max={5000000}
               step={20000}
-              onValueChanged={(low, high, fromUser) => {
-                setMinPrice(low);
-                setMaxPrice(high);
-              }}
-              renderThumb={() => {
-                return (
-                  <View className="w-4 h-4 rounded-full bg-orange-primary" />
-                );
-              }}
-              renderRail={() => {
-                return <View className="h-0.5 flex-1 rounded-lg bg-gray-400" />;
-              }}
-              renderRailSelected={() => {
-                return (
-                  <View className="h-0.5 flex-1 rounded-lg bg-orange-primary" />
-                );
-              }}
-              renderLabel={value => {
-                return <View />;
-              }}
-              renderNotch={() => {
-                return <View />;
-              }}
+              onValueChanged={onValueChanged}
+              renderThumb={renderThumb}
+              renderRail={renderRail}
+              renderRailSelected={renderRailSelected}
+              renderLabel={renderView}
+              renderNotch={renderView}
             />
             <View className="flex-row justify-between">
               <Text>{useConvertToVND(minPrice)}</Text>

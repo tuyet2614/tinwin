@@ -16,6 +16,12 @@ const ProductsContainer: React.FC<Props> = (props: Props) => {
 
   const [isEnd, setIsEnd] = useState(false);
 
+  const renderItem = ({item}) => (
+    <View className={`${title === 'Sản phẩm nổi bật' ? 'ml-3' : ''}`}>
+      <ProductCard item={item} />
+    </View>
+  );
+
   return (
     <View>
       <HomeTitle title={title} icon={icon} textBtn={textBtn} />
@@ -28,11 +34,7 @@ const ProductsContainer: React.FC<Props> = (props: Props) => {
         columnWrapperStyle={flatlistStyle}
         data={data}
         keyExtractor={key => key.id}
-        renderItem={({item}) => (
-          <View className={`${title === 'Sản phẩm nổi bật' ? 'ml-3' : ''}`}>
-            <ProductCard item={item} />
-          </View>
-        )}
+        renderItem={renderItem}
       />
 
       {title === 'Sản phẩm nổi bật' && (

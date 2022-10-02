@@ -46,33 +46,38 @@ const RatingScreen: React.FC = () => {
   ];
 
   const {choose, isChoose, itemIsChoose} = useChoose(arrFilter);
+  const renderItem = ({item}) => (
+    <BtnFilterRating
+      onPress={() => isChoose(item)}
+      isChoose={choose(item)}
+      text={item.text}
+      num={item.num}
+      rating={item.rating}
+    />
+  );
+
+  const renderRatingItem = ({item}) => <RatingItem item={item} />;
 
   return (
     <SafeAreaView className="bg-white h-full">
       <HeaderStack text="Đánh giá sản phẩm" isGoback={true} />
       <View className="">
-        <FlatList
-          horizontal
-          contentContainerStyle={tw`w-full flex-wrap justify-evenly`}
-          data={arrFilter}
-          keyExtractor={key => key.id}
-          renderItem={({item}) => (
-            <BtnFilterRating
-              onPress={() => isChoose(item)}
-              isChoose={choose(item)}
-              text={item.text}
-              num={item.num}
-              rating={item.rating}
-            />
-          )}
-        />
+        <View className="mx-5">
+          <FlatList
+            horizontal
+            contentContainerStyle={tw`w-full flex-wrap justify-between`}
+            data={arrFilter}
+            keyExtractor={key => key.id}
+            renderItem={renderItem}
+          />
+        </View>
         <View className="h-2 bg-gray-100"></View>
 
         <FlatList
           contentContainerStyle={tw`m-5`}
           data={arr}
           keyExtractor={key => key.id}
-          renderItem={({item}) => <RatingItem item={item} />}
+          renderItem={renderRatingItem}
         />
       </View>
     </SafeAreaView>

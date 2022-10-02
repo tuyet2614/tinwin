@@ -1,4 +1,6 @@
 import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
+import tw from 'tailwind-react-native-classnames';
+import {colors} from '../../assets/colors';
 import CartBtn from '../../components/buttons/CartBtn';
 import SearchBtnHome from '../../components/buttons/SearchBtnHome';
 import CategoriesContainer from '../../components/categories/CategoriesContainer';
@@ -72,7 +74,7 @@ const HomeScreen: React.FC = () => {
       <View className="flex-row mx-3 mb-3">
         <SearchBtnHome />
         <CartBtn
-          color="#FD7D00"
+          color={colors.primary}
           style="border border-gray-200 justify-center px-3 ml-3 rounded-lg"
         />
       </View>
@@ -81,10 +83,7 @@ const HomeScreen: React.FC = () => {
 
         <CategoriesContainer
           textBtn=""
-          flatlistStyle={{
-            width: 500,
-            flexWrap: 'wrap',
-          }}
+          flatlistStyle={[tw`flex-wrap`, {width: 500}]}
           title="Ngành hàng"
           icon={require('../../assets/icons/home/industry.png')}
           data={data}
@@ -92,10 +91,7 @@ const HomeScreen: React.FC = () => {
 
         <CategoriesContainer
           textBtn="Xem thêm"
-          flatlistStyle={{
-            width: 750,
-            flexWrap: 'wrap',
-          }}
+          flatlistStyle={[tw`flex-wrap`, {width: 750}]}
           title="Gian hàng nổi bật"
           icon={require('../../assets/icons/home/stall.png')}
           data={data}
@@ -109,7 +105,7 @@ const HomeScreen: React.FC = () => {
         />
 
         <ProductsContainer
-          flatlistStyle={{justifyContent: 'space-evenly'}}
+          flatlistStyle={tw`justify-evenly`}
           textBtn="Xem thêm"
           data={data}
           title="Tìm kiếm hàng đầu"

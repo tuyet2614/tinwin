@@ -22,7 +22,7 @@ const StallAccount: React.FC<Props> = (props: Props) => {
         </Text>
         <View className="flex-row items-center">
           <Rating
-            style={tw`items-start mr-5`}
+            style={tw`items-start mr-2`}
             type="star"
             startingValue={4.5}
             imageSize={10}

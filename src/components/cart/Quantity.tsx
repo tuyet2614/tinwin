@@ -39,7 +39,7 @@ const Quantity: React.FC<Props> = (props: Props) => {
       <TouchableOpacity
         disabled={value <= 1 ? true : false}
         onPress={onMinus}
-        className={`p-1 items-center justify-center rounded-full bg-${
+        className={`p-2 items-center justify-center rounded-full bg-${
           value <= 1 ? 'gray-200' : 'orange-primary'
         }`}>
         <FontAwesomeIcon
@@ -55,7 +55,7 @@ const Quantity: React.FC<Props> = (props: Props) => {
         start={{x: 0, y: 0.5}}
         end={{x: 1, y: 0.5}}
         locations={[0, 1]}>
-        <TouchableOpacity className="p-1" onPress={onPlus}>
+        <TouchableOpacity className="p-2" onPress={onPlus}>
           <FontAwesomeIcon icon={faPlus} size={10} color="white" />
         </TouchableOpacity>
       </LinearGradient>

@@ -101,7 +101,7 @@ const ProductDetailScreen: React.FC = () => {
           style="p-3 flex-1 items-center mr-3"
           onPress={addToCart}
         />
-        <BtnPrimary text="Mua ngay" style="px-14 py-3" />
+        <BtnPrimary text="Mua ngay" style="px-16 py-3" />
       </View>
     </SafeAreaView>
   );

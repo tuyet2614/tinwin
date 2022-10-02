@@ -5,6 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import {FlatList, Text, TouchableOpacity, View} from 'react-native';
 import {Rating} from 'react-native-ratings';
 import tw from 'tailwind-react-native-classnames';
+import {colors} from '../../assets/colors';
 import {NAVIGATE_RATING} from '../../navigation/navigate';
 import ProductDetailTitle from './ProductDetailTitle';
 import RatingItem from './RatingItem';
@@ -42,15 +43,20 @@ const RatingContainer: React.FC<Props> = (props: Props) => {
 
   const {item} = props;
 
+  const renderItem = ({item}) => <RatingItem item={item} />;
+  const navigateRating = () => {
+    navigation.navigate(NAVIGATE_RATING);
+  };
+
   return (
     <View>
       <ProductDetailTitle icon={faStar} title="Đánh giá sản phẩm" />
       <TouchableOpacity
         className="flex-row items-center justify-between mx-5 mb-5"
-        onPress={() => navigation.navigate(NAVIGATE_RATING)}>
+        onPress={navigateRating}>
         <View className="flex-row items-center">
           <Rating
-            style={tw`items-start mr-5`}
+            style={tw`items-start mr-2`}
             type="star"
             startingValue={4.5}
             imageSize={10}
@@ -59,17 +65,17 @@ const RatingContainer: React.FC<Props> = (props: Props) => {
           />
           <Text className="text-xs">4.5 / 5 (10.5k Đánh giá)</Text>
         </View>
-        <View className="flex-row">
+        <View className="flex-row items-center">
           <Text className="text-orange-primary">Xem tất cả</Text>
-          <FontAwesomeIcon icon={faAngleRight} color="#FD7D00" />
+          <FontAwesomeIcon icon={faAngleRight} color={colors.primary} />
         </View>
       </TouchableOpacity>
       <View className="h-0.5 bg-gray-100 mx-5"></View>
       <FlatList
-        contentContainerStyle={{marginHorizontal: 20, marginVertical: 10}}
+        contentContainerStyle={tw`mx-5 my-3`}
         data={arr}
         keyExtractor={key => key.id}
-        renderItem={({item}) => <RatingItem item={item} />}
+        renderItem={renderItem}
       />
     </View>
   );

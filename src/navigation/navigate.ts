@@ -11,6 +11,7 @@ const NAVIGATE_ADD_NEW_ADDRESS: string = 'AddNewAddress'
 const NAVIGATE_RATING: string = 'Rating'
 const NAVIGATE_ADDRESS: string = 'Address'
 const NAVIGATE_UPDATE_INFO: string = 'UpdateInfo'
+const NAVIGATE_HOME: string = 'TabBar'
 
 export {
     NAVIGATE_ONBOARDING, 
@@ -25,5 +26,6 @@ export {
     NAVIGATE_ADD_NEW_ADDRESS,
     NAVIGATE_RATING,
     NAVIGATE_ADDRESS,
-    NAVIGATE_UPDATE_INFO
+    NAVIGATE_UPDATE_INFO,
+    NAVIGATE_HOME
 }

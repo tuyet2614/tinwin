@@ -51,6 +51,16 @@ const AddNewAddressScreen: React.FC = () => {
   ];
 
   const {isChoose, choose} = useChoose(addressTypes);
+  const renderItem = ({item}) => (
+    <TouchableOpacity
+      onPress={() => isChoose(item)}
+      className={`flex-row items-center border-2 border-${
+        choose(item) ? 'orange-primary' : 'gray-100'
+      } flex-1 py-2 px-5 rounded-lg ${choose(item) && 'bg-orange-100'}`}>
+      <FontAwesomeIcon icon={item.icon} color={colors.primary} />
+      <Text className="ml-2 text-lg">{item.text}</Text>
+    </TouchableOpacity>
+  );
 
   return (
     <SafeAreaView className="bg-white h-full">
@@ -94,18 +104,7 @@ const AddNewAddressScreen: React.FC = () => {
           contentContainerStyle={tw`flex-row justify-evenly mt-5`}
           data={addressTypes}
           keyExtractor={key => key.id}
-          renderItem={({item}) => (
-            <TouchableOpacity
-              onPress={() => isChoose(item)}
-              className={`flex-row items-center border-2 border-${
-                choose(item) ? 'orange-primary' : 'gray-100'
-              } flex-1 py-2 px-5 rounded-lg ${
-                choose(item) && 'bg-orange-100'
-              }`}>
-              <FontAwesomeIcon icon={item.icon} color={colors.primary} />
-              <Text className="ml-2 text-lg">{item.text}</Text>
-            </TouchableOpacity>
-          )}
+          renderItem={renderItem}
         />
       </ScrollView>
 

@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+import tw from 'tailwind-react-native-classnames';
 import {colors} from '../../assets/colors';
 import CartBtn from '../../components/buttons/CartBtn';
 import FilterBtn from '../../components/buttons/FilterBtn';
@@ -32,9 +33,7 @@ const CategoriesScreen: React.FC = () => {
         />
 
         <ProductsContainer
-          flatlistStyle={{
-            justifyContent: 'space-evenly',
-          }}
+          flatlistStyle={tw`justify-evenly`}
           data={data}
           icon={require('../../assets/icons/home/industry.png')}
           textBtn="Xem thêm"

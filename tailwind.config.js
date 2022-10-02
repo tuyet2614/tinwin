@@ -8,6 +8,10 @@ module.exports = {
         'red-danger': '#FF3B30',
         'black-opacity': 'rgba(90, 90, 90, 0.7)',
       },
+      width: {
+        'w-500': '500px',
+        'w-750': '750px',
+      },
     },
   },
   plugins: [],

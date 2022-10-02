@@ -1,6 +1,7 @@
 import {faAngleRight, faStore} from '@fortawesome/free-solid-svg-icons';
 import {useState} from 'react';
 import {FlatList, Text, View} from 'react-native';
+import tw from 'tailwind-react-native-classnames';
 import useConvertToVND from '../../hooks/useConvertToVND';
 import useTotalPrice from '../../hooks/wishlist/useTotalPrice';
 import CartItem from './CartItem';
@@ -17,6 +18,8 @@ const CartContainer: React.FC<Props> = (props: Props) => {
 
   const totalPrice = useTotalPrice(data);
 
+  const renderItem = ({item}) => <CartItem item={item} />;
+
   return (
     <View>
       <SelectAllCartItem
@@ -26,10 +29,10 @@ const CartContainer: React.FC<Props> = (props: Props) => {
         onPress={onPress}
       />
       <FlatList
-        contentContainerStyle={{marginHorizontal: 20}}
+        contentContainerStyle={tw`mx-5`}
         data={data}
         keyExtractor={key => key.id}
-        renderItem={({item}) => <CartItem item={item} />}
+        renderItem={renderItem}
       />
       <View className="flex-row mx-5 justify-between my-2">
         <Text>Tổng tiền hàng</Text>

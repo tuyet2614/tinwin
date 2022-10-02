@@ -14,6 +14,10 @@ interface Props {
 const ProductDetailContainer: React.FC<Props> = (props: Props) => {
   const {arr, title, icon, text} = props;
 
+  const renderItem = ({item, index}) => (
+    <InfoDetailItem text={item.text} value={item.value} index={index} />
+  );
+
   return (
     <View className="">
       <ProductDetailTitle icon={icon} title={title} />
@@ -21,9 +25,7 @@ const ProductDetailContainer: React.FC<Props> = (props: Props) => {
         <FlatList
           data={arr}
           keyExtractor={key => key.id}
-          renderItem={({item, index}) => (
-            <InfoDetailItem text={item.text} value={item.value} index={index} />
-          )}
+          renderItem={renderItem}
         />
       ) : (
         <Text className="mx-5">{text}</Text>
