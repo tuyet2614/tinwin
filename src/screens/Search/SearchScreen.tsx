@@ -15,6 +15,7 @@ import { SearchBar } from '../../components/SearchField';
 import { useNavigation } from '@react-navigation/native';
 import ListCategories from '../../components/item/ListCategories';
 import TitleSearch from '../../components/item/TitleSearch';
+import { cancel_icon } from '../../assets/images';
 
 const DATA = [
     {
@@ -52,6 +53,9 @@ const DATA2 = [
 const SearchScreen: React.FC = () => {
     const [search, setSearch] = useState('');
     const navigation = useNavigation();
+    const onPressRoute = () => {
+        navigation.navigate('TabBar')
+    }
     return (
         <SafeAreaView className="bg-white">
             <ScrollView>
@@ -60,8 +64,8 @@ const SearchScreen: React.FC = () => {
                         <SearchBar placeholder="Tìm kiếm" width={280} />
 
                         <View className={`flex self-center ml-6`}>
-                            <TouchableOpacity onPress={() => navigation.goBack()}>
-                                <Image source={require('../../images/cancel.png')} />
+                            <TouchableOpacity onPress={onPressRoute}>
+                                <Image source={cancel_icon} />
                             </TouchableOpacity>
                         </View>
                     </View>

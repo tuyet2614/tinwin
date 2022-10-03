@@ -1,8 +1,0 @@
-export const Shop_Detail = 'ShopDetail'
-export const Product_Detail_Screen = 'ProductDetail'
-export const Register_Screen = 'Register'
-export const Forgot_passWord_Screen = 'ForgotPassword'
-export const LoginSMS_Screen = 'LoginSMS'
-export const TabBar = 'TabBar'
-export const Search_Screen = 'Search'
-export const Search_Detail_Screen = ''

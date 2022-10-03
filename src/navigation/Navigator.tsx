@@ -10,6 +10,8 @@ import RatingScreen from '../screens/ProductDetail/RatingScreen';
 import FilterScreen from '../screens/categories/FilterScreen';
 import CartNavigator from '../screens/cart/CartNavigator';
 import UpdateInfoScreen from '../screens/account/UpdateInfoScreen';
+import SearchScreen from '../screens/Search/SearchScreen';
+import SearchResultScreen from '../screens/Search/SearchResultScreen';
 
 const Stack = createNativeStackNavigator();
 

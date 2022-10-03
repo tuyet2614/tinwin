@@ -21,15 +21,17 @@ import CartBtn from '../../components/buttons/CartBtn';
 import BtnFilter from '../../components/Search/BtnFilter';
 import { data } from '../../assets/data/data'
 import TagSearch from '../../components/Search/TagSeach';
+import GoBackBtn from '../../components/buttons/GoBackBtn';
+import { cancel_icon } from '../../assets/images';
 
 const DATA = [
-    { id: 'a', title: 'Nước tăng lực', icon: require('../../images/cancel.png') },
+    { id: 'a', title: 'Nước tăng lực', icon: cancel_icon },
     {
         id: 'b',
         title: 'Chăm sóc cá nhân',
-        icon: require('../../images/cancel.png'),
+        icon: cancel_icon,
     },
-    { id: 'c', title: 'Coca cola', icon: require('../../images/cancel.png') },
+    { id: 'c', title: 'Coca cola', icon: cancel_icon },
 ];
 
 const tags = [
@@ -72,13 +74,9 @@ const SearchResultScreen: React.FC = () => {
             <ScrollView>
                 <View>
                     <View className={`flex-row`}>
-                        <View className={'self-center mr-4'}>
-                            <TouchableOpacity
-                                onPress={() => {
-                                    navigation.goBack();
-                                }}>
-                                <FontAwesomeIcon color="#1F1F1F" icon={faChevronLeft} />
-                            </TouchableOpacity>
+                        <View className={'self-center mr-2 ml-4'}>
+
+                            <GoBackBtn />
                         </View>
 
                         <SearchBar placeholder="Tìm kiếm" width={200} />

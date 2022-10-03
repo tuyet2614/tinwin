@@ -13,6 +13,7 @@ import NotificationModal from '../components/cart/NotificationModal';
 import AccountNavigator from '../screens/account/AccountNavigator';
 import CategoriesScreen from '../screens/categories/CategoriesScreen';
 import HomeScreen from '../screens/home/HomeScreen';
+import NotificationScreen from '../screens/notification/NotificationScreen';
 
 const TabBar: React.FC = () => {
   const Tab = createBottomTabNavigator();

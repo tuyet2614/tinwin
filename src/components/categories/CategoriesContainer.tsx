@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import HomeTitle from '../home/HomeTitle';
 import StallCard from '../home/StallCard';
+import { useNavigation } from '@react-navigation/native';
 import CategoryCard from './CategoryCard';
 
 interface Props {
