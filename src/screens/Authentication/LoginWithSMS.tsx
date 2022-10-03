@@ -43,7 +43,7 @@ const LoginWithSMS: React.FC = ({}) => {
           style={style.image}></Image>
       </View>
       <View style={style.loginView}>
-        <View style={{marginBottom: 20}}>
+        <View style={style1.mb20}>
           <Text style={style.textDescription}>Email / Số điện thoại</Text>
           <TextInput
             style={style.input}
@@ -59,7 +59,7 @@ const LoginWithSMS: React.FC = ({}) => {
           Tinwin sẽ gửi mã OTP để xác nhận đăng nhập
         </Text>
       </View>
-      <View style={{marginTop: 40, marginBottom: 31}}>
+      <View style={style1.mt40mt31}>
         <LinearGradient
           className={` rounded-md`}
           colors={[orangeLight, orangeDark]}
@@ -68,21 +68,23 @@ const LoginWithSMS: React.FC = ({}) => {
           locations={[0, 1]}
           style={style1.btnNext}>
           <TouchableOpacity className="p-3" onPress={navigate}>
-            <Text
-              style={{
-                color: '#FFF',
-                alignSelf: 'center',
-                fontSize: 16,
-                fontWeight: '600',
-                lineHeight: 22,
-              }}>
-              Tiếp tục
-            </Text>
+            <Text style={style1.continue}>Tiếp tục</Text>
           </TouchableOpacity>
         </LinearGradient>
       </View>
     </SafeAreaView>
   );
 };
-const style1 = StyleSheet.create({btnNext: {alignItems: 'center', height: 50}});
+const style1 = StyleSheet.create({
+  btnNext: {alignItems: 'center', height: 50},
+  mb20: {marginBottom: 20},
+  mt40mt31: {marginTop: 40, marginBottom: 31},
+  continue: {
+    color: '#FFF',
+    alignSelf: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+    lineHeight: 22,
+  },
+});
 export default LoginWithSMS;

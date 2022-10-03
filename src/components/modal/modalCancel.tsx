@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {grey} from '../../constant/const';
+import {black, grey} from '../../constant/const';
 import BtnOrder from '../buttons/BtnOrder';
 import {RadioButton} from '../buttons/RadioButton';
 interface Props {
@@ -29,7 +29,7 @@ const ModalCancel: React.FC<Props> = (props: Props) => {
     <SafeAreaView>
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
         <TouchableOpacity
-          style={{backgroundColor: 'rgba(90, 90, 90, 0.7)'}}
+          style={styles1.bgColor}
           className={`flex-1 `}
           onPress={() => {
             setModalVisible(false);
@@ -45,7 +45,7 @@ const ModalCancel: React.FC<Props> = (props: Props) => {
                   <FontAwesomeIcon
                     icon={faXmark}
                     size={14}
-                    color="#000000"></FontAwesomeIcon>
+                    color={black}></FontAwesomeIcon>
                 </TouchableOpacity>
               </View>
               <View style={styles1.boxWarning}>
@@ -230,6 +230,7 @@ const styles1 = StyleSheet.create({
     color: '#1F1F1F',
     marginBottom: 20,
   },
+  bgColor: {backgroundColor: 'rgba(90, 90, 90, 0.7)'},
 });
 
 export default ModalCancel;

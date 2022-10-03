@@ -1,8 +1,21 @@
 import {StyleSheet, View} from 'react-native';
+import {anotherOrange, grey} from '../../constant/const';
 
-export function RadioOrangeBtn(props) {
+export function RadioOrangeBtn(props: any) {
   return (
-    <View style={[style.view, props.style]}>
+    <View
+      style={[
+        {
+          height: 20,
+          width: 20,
+          borderRadius: 12,
+          borderWidth: 1,
+          borderColor: props.selected ? anotherOrange : grey,
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+        props.style,
+      ]}>
       {props.selected ? <View style={style.text} /> : null}
     </View>
   );
@@ -12,15 +25,6 @@ const style = StyleSheet.create({
     height: 10,
     width: 10,
     borderRadius: 6,
-    backgroundColor: '#FC832D',
-  },
-  view: {
-    height: 20,
-    width: 20,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: props.selected ? '#FC832D' : '#8E8E93',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: anotherOrange,
   },
 });

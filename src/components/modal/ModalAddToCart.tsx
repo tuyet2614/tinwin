@@ -13,7 +13,8 @@ import {
 } from 'react-native';
 import BtnOrder from '../../components/buttons/BtnOrder';
 
-export const ModalBuyAgain = ({modalVisible, setModalVisible}) => {
+export const ModalBuyAgain = (props: any) => {
+  const {modalVisible, setModalVisible} = props;
   const reverseModal = () => {
     setModalVisible(!modalVisible);
   };
@@ -24,7 +25,7 @@ export const ModalBuyAgain = ({modalVisible, setModalVisible}) => {
     <SafeAreaView>
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
         <TouchableOpacity
-          style={{backgroundColor: 'rgba(90, 90, 90, 0.7)'}}
+          style={styles1.bgColor}
           className={`flex-1 `}
           onPress={false1}></TouchableOpacity>
         {/* <View
@@ -210,4 +211,5 @@ const styles1 = StyleSheet.create({
   borderRa: {borderRadius: 5},
   imgSoldOut: {position: 'absolute', top: 0},
   flex: {flexDirection: 'row', justifyContent: 'space-between'},
+  bgColor: {backgroundColor: 'rgba(90, 90, 90, 0.7)'},
 });

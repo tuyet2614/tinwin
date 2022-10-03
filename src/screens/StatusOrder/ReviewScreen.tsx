@@ -143,7 +143,7 @@ const Review: React.FC = () => {
               </Text>
             </TouchableOpacity>
           </View>
-          <View style={{width: 160}}>
+          <View style={style1.w160}>
             <TouchableOpacity
               onPress={() => setChoose(2)}
               className={`rounded-md`}

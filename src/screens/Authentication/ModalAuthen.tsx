@@ -35,9 +35,6 @@ const ModalAuthen = () => {
             </View>
             <View style={styles.flexMt}>
               <View style={styles.viewOk} />
-              {/* <View>
-                <Text style={{width: 50, textAlign: 'center'}}>Hello</Text>
-              </View> */}
               <View style={styles.abc} />
             </View>
 

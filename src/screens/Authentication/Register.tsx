@@ -50,7 +50,7 @@ const Register: React.FC = ({}) => {
           </View>
         </View>
         <View style={style.loginView}>
-          <View style={{marginBottom: 20}}>
+          <View style={style1.mb20}>
             <Text style={style.textDescription}>Email / Số điện thoại</Text>
             <TextInput
               style={style.input}
@@ -108,5 +108,6 @@ const style1 = StyleSheet.create({
   },
   Img: {width: 375, height: 290},
   alignHeight: {alignItems: 'center', height: 50},
+  mb20: {marginBottom: 20},
 });
 export default Register;

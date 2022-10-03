@@ -1,7 +1,7 @@
 import {StyleSheet, View} from 'react-native';
 import {grey} from '../../constant/const';
 
-export function RadioButton(props) {
+export function RadioButton(props: any) {
   return (
     <View style={[props.style, style.border]}>
       {props.selected ? <View style={style.inline} /> : null}

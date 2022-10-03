@@ -31,7 +31,7 @@ const NotificationScreen: React.FC = () => {
         <Text style={styles1.notifi}>{188} thông báo mới</Text>
       </View>
       <TouchableOpacity onPress={bool1} style={styles1.open}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={styles1.row}>
           <Image source={require('../../assets/payment/Redbull.png')}></Image>
           <View style={styles1.flexAlignMl8}>
             <View>

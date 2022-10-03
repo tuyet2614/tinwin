@@ -59,7 +59,7 @@ const FormRegister: React.FC = () => {
   return (
     <SafeAreaView style={style.container}>
       <View style={style.loginView}>
-        <View style={{marginBottom: 20}}>
+        <View style={style.mb20}>
           <Text style={style.textDescription}>Tên Hiển Thị</Text>
           <TextInput
             style={style.input}
@@ -68,9 +68,9 @@ const FormRegister: React.FC = () => {
             onChange={setUser}
           />
         </View>
-        <View style={{marginBottom: 20}}>
+        <View style={style.mb20}>
           <Text style={style.textDescription}>
-            Mật khẩu <Text style={{color: '#FF3B30'}}>*</Text>
+            Mật khẩu <Text style={style.redText}>*</Text>
           </Text>
           <TextInput
             style={style.input}
@@ -88,7 +88,7 @@ const FormRegister: React.FC = () => {
         </View>
         <View>
           <Text style={style.textDescription}>
-            Nhập lại mật khẩu <Text style={{color: red}}>*</Text>
+            Nhập lại mật khẩu <Text style={style.redText}>*</Text>
           </Text>
           <TextInput
             style={style.input}
@@ -227,5 +227,8 @@ export const style = StyleSheet.create({
     fontWeight: '600',
     lineHeight: 22,
   },
+  mb20: {marginBottom: 20},
+  redText: {color: red},
+  mb20: {marginBottom: 20},
 });
 export default FormRegister;

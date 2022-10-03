@@ -69,7 +69,7 @@ const OTP: React.FC = ({route}) => {
         returnKeyType="done"
         keyboardType="numeric"
         // editable={true}
-        style={{position: 'absolute', bottom: -99999}}></TextInput>
+        style={style1.none}></TextInput>
       <SafeAreaView style={style.container}>
         <View className="self-center">
           <Image
@@ -77,7 +77,7 @@ const OTP: React.FC = ({route}) => {
             style={style.image}></Image>
         </View>
 
-        <View style={{alignSelf: 'center'}}>
+        <View style={style1.self}>
           <View style={style1.OTPContainer}>
             {Array(lengthInput)
               .fill()
@@ -122,8 +122,8 @@ const OTP: React.FC = ({route}) => {
         ) : timeOut !== 0 ? (
           <View style={style1.boxWait}>
             <Text style={style1.textWait}>
-              Vui lòng chờ <Text style={{color: red}}>{timeOut}s</Text> để nhận
-              lại mã xác thực{' '}
+              Vui lòng chờ <Text style={style1.redText}>{timeOut}s</Text> để
+              nhận lại mã xác thực{' '}
             </Text>
           </View>
         ) : (
@@ -216,5 +216,8 @@ const style1 = StyleSheet.create({
     marginTop: 9,
   },
   mtmb: {marginTop: 40, marginBottom: 31},
+  none: {position: 'absolute', bottom: -99999},
+  self: {alignSelf: 'center'},
+  redText: {color: red},
 });
 export default OTP;

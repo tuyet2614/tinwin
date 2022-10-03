@@ -79,7 +79,7 @@ const Login: React.FC = ({}) => {
           </View>
         </View>
         <View style={style.loginView}>
-          <View style={{marginBottom: 20}}>
+          <View style={style1.mb20}>
             <Text style={style.textDescription}>Email / Số điện thoại</Text>
             <TextInput
               style={style.input}
@@ -106,7 +106,7 @@ const Login: React.FC = ({}) => {
                 onPressOut={setPassSecu}>
                 <FontAwesomeIcon icon={faEyeSlash} size={20} color={grey} />
               </TouchableOpacity>
-              <Text style={{color: grey}}> | </Text>
+              <Text style={style1.grey}> | </Text>
               <TouchableOpacity onPress={navigate}>
                 <Text style={style.textForgot}>Quên ?</Text>
               </TouchableOpacity>
@@ -120,7 +120,7 @@ const Login: React.FC = ({}) => {
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={{marginTop: 40, marginBottom: 31}}>
+        <View style={style1.mt40mb31}>
           <LinearGradient
             className={`rounded-md`}
             colors={[orangeLight, orangeDark]}
@@ -134,13 +134,11 @@ const Login: React.FC = ({}) => {
           </LinearGradient>
         </View>
         <View style={style1.rowCenter}>
-          <View style={{flex: 1, height: 1, backgroundColor: moreLightGrey}} />
+          <View style={style1.tripleIcon} />
           <View>
-            <Text style={{width: 130, textAlign: 'center', color: darkGrey}}>
-              Hoặc tiếp tục với
-            </Text>
+            <Text style={style1.continue}>Hoặc tiếp tục với</Text>
           </View>
-          <View style={{flex: 1, height: 1, backgroundColor: moreLightGrey}} />
+          <View style={style1.tripleIcon} />
         </View>
         <View style={style1.loginWith}>
           <FontAwesomeIcon icon={faFacebook} color={blueGrey} size={55} />
@@ -195,5 +193,10 @@ const style1 = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  grey: {color: grey},
+  mb20: {marginBottom: 20},
+  mt40mb31: {marginTop: 40, marginBottom: 31},
+  tripleIcon: {flex: 1, height: 1, backgroundColor: moreLightGrey},
+  continue: {width: 130, textAlign: 'center', color: darkGrey},
 });
 export default Login;
