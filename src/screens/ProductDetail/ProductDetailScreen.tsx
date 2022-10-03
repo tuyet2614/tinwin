@@ -1,7 +1,7 @@
-import {useState} from 'react';
-import {faInfoCircle} from '@fortawesome/free-solid-svg-icons';
-import {useRoute} from '@react-navigation/native';
-import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
+import { useState } from 'react';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { useRoute } from '@react-navigation/native';
+import { Image, SafeAreaView, ScrollView, Text, View } from 'react-native';
 import BtnBorder from '../../components/BtnBorder';
 import BtnPrimary from '../../components/BtnPrimary';
 import CartBtn from '../../components/buttons/CartBtn';
@@ -13,11 +13,11 @@ import RatingContainer from '../../components/productDetail/RatingContainer';
 import StallAccount from '../../components/stall/StallAccount';
 import useAddToWishlist from '../../hooks/wishlist/useAddToWishlist';
 import useGetProductById from '../../hooks/productDetail/useGetProductById';
-import {data} from '../home/HomeScreen';
+import { data } from '../home/HomeScreen';
 
 const ProductDetailScreen: React.FC = () => {
   const route = useRoute();
-  const {id} = route.params;
+  const { id } = route.params;
   const dispatchAddToWishlist = useAddToWishlist();
   const product = useGetProductById(id, data);
 
@@ -55,7 +55,7 @@ const ProductDetailScreen: React.FC = () => {
   ];
 
   const addToCart = () => {
-    dispatchAddToWishlist({...product, quantity: 1});
+    dispatchAddToWishlist({ ...product, quantity: 1 });
   };
 
   return (

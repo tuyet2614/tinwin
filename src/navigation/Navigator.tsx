@@ -1,5 +1,5 @@
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AddressScreen from '../screens/account/AddressScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import Splash from '../screens/Splash';
@@ -10,6 +10,8 @@ import RatingScreen from '../screens/ProductDetail/RatingScreen';
 import FilterScreen from '../screens/categories/FilterScreen';
 import CartNavigator from '../screens/cart/CartNavigator';
 import UpdateInfoScreen from '../screens/account/UpdateInfoScreen';
+import SearchScreen from '../screens/Search/SearchScreen';
+import SearchResultScreen from '../screens/Search/SearchResultScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,38 +39,13 @@ const Navigator: React.FC = () => {
           options={screenOptions}
         />
         <Stack.Screen
-          name="Address"
-          component={AddressScreen}
+          name="Search"
+          component={SearchScreen}
           options={screenOptions}
         />
         <Stack.Screen
-          name="AddNewAddress"
-          component={AddNewAddressScreen}
-          options={screenOptions}
-        />
-        <Stack.Screen
-          name="ProductDetail"
-          component={ProductDetailScreen}
-          options={screenOptions}
-        />
-        <Stack.Screen
-          name="Rating"
-          component={RatingScreen}
-          options={screenOptions}
-        />
-        <Stack.Screen
-          name="Filter"
-          component={FilterScreen}
-          options={screenOptions}
-        />
-        <Stack.Screen
-          name="CartNavigator"
-          component={CartNavigator}
-          options={screenOptions}
-        />
-        <Stack.Screen
-          name="UpdateInfo"
-          component={UpdateInfoScreen}
+          name="SearchResult"
+          component={SearchResultScreen}
           options={screenOptions}
         />
       </Stack.Navigator>

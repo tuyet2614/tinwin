@@ -1,4 +1,4 @@
-import {SafeAreaView, Text, View} from 'react-native';
+import { SafeAreaView, Text, View } from 'react-native';
 
 const NotificationScreen: React.FC = () => {
   return (
