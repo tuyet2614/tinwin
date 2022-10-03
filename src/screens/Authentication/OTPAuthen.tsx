@@ -57,7 +57,6 @@ const OTP: React.FC = ({route}) => {
   const focusTextInput = () => {
     textInput.focus();
   };
-  console.log(OTPComfirm);
   return (
     <View>
       <TextInput

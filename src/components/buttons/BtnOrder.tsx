@@ -11,7 +11,6 @@ interface Props {
 
 const BtnOrder: React.FC<Props> = props => {
   const {content, style, onPress, prop} = props;
-  console.log(content);
 
   return (
     <LinearGradient
