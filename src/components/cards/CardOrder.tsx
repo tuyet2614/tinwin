@@ -7,7 +7,6 @@ import {styles} from '../../screens/StatusOrder/style';
 import BtnOrder from '../buttons/BtnOrder';
 import {ModalBuyAgain} from '../modal/ModalAddToCart';
 import ModalCancel from '../modal/modalCancel';
-import UpdateAvatarModal from '../updateAvatar/UpdateAvatarModal';
 
 interface Props {
   style: string;
