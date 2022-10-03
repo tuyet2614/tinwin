@@ -1,27 +1,25 @@
-import {TouchableOpacity, Text} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {orangeDark, orangeLight, white} from '../constant/const';
+import {colors} from '../assets/colors';
 
 interface Props {
-  style: string;
+  style?: string;
   onPress?: () => void;
-  prop?: object;
-  content: string;
+  text: string;
 }
 
-const BtnPrimary: React.FC<Props> = props => {
-  const {content, style, onPress, prop} = props;
-  console.log(content);
+const BtnPrimary: React.FC<Props> = (props: Props) => {
+  const {text, style, onPress} = props;
 
   return (
     <LinearGradient
-      className={`${style} rounded-md`}
-      colors={[orangeLight, orangeDark]}
+      className={`rounded-md`}
+      colors={[colors.primary, colors.primaryToGradient]}
       start={{x: 0, y: 0.5}}
       end={{x: 1, y: 0.5}}
       locations={[0, 1]}>
-      <TouchableOpacity className="p-3" onPress={onPress} {...prop}>
-        <Text style={{color: white}}>Đăng nhập</Text>
+      <TouchableOpacity className={style} onPress={onPress}>
+        <Text className="text-white">{text}</Text>
       </TouchableOpacity>
     </LinearGradient>
   );

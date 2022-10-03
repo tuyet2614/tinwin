@@ -1,45 +1,53 @@
-import {FlatList, View, VirtualizedList} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {FlatList, ImageSourcePropType} from 'react-native';
+import tw from 'tailwind-react-native-classnames';
+import {NAVIGATE_ADD_NEW_ADDRESS} from '../../navigation/navigate';
 import AddressItem from './AddressItem';
 
 interface Props {
   data: object[];
+  icon?: ImageSourcePropType;
+  setValue?: React.Dispatch<React.SetStateAction<any>>;
 }
 
 const AddressContainer: React.FC<Props> = (props: Props) => {
-  const {data} = props;
+  const {data, icon, setValue} = props;
+
+  const navigation = useNavigation();
+
+  const onPress = (item: object) => {
+    icon !== undefined
+      ? navigation.navigate(NAVIGATE_ADD_NEW_ADDRESS, {
+          title: 'Sửa địa chỉ',
+          item: {
+            name: item.name,
+            phone: item.phone,
+            address: item.address,
+          },
+        })
+      : setValue(item.id);
+  };
+
+  const renderItem = ({item}) => (
+    <AddressItem
+      id={item.id}
+      icon={icon}
+      onPress={() => onPress(item)}
+      name={item.name}
+      phone={item.phone}
+      address={item.address}
+    />
+  );
 
   return (
-    <View>
-      {data.map(item => (
-        <AddressItem
-          name={item.name}
-          phone={item.phone}
-          address={item.address}
-        />
-      ))}
-    </View>
+    <FlatList
+      className="relative z-0"
+      contentContainerStyle={tw`h-full`}
+      data={data}
+      keyExtractor={key => key.id}
+      renderItem={renderItem}
+    />
   );
-  // <VirtualizedList
-  //   getItem={(data, index) => ({
-  //     id: data[index].id,
-  //     name: data[index].name,
-  //     phone: data[index].phone,
-  //     address: data[index].address,
-  //   })}
-
-  //   getItemCount={data => data.length}
-  //   className="relative z-0"
-  //   contentContainerStyle={{height: '100%'}}
-  //   data={data}
-  //   keyExtractor={key => key.id}
-  //   renderItem={({item}) => (
-  //     <AddressItem
-  //       name={item.name}
-  //       phone={item.phone}
-  //       address={item.address}
-  //     />
-  //   )}
-  // />
 };
 
 export default AddressContainer;

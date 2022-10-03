@@ -1,23 +1,15 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import AddressScreen from '../screens/account/AddressScreen';
-import ForgotPassword from '../screens/Authentication/ForgotPassword';
-import FormRegister from '../screens/Authentication/FormRegister';
-import FormForgotPassword from '../screens/Authentication/FormResetPassword';
-import Login from '../screens/Authentication/Login';
-import LoginWithSMS from '../screens/Authentication/LoginWithSMS';
-import OTP from '../screens/Authentication/OTPAuthen';
-import Register from '../screens/Authentication/Register';
 import OnboardingScreen from '../screens/OnboardingScreen';
-import DebitCard from '../screens/Payment/DebitCard';
-import InternetBanking from '../screens/Payment/InternetBanking';
-import OrderSuccess from '../screens/Payment/OrderSuccess';
-import Payment from '../screens/Payment/Payment';
 import Splash from '../screens/Splash';
-import Cart from '../screens/StatusOrder/CartScreen';
-import DetailOrder from '../screens/StatusOrder/DetailOrder';
-import Review from '../screens/StatusOrder/ReviewScreen';
 import TabBar from './TabBar';
+import AddNewAddressScreen from '../screens/account/AddNewAddressScreen';
+import ProductDetailScreen from '../screens/ProductDetail/ProductDetailScreen';
+import RatingScreen from '../screens/ProductDetail/RatingScreen';
+import FilterScreen from '../screens/categories/FilterScreen';
+import CartNavigator from '../screens/cart/CartNavigator';
+import UpdateInfoScreen from '../screens/account/UpdateInfoScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,13 +34,6 @@ const Navigator: React.FC = () => {
           component={OnboardingScreen}
           options={screenOptions}
         />
-        <Stack.Screen name="Login" component={Login} options={screenOptions} />
-        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-        <Stack.Screen name="LoginSMS" component={LoginWithSMS} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="OTPAuthen" component={OTP} />
-        <Stack.Screen name="FormResetPassword" component={FormForgotPassword} />
-        <Stack.Screen name="FormRegister" component={FormRegister} />
         <Stack.Screen
           name="OrderSuccess"
           component={OrderSuccess}
@@ -80,6 +65,36 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name="Address"
           component={AddressScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="AddNewAddress"
+          component={AddNewAddressScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="ProductDetail"
+          component={ProductDetailScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="Rating"
+          component={RatingScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="Filter"
+          component={FilterScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="CartNavigator"
+          component={CartNavigator}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="UpdateInfo"
+          component={UpdateInfoScreen}
           options={screenOptions}
         />
       </Stack.Navigator>

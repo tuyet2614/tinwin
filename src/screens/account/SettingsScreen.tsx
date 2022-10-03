@@ -28,7 +28,7 @@ const SettingsScreen: React.FC = () => {
 
       <TouchableOpacity className="flex-row items-center justify-between p-4">
         <Text className="text-red-danger">Đăng xuất</Text>
-        <FontAwesomeIcon icon={faSignOut} size={25} color="#FF3B30" />
+        <FontAwesomeIcon icon={faSignOut} size={25} />
       </TouchableOpacity>
     </SafeAreaView>
   );
