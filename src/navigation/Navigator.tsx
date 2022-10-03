@@ -1,5 +1,5 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import AddressScreen from '../screens/account/AddressScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import Splash from '../screens/Splash';
@@ -24,6 +24,7 @@ import LoginWithSMS from '../screens/Authentication/LoginWithSMS';
 import OTP from '../screens/Authentication/OTPAuthen';
 import FormForgotPassword from '../screens/Authentication/FormResetPassword';
 import FormRegister from '../screens/Authentication/FormRegister';
+import Order from '../screens/StatusOrder/Order';
 
 const Stack = createNativeStackNavigator();
 
@@ -92,7 +93,7 @@ const Navigator: React.FC = () => {
           component={DetailOrder}
           options={options}
         />
-        <Stack.Screen name="Cart" component={Cart} options={options} />
+        <Stack.Screen name="Cart" component={Order} options={options} />
         <Stack.Screen
           name="FormRegister"
           component={FormRegister}
