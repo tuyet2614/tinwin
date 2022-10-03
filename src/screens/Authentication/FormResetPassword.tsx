@@ -1,15 +1,15 @@
 import {faEyeSlash} from '@fortawesome/free-regular-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useNavigation} from '@react-navigation/native';
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {
+  Keyboard,
   SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
-  Keyboard,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {
