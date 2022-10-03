@@ -17,15 +17,16 @@ export const ModalBuyAgain = ({modalVisible, setModalVisible}) => {
   const reverseModal = () => {
     setModalVisible(!modalVisible);
   };
+  const false1 = () => {
+    setModalVisible(false);
+  };
   return (
     <SafeAreaView>
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
         <TouchableOpacity
           style={{backgroundColor: 'rgba(90, 90, 90, 0.7)'}}
           className={`flex-1 `}
-          onPress={() => {
-            setModalVisible(false);
-          }}></TouchableOpacity>
+          onPress={false1}></TouchableOpacity>
         {/* <View
           className={`bg-white  shadow-xl rounded-t-lg pt-5`}> */}
         <View style={styles1.centeredView} className={`justify-end`}>

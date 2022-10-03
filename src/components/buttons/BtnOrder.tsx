@@ -1,4 +1,4 @@
-import {TouchableOpacity, Text} from 'react-native';
+import {TouchableOpacity, Text, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {orangeDark, orangeLight} from '../../constant/const';
 
@@ -21,19 +21,18 @@ const BtnOrder: React.FC<Props> = props => {
       end={{x: 1, y: 0.5}}
       locations={[0, 1]}>
       <TouchableOpacity className="p-3" onPress={onPress} {...prop}>
-        <Text
-          style={{
-            color: '#FFF',
-            fontWeight: '500',
-            fontSize: 14,
-            lineHeight: 22,
-            textAlign: 'center',
-          }}>
-          {content}
-        </Text>
+        <Text style={styles1.text}>{content}</Text>
       </TouchableOpacity>
     </LinearGradient>
   );
 };
-
+const styles1 = StyleSheet.create({
+  text: {
+    color: '#FFF',
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 22,
+    textAlign: 'center',
+  },
+});
 export default BtnOrder;
