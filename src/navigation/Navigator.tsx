@@ -1,8 +1,15 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Login from '../screens/Login';
-import Register from '../screens/Register';
+import AddressScreen from '../screens/account/AddressScreen';
+import OnboardingScreen from '../screens/OnboardingScreen';
 import Splash from '../screens/Splash';
+import TabBar from './TabBar';
+import AddNewAddressScreen from '../screens/account/AddNewAddressScreen';
+import ProductDetailScreen from '../screens/ProductDetail/ProductDetailScreen';
+import RatingScreen from '../screens/ProductDetail/RatingScreen';
+import FilterScreen from '../screens/categories/FilterScreen';
+import CartNavigator from '../screens/cart/CartNavigator';
+import UpdateInfoScreen from '../screens/account/UpdateInfoScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,10 +26,49 @@ const Navigator: React.FC = () => {
           component={Splash}
           options={screenOptions}
         />
-        <Stack.Screen name="Login" component={Login} options={screenOptions} />
         <Stack.Screen
-          name="Register"
-          component={Register}
+          name="Onboarding"
+          component={OnboardingScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="TabBar"
+          component={TabBar}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="Address"
+          component={AddressScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="AddNewAddress"
+          component={AddNewAddressScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="ProductDetail"
+          component={ProductDetailScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="Rating"
+          component={RatingScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="Filter"
+          component={FilterScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="CartNavigator"
+          component={CartNavigator}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="UpdateInfo"
+          component={UpdateInfoScreen}
           options={screenOptions}
         />
       </Stack.Navigator>
