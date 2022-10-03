@@ -1,4 +1,3 @@
-
 import { useNavigation } from '@react-navigation/native';
 import { Image, SafeAreaView, ScrollView, Text, View } from 'react-native';
 import CartBtn from '../../components/buttons/CartBtn';

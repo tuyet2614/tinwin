@@ -20,7 +20,7 @@ interface Props {
     style?: string;
     color?: string;
 }
-const FilterBtn: React.FC<Props> = (props) => {
+const FilterTag: React.FC<Props> = (props) => {
     const [modalVisible, setModalVisible] = useState<boolean>(false);
     const { style, color } = props;
 
@@ -60,4 +60,4 @@ const FilterBtn: React.FC<Props> = (props) => {
 
 };
 
-export default FilterBtn;
+export default FilterTag;

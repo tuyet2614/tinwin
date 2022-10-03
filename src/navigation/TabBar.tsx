@@ -5,30 +5,27 @@ import {
   faStore,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Platform} from 'react-native';
-import AccountNavigator from '../screens/account/AccountNavigator';
-import CategoriesScreen from '../screens/categories/CategoriesScreen';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Platform } from 'react-native';
 import HomeScreen from '../screens/home/HomeScreen';
-import NotificationScreen from '../screens/notification/NotificationScreen';
 
 const TabBar: React.FC = () => {
   const Tab = createBottomTabNavigator();
 
-  const screenOptions = ({route}) => ({
+  const screenOptions = ({ route }) => ({
     headerShown: false,
-    tabBarIcon: ({focused, color, size}) => {
+    tabBarIcon: ({ focused, color, size }) => {
       return (
         <FontAwesomeIcon
           icon={
             route.name === 'Trang chủ'
               ? faHome
               : route.name === 'Danh mục'
-              ? faStore
-              : route.name === 'Thông báo'
-              ? faBell
-              : faUser
+                ? faStore
+                : route.name === 'Thông báo'
+                  ? faBell
+                  : faUser
           }
           color={color}
           size={20}
@@ -52,9 +49,6 @@ const TabBar: React.FC = () => {
   return (
     <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen name="Trang chủ" component={HomeScreen} />
-      <Tab.Screen name="Danh mục" component={CategoriesScreen} />
-      <Tab.Screen name="Thông báo" component={NotificationScreen} />
-      <Tab.Screen name="Tôi" component={AccountNavigator} />
     </Tab.Navigator>
   );
 };
