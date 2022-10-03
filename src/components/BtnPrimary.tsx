@@ -1,8 +1,7 @@
 import { Text, TouchableOpacity, View } from 'react-native';
 import { colors } from '../assets/colors';
 import LinearGradient from 'react-native-linear-gradient';
-
-
+import { colors } from '../assets/colors';
 
 interface Props {
   style?: string;

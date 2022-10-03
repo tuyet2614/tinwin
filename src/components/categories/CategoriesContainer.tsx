@@ -41,6 +41,21 @@ const CategoriesContainer: React.FC<Props> = (props: Props) => {
       <StallCard image={item.image} text={item.name} />
     );
 
+  const end = () => {
+    setIsEnd(false);
+  };
+
+  const start = () => {
+    setIsEnd(true);
+  };
+
+  const renderItem = ({item}) =>
+    title === 'Ngành hàng' ? (
+      <CategoryCard image={item.image} text={item.name} />
+    ) : (
+      <StallCard image={item.image} text={item.name} />
+    );
+
   return (
     <View>
       <HomeTitle title={title} icon={icon} textBtn={textBtn} />

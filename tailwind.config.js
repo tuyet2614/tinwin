@@ -10,9 +10,6 @@ module.exports = {
         'w-500': '500px',
         'w-750': '750px',
       },
-      backgroundColor: {
-        'backgroundTag': 'rgba(252, 131, 45, 0.1)'
-      }
     },
   },
   plugins: [],

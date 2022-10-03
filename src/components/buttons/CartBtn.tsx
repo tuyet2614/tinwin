@@ -15,6 +15,13 @@ const CartBtn: React.FC<Props> = (props: Props) => {
   const navigation = useNavigation();
   const { color, style } = props;
 
+  const wishlistSelector = useSelector(getWishlistState);
+  const wishlist = wishlistSelector.wishlist;
+
+  const navigateCart = () => {
+    navigation.navigate(NAVIGATE_CART);
+  };
+
   return (
     <TouchableOpacity className={`${style}`} onPress={navigateCart}>
       <FontAwesomeIcon icon={faCartShopping} color={color} size={25} />
