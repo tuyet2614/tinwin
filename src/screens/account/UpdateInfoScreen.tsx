@@ -1,13 +1,13 @@
-import {useNavigation, useRoute} from '@react-navigation/native';
-import {useEffect, useState} from 'react';
-import {SafeAreaView, TextInput, View} from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
+import { SafeAreaView, TextInput, View } from 'react-native';
 import BtnPrimary from '../../components/BtnPrimary';
 import HeaderStack from '../../components/HeaderStack';
 import InputItem from '../../components/InputItem';
 
 const UpdateInfoScreen: React.FC = () => {
   const route = useRoute();
-  const {value, setValue, id} = route.params;
+  const { value, setValue, id } = route.params;
 
   const navigation = useNavigation();
 
