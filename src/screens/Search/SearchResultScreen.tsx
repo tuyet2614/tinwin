@@ -14,12 +14,13 @@ import { SearchBar } from '../../components/SearchField';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigation } from '@react-navigation/native';
-import FilterTag from '../../components/buttons/FilterTag';
+import FilterBtn from '../../components/buttons/FilterBtn';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import ProductsContainer from '../../components/product/ProductsContainer';
 import CartBtn from '../../components/buttons/CartBtn';
 import BtnFilter from '../../components/Search/BtnFilter';
 import { data } from '../../assets/data/data'
+import TagSearch from '../../components/Search/TagSeach';
 
 const DATA = [
     { id: 'a', title: 'Nước tăng lực', icon: require('../../images/cancel.png') },
@@ -67,41 +68,45 @@ const SearchResultScreen: React.FC = () => {
     };
 
     return (
-        <SafeAreaView className="bg-white h-full px-2 p-3">
-            <View>
-                <View className={`flex-row`}>
-                    <View className={'self-center mr-4'}>
-                        <TouchableOpacity
-                            onPress={() => {
-                                navigation.goBack();
-                            }}>
-                            <FontAwesomeIcon color="#1F1F1F" icon={faChevronLeft} />
-                        </TouchableOpacity>
+        <SafeAreaView className="bg-white px-2 p-3 flex-1 h-screen">
+            <ScrollView>
+                <View>
+                    <View className={`flex-row`}>
+                        <View className={'self-center mr-4'}>
+                            <TouchableOpacity
+                                onPress={() => {
+                                    navigation.goBack();
+                                }}>
+                                <FontAwesomeIcon color="#1F1F1F" icon={faChevronLeft} />
+                            </TouchableOpacity>
+                        </View>
+
+                        <SearchBar placeholder="Tìm kiếm" width={200} />
+                        <View>
+                            <FilterBtn />
+                        </View>
+                        <CartBtn
+                            color="#FD7D00"
+                            style="border border-gray-200 justify-center px-3 ml-3 rounded-lg"
+                        />
                     </View>
 
-                    <SearchBar placeholder="Tìm kiếm" width={200} />
-                    <View>
-                        <FilterTag />
+                    <View className={`ml-3`}>
+                        {/* <FlatList data={DATA} renderItem={renderItem} numColumns={2} /> */}
+                        <TagSearch />
                     </View>
-                    <CartBtn
-                        color="#FD7D00"
-                        style="border border-gray-200 justify-center px-3 ml-3 rounded-lg"
+                </View>
+                <View className={`flex-row `}>
+                    <BtnFilter label={tags} />
+                </View>
+                <View >
+                    <ProductsContainer
+                        flatlistStyle={{ justifyContent: 'space-evenly' }}
+                        data={data}
                     />
                 </View>
+            </ScrollView>
 
-                <View className={`ml-3`}>
-                    <FlatList data={DATA} renderItem={renderItem} numColumns={2} />
-                </View>
-            </View>
-            <View className={`flex-row `}>
-                <BtnFilter label={tags} />
-            </View>
-            <View >
-                <ProductsContainer
-                    flatlistStyle={{ justifyContent: 'space-evenly' }}
-                    data={data}
-                />
-            </View>
         </SafeAreaView>
     );
 };

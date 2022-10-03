@@ -9,6 +9,7 @@ import {
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { colors } from '../assets/colors';
 
 interface TextFieldProps {
     width: number;
@@ -27,7 +28,7 @@ export const SearchBar: React.FC<TextFieldProps> = ({
         rounded-lg border-solid border border-gray-200 px-3.5`}
             style={{ width: width }}>
             <View className="pt-3.5">
-                <FontAwesomeIcon icon={faMagnifyingGlass} color="#7B7B80" size={18} />
+                <FontAwesomeIcon icon={faMagnifyingGlass} color={`${colors.lightGray}`} size={18} />
             </View>
             <TextInput
                 className={`pl-2`}

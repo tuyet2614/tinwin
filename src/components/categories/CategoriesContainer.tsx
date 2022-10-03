@@ -11,7 +11,10 @@ import {
 import HomeTitle from '../home/HomeTitle';
 import StallCard from '../home/StallCard';
 import CategoryCard from './CategoryCard';
+import { Shop_Detail } from '../../constant/route';
 import { useNavigation } from '@react-navigation/native';
+import { colors } from '../../assets/colors';
+
 
 
 interface Props {
@@ -49,7 +52,7 @@ const CategoriesContainer: React.FC<Props> = (props: Props) => {
           title === 'Ngành hàng' ? (
             <CategoryCard image={item.image} text={item.name} />
           ) : (
-            <StallCard id={item.id} image={item.image} text={item.name} onPress={() => navigation.navigate('ShopDetail', { id: item.id })} />
+            <StallCard id={item.id} image={item.image} text={item.name} onPress={() => navigation.navigate(Shop_Detail, { id: item.id })} />
           )
         }
       />
@@ -65,7 +68,7 @@ const CategoriesContainer: React.FC<Props> = (props: Props) => {
       ) : (
         <TouchableOpacity className="flex-row items-center self-center my-3">
           <Text className="text-orange-primary mr-2">Hiển thị thêm</Text>
-          <FontAwesomeIcon icon={faAngleDown} color="#FD7D00" />
+          <FontAwesomeIcon icon={faAngleDown} color={`${colors.darkOrange}`} />
         </TouchableOpacity>
       )}
     </View>

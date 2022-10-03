@@ -8,6 +8,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Platform } from 'react-native';
+import { colors } from '../assets/colors';
 import HomeScreen from '../screens/home/HomeScreen';
 
 const TabBar: React.FC = () => {
@@ -32,7 +33,7 @@ const TabBar: React.FC = () => {
         />
       );
     },
-    tabBarActiveTintColor: '#FD7D00',
+    tabBarActiveTintColor: `${colors.darkOrange}`,
     tabBarStyle: {
       height: Platform.OS === 'ios' ? 100 : 70,
       paddingTop: 10,

@@ -14,22 +14,26 @@ import {
 } from 'react-native';
 import BtnBorder from '../BtnBorder';
 import BtnPrimary from '../BtnPrimary';
+import { filter_img } from '../../assets/images';
 import CloseBtn from './CloseBtn';
 
 interface Props {
     style?: string;
     color?: string;
 }
-const FilterTag: React.FC<Props> = (props) => {
+const FilterBtn: React.FC<Props> = (props) => {
     const [modalVisible, setModalVisible] = useState<boolean>(false);
     const { style, color } = props;
+    const onPress = () => {
+        setModalVisible(true)
+    }
 
     return (
         <View>
             <TouchableOpacity
-                onPress={() => setModalVisible(true)}
+                onPress={onPress}
                 className={`border border-gray-200 justify-center px-4 py-3 ml-3 rounded-lg`}>
-                <Image source={require('../../assets/icons/filter.png')} style={{ tintColor: color }} />
+                <Image source={filter_img} style={{ tintColor: color }} />
             </TouchableOpacity>
             <Modal animationType="slide" transparent={true} visible={modalVisible}>
                 <SafeAreaView>
@@ -60,4 +64,4 @@ const FilterTag: React.FC<Props> = (props) => {
 
 };
 
-export default FilterTag;
+export default FilterBtn;

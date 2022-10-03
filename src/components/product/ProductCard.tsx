@@ -1,7 +1,8 @@
-import {faCartArrowDown} from '@fortawesome/free-solid-svg-icons';
-import {useNavigation} from '@react-navigation/native';
-import {TouchableOpacity, Image, Text, View} from 'react-native';
-import {Rating} from 'react-native-ratings';
+import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity, Image, Text, View } from 'react-native';
+import { Rating } from 'react-native-ratings';
+import { Product_Detail_Screen } from '../../constant/route';
 import BtnIcon from '../BtnIcon';
 
 interface Props {
@@ -10,18 +11,21 @@ interface Props {
 
 const ProductCard: React.FC<Props> = (props: Props) => {
   const navigation = useNavigation();
-  const {item} = props;
+  const { item } = props;
+  const productDetail = () => (
+    navigation.navigate(Product_Detail_Screen, { id: item.id })
+  )
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate('ProductDetail', {id: item.id})}
+      onPress={productDetail}
       className="p-3 border border-gray-200 rounded-lg mb-3"
-      style={{width: 185}}>
+      style={{ width: 185 }}>
       <Image source={item.image} className={`w-full h-32`} />
       <Text className="text-lg font-bold text-black">{item.name}</Text>
       <Text>Đã bán 200</Text>
       <Rating
-        style={{alignItems: 'flex-start', marginTop: 12}}
+        style={{ alignItems: 'flex-start', marginTop: 12 }}
         type="star"
         startingValue={item.rating}
         imageSize={10}
