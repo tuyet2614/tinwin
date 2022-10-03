@@ -13,12 +13,11 @@ interface Props {
 
 const BtnIcon: React.FC<Props> = props => {
   const { icon, style, onPress, prop } = props;
-  console.log(prop);
 
   return (
     <LinearGradient
       className={`rounded-md`}
-      colors={[`${colors.darkOrange}`, `${colors.lightOrange}`]}
+      colors={[colors.primary, colors.primaryToGradient]}
       start={{ x: 0, y: 0.5 }}
       end={{ x: 1, y: 0.5 }}
       locations={[0, 1]}>

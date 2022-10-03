@@ -2,14 +2,18 @@ import { faGear } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native';
-import { colors } from '../../assets/colors';
+import { NAVIGATE_SETTINGS } from '../../navigation/navigate';
 
 const SettingsBtn: React.FC = () => {
   const navigation = useNavigation();
 
+  const navigateSettings = () => {
+    navigation.navigate(NAVIGATE_SETTINGS);
+  };
+
   return (
-    <TouchableOpacity >
-      <FontAwesomeIcon icon={faGear} color={`${colors.white}`} size={25} />
+    <TouchableOpacity onPress={navigateSettings}>
+      <FontAwesomeIcon icon={faGear} color="white" size={25} />
     </TouchableOpacity>
   );
 };

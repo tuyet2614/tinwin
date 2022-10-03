@@ -7,8 +7,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Platform } from 'react-native';
+import { Platform, SafeAreaView } from 'react-native';
 import { colors } from '../assets/colors';
+import NotificationModal from '../components/cart/NotificationModal';
+import AccountNavigator from '../screens/account/AccountNavigator';
+import CategoriesScreen from '../screens/categories/CategoriesScreen';
 import HomeScreen from '../screens/home/HomeScreen';
 
 const TabBar: React.FC = () => {
@@ -33,7 +36,7 @@ const TabBar: React.FC = () => {
         />
       );
     },
-    tabBarActiveTintColor: `${colors.darkOrange}`,
+    tabBarActiveTintColor: colors.primary,
     tabBarStyle: {
       height: Platform.OS === 'ios' ? 100 : 70,
       paddingTop: 10,
@@ -48,9 +51,16 @@ const TabBar: React.FC = () => {
   });
 
   return (
-    <Tab.Navigator screenOptions={screenOptions}>
-      <Tab.Screen name="Trang chủ" component={HomeScreen} />
-    </Tab.Navigator>
+    <SafeAreaView className="flex-1">
+      <Tab.Navigator screenOptions={screenOptions}>
+        <Tab.Screen name="Trang chủ" component={HomeScreen} />
+        <Tab.Screen name="Danh mục" component={CategoriesScreen} />
+        <Tab.Screen name="Thông báo" component={NotificationScreen} />
+        <Tab.Screen name="Tôi" component={AccountNavigator} />
+      </Tab.Navigator>
+
+      <NotificationModal />
+    </SafeAreaView>
   );
 };
 

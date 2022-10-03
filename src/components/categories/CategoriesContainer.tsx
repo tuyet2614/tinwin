@@ -11,11 +11,6 @@ import {
 import HomeTitle from '../home/HomeTitle';
 import StallCard from '../home/StallCard';
 import CategoryCard from './CategoryCard';
-import { Shop_Detail } from '../../constant/route';
-import { useNavigation } from '@react-navigation/native';
-import { colors } from '../../assets/colors';
-
-
 
 interface Props {
   data: object[];
@@ -31,12 +26,27 @@ const CategoriesContainer: React.FC<Props> = (props: Props) => {
   const [isEnd, setIsEnd] = useState(false);
   const navigation = useNavigation()
 
+  const end = () => {
+    setIsEnd(false);
+  };
+
+  const start = () => {
+    setIsEnd(true);
+  };
+
+  const renderItem = ({ item }) =>
+    title === 'Ngành hàng' ? (
+      <CategoryCard image={item.image} text={item.name} />
+    ) : (
+      <StallCard image={item.image} text={item.name} />
+    );
+
   return (
     <View>
       <HomeTitle title={title} icon={icon} textBtn={textBtn} />
       <FlatList
-        onScrollBeginDrag={() => setIsEnd(false)}
-        onEndReached={() => setIsEnd(true)}
+        onScrollBeginDrag={end}
+        onEndReached={start}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={flatlistStyle}
         columnWrapperStyle={
@@ -48,13 +58,7 @@ const CategoriesContainer: React.FC<Props> = (props: Props) => {
         horizontal={flatlistStyle.num !== undefined ? false : true}
         data={data}
         keyExtractor={key => key.id}
-        renderItem={({ item }) =>
-          title === 'Ngành hàng' ? (
-            <CategoryCard image={item.image} text={item.name} />
-          ) : (
-            <StallCard id={item.id} image={item.image} text={item.name} onPress={() => navigation.navigate(Shop_Detail, { id: item.id })} />
-          )
-        }
+        renderItem={renderItem}
       />
       {flatlistStyle.num === undefined ? (
         <View className="bg-gray-200 w-8 h-1 flex-row rounded-full my-5 self-center">
@@ -68,7 +72,7 @@ const CategoriesContainer: React.FC<Props> = (props: Props) => {
       ) : (
         <TouchableOpacity className="flex-row items-center self-center my-3">
           <Text className="text-orange-primary mr-2">Hiển thị thêm</Text>
-          <FontAwesomeIcon icon={faAngleDown} color={`${colors.darkOrange}`} />
+          <FontAwesomeIcon icon={faAngleDown} color="#FD7D00" />
         </TouchableOpacity>
       )}
     </View>
