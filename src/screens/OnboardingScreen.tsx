@@ -49,7 +49,7 @@ const Square: React.FC = ({isLight, selected}) => {
 const OnboardingScreen: React.FC = () => {
   const navigation = useNavigation();
   const onPress = () => {
-    navigation.navigate(NAVIGATE_HOME);
+    navigation.navigate(NAVIGATE_LOGIN);
   };
 
   const NextButtonComponent = ({isLight, ...props}) => (

@@ -10,6 +10,20 @@ import RatingScreen from '../screens/ProductDetail/RatingScreen';
 import FilterScreen from '../screens/categories/FilterScreen';
 import CartNavigator from '../screens/cart/CartNavigator';
 import UpdateInfoScreen from '../screens/account/UpdateInfoScreen';
+import OrderSuccess from '../screens/Payment/OrderSuccess';
+import InternetBanking from '../screens/Payment/InternetBanking';
+import Payment from '../screens/Payment/Payment';
+import DebitCard from '../screens/Payment/DebitCard';
+import DetailOrder from '../screens/StatusOrder/DetailOrder';
+import Cart from '../screens/StatusOrder/CartScreen';
+import Review from '../screens/StatusOrder/ReviewScreen';
+import Login from '../screens/Authentication/Login';
+import ForgotPassword from '../screens/Authentication/ForgotPassword';
+import Register from '../screens/Authentication/Register';
+import LoginWithSMS from '../screens/Authentication/LoginWithSMS';
+import OTP from '../screens/Authentication/OTPAuthen';
+import FormForgotPassword from '../screens/Authentication/FormResetPassword';
+import FormRegister from '../screens/Authentication/FormRegister';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +47,29 @@ const Navigator: React.FC = () => {
           name="Onboarding"
           component={OnboardingScreen}
           options={screenOptions}
+        />
+        <Stack.Screen name="Login" component={Login} options={screenOptions} />
+        <Stack.Screen
+          name="ForgotPassword"
+          component={ForgotPassword}
+          options={options}
+        />
+        <Stack.Screen name="Register" component={Register} options={options} />
+        <Stack.Screen
+          name="LoginWithSMS"
+          component={LoginWithSMS}
+          options={options}
+        />
+        <Stack.Screen name="OTPAuthen" component={OTP} options={options} />
+        <Stack.Screen
+          name="FormResetPassword"
+          component={FormForgotPassword}
+          options={options}
+        />
+        <Stack.Screen
+          name="FormRegister"
+          component={FormRegister}
+          options={options}
         />
         <Stack.Screen
           name="OrderSuccess"

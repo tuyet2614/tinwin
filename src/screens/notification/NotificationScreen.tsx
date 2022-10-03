@@ -21,7 +21,7 @@ const NotificationScreen: React.FC = () => {
   useEffect(() => {
     navigation.setOptions({title: 'Thông báo'});
   }, []);
-  const bool = () => {
+  const bool1 = () => {
     setBool(!bool);
   };
   return (
@@ -30,7 +30,7 @@ const NotificationScreen: React.FC = () => {
         <Text style={styles1.update}>Cập nhật quan trọng</Text>
         <Text style={styles1.notifi}>{188} thông báo mới</Text>
       </View>
-      <TouchableOpacity onPress={bool} style={styles1.open}>
+      <TouchableOpacity onPress={bool1} style={styles1.open}>
         <View style={{flexDirection: 'row'}}>
           <Image source={require('../../assets/payment/Redbull.png')}></Image>
           <View style={styles1.flexAlignMl8}>
@@ -123,8 +123,8 @@ const NotificationScreen: React.FC = () => {
             start={{x: 0, y: 0.5}}
             end={{x: 1, y: 0.5}}
             locations={[0, 1]}
-            style={styles1.boxNoti}>
-            <View>
+            style={styles1.linePayment}>
+            <View style={styles1.boxNoti}>
               <Image
                 source={require('../../assets/payment/tinwinLG.png')}></Image>
             </View>
@@ -198,6 +198,7 @@ const styles1 = StyleSheet.create({
     lineHeight: 18,
     color: '#3A3A3C',
     marginBottom: 4,
+    marginRight: 115,
   },
   mw295: {maxWidth: 295},
   boxNoti: {
@@ -240,6 +241,12 @@ const styles1 = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  linePayment: {
+    maxWidth: 32,
+    maxHeight: 32,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 export default NotificationScreen;
