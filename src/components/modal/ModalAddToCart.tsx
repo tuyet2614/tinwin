@@ -1,7 +1,6 @@
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {
-  Alert,
   Image,
   Modal,
   Pressable,
@@ -10,156 +9,125 @@ import {
   Text,
   TouchableOpacity,
   View,
+  SafeAreaView,
 } from 'react-native';
 import BtnOrder from '../../components/buttons/BtnOrder';
 
 export const ModalBuyAgain = ({modalVisible, setModalVisible}) => {
+  const reverseModal = () => {
+    setModalVisible(!modalVisible);
+  };
   return (
-    <View style={styles1.centeredView}>
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
-        }}
-        supportedOrientations="portrait-upside-down">
-        <View style={styles1.centeredView}>
-          <Pressable style={styles1.modalView}>
+    <SafeAreaView>
+      <Modal animationType="slide" transparent={true} visible={modalVisible}>
+        <TouchableOpacity
+          style={{backgroundColor: 'rgba(90, 90, 90, 0.7)'}}
+          className={`flex-1 `}
+          onPress={() => {
+            setModalVisible(false);
+          }}></TouchableOpacity>
+        {/* <View
+          className={`bg-white  shadow-xl rounded-t-lg pt-5`}> */}
+        <View style={styles1.centeredView} className={`justify-end`}>
+          <View style={styles1.modalView}>
             <ScrollView>
-              <View
-                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Text
-                  style={{
-                    fontWeight: '700',
-                    fontSize: 16,
-                    lineHeight: 20,
-                    color: '#1F1F1F',
-                  }}>
-                  Thêm vào giỏ hàng
-                </Text>
-                <TouchableOpacity
-                  onPress={() => setModalVisible(!modalVisible)}>
+              <View style={styles1.flex}>
+                <Text style={styles1.textAddToCart}>Thêm vào giỏ hàng</Text>
+                <TouchableOpacity onPress={reverseModal}>
                   <FontAwesomeIcon
                     icon={faXmark}
                     size={14}
                     color="#000000"></FontAwesomeIcon>
                 </TouchableOpacity>
               </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  marginTop: 20,
-                }}>
+              <View style={styles1.boxP}>
                 <Image source={require('../../assets/order/sting.png')}></Image>
-                <View style={{marginLeft: 17}}>
-                  <Text
-                    style={{
-                      marginRight: 50,
-                      marginBottom: 5,
-                      fontWeight: '500',
-                      fontSize: 12,
-                      lineHeight: 14,
-                      color: '#48484A',
-                    }}>
+                <View style={styles1.ml17}>
+                  <Text style={styles1.textP}>
                     Thùng 24 Chai Nước Giải Khát Sting Vàng (330ml/chai)
                   </Text>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                    }}>
-                    <Text
-                      style={{
-                        fontWeight: '400',
-                        fontSize: 12,
-                        lineHeight: 14,
-                        color: '#48484A',
-                      }}>
-                      Mã SP: ASSDF
-                    </Text>
-                    <Text
-                      style={{
-                        fontSize: 12,
-                        lineHeight: 14,
-                        fontWeight: '500',
-                        color: '#FC832D',
-                        marginRight: 50,
-                      }}>
-                      x3
-                    </Text>
+                  <View style={styles1.flexAlign}>
+                    <Text style={styles1.code}>Mã SP: ASSDF</Text>
+                    <Text style={styles1.x3}>x3</Text>
                   </View>
                 </View>
               </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  marginTop: 20,
-                }}>
+              <View style={styles1.boxP}>
                 <Image
                   source={require('../../assets/order/sting.png')}
                   blurRadius={9}
-                  style={{borderRadius: 5}}></Image>
+                  style={styles1.borderRa}></Image>
                 <Image
                   source={require('../../assets/order/soldOut.png')}
-                  style={{position: 'absolute', top: 0}}></Image>
-                <View style={{marginLeft: 17}}>
-                  <Text
-                    style={{
-                      marginRight: 50,
-                      marginBottom: 5,
-                      fontWeight: '500',
-                      fontSize: 12,
-                      lineHeight: 14,
-                      color: '#bfbfc0',
-                    }}>
+                  style={styles1.imgSoldOut}></Image>
+                <View style={styles1.ml17}>
+                  <Text style={styles1.titlePSoldOut}>
                     Thùng 24 Chai Nước Giải Khát Sting Vàng (330ml/chai)
                   </Text>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                    }}>
-                    <Text
-                      style={{
-                        fontWeight: '400',
-                        fontSize: 12,
-                        lineHeight: 14,
-                        color: '#bfbfc0',
-                      }}>
-                      Mã SP: ASSDF
-                    </Text>
-                    <Text
-                      style={{
-                        fontSize: 12,
-                        lineHeight: 14,
-                        fontWeight: '500',
-                        color: '#fecdab',
-                        marginRight: 50,
-                      }}>
-                      x3
-                    </Text>
+                  <View style={styles1.flexAlign}>
+                    <Text style={styles1.codeSoldOut}>Mã SP: ASSDF</Text>
+                    <Text style={styles1.x3SoldOut}>x3</Text>
                   </View>
                 </View>
               </View>
-              <View style={{marginTop: 42}}>
-                <BtnOrder
-                  content={'Đồng ý'}
-                  style={{width: 76, height: 76}}></BtnOrder>
+              <View style={styles1.mt42}>
+                <BtnOrder content={'Đồng ý'} style={styles1.wh76}></BtnOrder>
               </View>
             </ScrollView>
-          </Pressable>
+          </View>
         </View>
+        {/* </View> */}
       </Modal>
-    </View>
+    </SafeAreaView>
   );
 };
 const styles1 = StyleSheet.create({
+  x3: {
+    fontSize: 12,
+    lineHeight: 14,
+    fontWeight: '500',
+    color: '#FC832D',
+    marginRight: 70,
+  },
+  code: {
+    fontWeight: '400',
+    fontSize: 12,
+    lineHeight: 14,
+    color: '#48484A',
+  },
+  textAddToCart: {
+    fontWeight: '700',
+    fontSize: 16,
+    lineHeight: 20,
+    color: '#1F1F1F',
+  },
+  textP: {
+    marginRight: 70,
+    marginBottom: 5,
+    fontWeight: '500',
+    fontSize: 12,
+    lineHeight: 14,
+    color: '#48484A',
+  },
+  boxP: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  codeSoldOut: {
+    fontWeight: '400',
+    fontSize: 12,
+    lineHeight: 14,
+    color: '#bfbfc0',
+  },
+  x3SoldOut: {
+    fontSize: 12,
+    lineHeight: 14,
+    fontWeight: '500',
+    color: '#fecdab',
+    marginRight: 70,
+  },
+  mt42: {marginTop: 42},
   centeredView: {
     flex: 1,
     justifyContent: 'flex-end',
@@ -168,7 +136,7 @@ const styles1 = StyleSheet.create({
     height: '00%',
     width: '100%',
     borderStyle: 'solid',
-    backgroundColor: 'rgba(52, 52, 52, 0.8)',
+    backgroundColor: 'rgba(90, 90, 90, 0.7)',
     elevation: 20,
     // padding: 10,
     // borderRadius: 4,
@@ -188,7 +156,7 @@ const styles1 = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
     width: '100%',
-    height: '60%',
+    height: '100%',
   },
   button: {
     borderRadius: 20,
@@ -223,4 +191,22 @@ const styles1 = StyleSheet.create({
     marginBottom: 30,
     marginTop: 9,
   },
+  wh76: {width: 76, height: 76},
+  flexAlign: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  titlePSoldOut: {
+    marginRight: 70,
+    marginBottom: 5,
+    fontWeight: '500',
+    fontSize: 12,
+    lineHeight: 14,
+    color: '#bfbfc0',
+  },
+  ml17: {marginLeft: 17},
+  borderRa: {borderRadius: 5},
+  imgSoldOut: {position: 'absolute', top: 0},
+  flex: {flexDirection: 'row', justifyContent: 'space-between'},
 });

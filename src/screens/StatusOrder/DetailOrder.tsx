@@ -14,6 +14,12 @@ const DetailOrder: React.FC = (props: Props) => {
   var x = 1000000;
   x = x.toLocaleString('it-IT', {style: 'currency', currency: 'VND'});
 
+  const navigatePayment = () => {
+    navigation.navigate('Payment');
+  };
+  const navigateDetailOrder = () => {
+    navigation.navigate('DetailOrder');
+  };
   useEffect(() => {
     navigation.setOptions({
       title: 'Thông tin đơn hàng',
@@ -22,92 +28,30 @@ const DetailOrder: React.FC = (props: Props) => {
   return (
     <ScrollView>
       <View style={styles.card}>
-        <View
-          style={{
-            //   flex: 1,
-            borderWidth: 1,
-            borderColor: '#feb27b',
-            height: 62,
-            backgroundColor: '#fff3ea',
-            paddingBottom: 11,
-            paddingTop: 11,
-            paddingLeft: 14,
-            borderRadius: 8,
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
+        <View style={style1.box}>
           <Image
             source={require('../../assets/order/logoShop.png')}
-            style={{width: 40, height: 40}}
+            style={style1.ImgLogo}
           />
-          <Text
-            style={{
-              marginLeft: 13,
-              fontWeight: '600',
-              fontSize: 14,
-              lineHeight: 18,
-              color: '#1F1F1F',
-            }}>
-            Đơn hàng đã được xác nhận
-          </Text>
+          <Text style={style1.titleComfirm}>Đơn hàng đã được xác nhận</Text>
         </View>
       </View>
-      <Text
-        style={{
-          marginLeft: 24,
-          marginTop: 7,
-          marginBottom: 8,
-          fontWeight: '500',
-          fontSize: 14,
-          lineHeight: 18,
-          color: '#3A3A3C',
-        }}>
-        Địa chỉ nhận hàng
-      </Text>
+      <Text style={style1.addressTitle}>Địa chỉ nhận hàng</Text>
       <View style={styles.card}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={style1.row}>
           <Image source={require('../../assets/order/square.png')} />
-          <View style={{marginLeft: 15, marginRight: 50}}>
-            <Text
-              style={{
-                fontWeight: '600',
-                fontSize: 16,
-                lineHeight: 22,
-                color: '#FC832D',
-              }}>
-              Robert Fox
-            </Text>
-            <Text
-              style={{
-                fontWeight: '500',
-                fontSize: 12,
-                lineHeight: 14,
-                color: '#48484A',
-              }}>
-              (+84) 12 345 6789
-            </Text>
-            <Text
-              style={{
-                fontWeight: '500',
-                fontSize: 12,
-                lineHeight: 14,
-                color: '#48484A',
-                marginTop: 2,
-              }}>
+          <View style={style1.m1520}>
+            <Text style={style1.name}>Robert Fox</Text>
+            <Text style={style1.phoneN}>(+84) 12 345 6789</Text>
+            <Text style={style1.address}>
               Toà nhà Mitec Tower Dương Đình Nghệ, Yên Hoà, Từ Liêm, Hà Nội
             </Text>
           </View>
         </View>
       </View>
-      <View style={{marginTop: 5}}>
+      <View style={style1.mt5}>
         <View style={styles.card}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-            className="">
+          <View style={style1.flexAlign} className="">
             <View style={styles.title}>
               <Image source={require('../../assets/order/shop.png')}></Image>
               <Text style={styles.textTitle}>TV xiaomi Việt Nam</Text>
@@ -123,257 +67,236 @@ const DetailOrder: React.FC = (props: Props) => {
                 Máy Lọc Không Khí Xiaomi Mi Air Purifier 4 lite
               </Text>
               <Text style={styles.productCode}>MÃ SP: a</Text>
-              <View
-                style={{
-                  marginTop: 10,
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                }}>
+              <View style={style1.flexMt10}>
                 <Text style={styles.price}>{x}</Text>
                 <Text style={styles.count}>x3</Text>
               </View>
             </View>
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginTop: 10,
-              marginBottom: 10,
-            }}>
-            <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
-            <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
+          <View style={style1.flexmbmte}>
+            <View style={style1.line} />
+            <View style={style1.line} />
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginTop: 20,
-            }}>
-            <Text
-              style={{
-                fontWeight: '400',
-                fontSize: 16,
-                lineHeight: 22,
-                color: '#48484A',
-              }}>
-              Tổng tiền hàng
-            </Text>
-            <Text
-              style={{
-                fontWeight: '400',
-                fontSize: 16,
-                lineHeight: 22,
-                color: '#48484A',
-              }}>
-              {x}
-            </Text>
+          <View style={style1.flexMt20}>
+            <Text style={style1.money}>Tổng tiền hàng</Text>
+            <Text style={style1.money}>{x}</Text>
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginTop: 4,
-              marginBottom: 10,
-            }}>
-            <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
-            <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
+          <View style={style1.flexMBMT1}>
+            <View style={style1.line} />
+            <View style={style1.line} />
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}>
-            <Text
-              style={{
-                fontWeight: '400',
-                fontSize: 16,
-                lineHeight: 22,
-                color: '#48484A',
-              }}>
-              Phí vận chuyển
-            </Text>
-            <Text
-              style={{
-                fontWeight: '400',
-                fontSize: 16,
-                lineHeight: 22,
-                color: '#48484A',
-              }}>
-              {x}
-            </Text>
+          <View style={style1.flex}>
+            <Text style={style1.money}>Phí vận chuyển</Text>
+            <Text style={style1.money}>{x}</Text>
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginTop: 4,
-              marginBottom: 10,
-            }}>
-            <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
-            <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
+          <View style={style1.flexMBMT1}>
+            <View style={style1.line} />
+            <View style={style1.line} />
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}>
-            <Text
-              style={{
-                fontWeight: '400',
-                fontSize: 16,
-                lineHeight: 22,
-                color: '#48484A',
-              }}>
-              Tổng số tiền
-            </Text>
-            <Text
-              style={{
-                fontWeight: '400',
-                fontSize: 16,
-                lineHeight: 22,
-                color: '#48484A',
-              }}>
-              {x}
-            </Text>
+          <View style={style1.flex}>
+            <Text style={style1.total}>Tổng số tiền</Text>
+            <Text style={style1.money}>{x}</Text>
           </View>
         </View>
-        <Text
-          style={{
-            marginLeft: 24,
-            marginTop: 11,
-            fontWeight: '500',
-            fontSize: 14,
-            lineHeight: 18,
-            color: '#3A3A3C',
-          }}>
-          Phương thức thanh toán
-        </Text>
-        <View style={{marginTop: 11}}>
+        <Text style={style1.pttt}>Phương thức thanh toán</Text>
+        <View style={style1.mt}>
           <View style={styles.card}>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <View style={style1.flex1}>
               <Image
                 source={require('../../assets/order/wallet.png')}
-                style={{width: 19, height: 19}}
+                style={style1.imgWallet}
               />
-              <Text
-                style={{
-                  marginLeft: 11.5,
-                  fontWeight: '500',
-                  fontSize: 14,
-                  lineHeight: 22,
-                  color: '#3A3A3C',
-                }}>
-                Ví Tin tin
-              </Text>
+              <Text style={style1.wallet}>Ví Tin tin</Text>
             </View>
           </View>
         </View>
-        <View style={{marginTop: 11}}>
+        <View style={style1.mt}>
           <View style={styles.card}>
-            <View
-              style={{
-                height: 62,
-                backgroundColor: '#fff3ea',
-                paddingBottom: 11,
-                paddingTop: 11,
-                paddingLeft: 14,
-                borderRadius: 8,
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginBottom: 30,
-              }}>
-              <Text
-                style={{
-                  marginLeft: 13,
-                  fontWeight: '400',
-                  fontSize: 14,
-                  lineHeight: 17,
-                  color: '#FC832D',
-                  textAlign: 'center',
-                }}>
-                Mã đơn hàng: VNA123
-              </Text>
+            <View style={style1.boxCode}>
+              <Text style={style1.code}>Mã đơn hàng: VNA123</Text>
             </View>
-            <View
-              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text
-                style={{
-                  fontWeight: '500',
-                  fontSize: 12,
-                  lineHeight: 14,
-                  color: '#8E8E93',
-                }}>
-                Thời gian đặt hàng
-              </Text>
-              <Text
-                style={{
-                  fontWeight: '500',
-                  fontSize: 12,
-                  lineHeight: 14,
-                  color: '#8E8E93',
-                }}>
-                25/04/2022 07:05
-              </Text>
+            <View style={style1.flex}>
+              <Text style={style1.titleDate}>Thời gian đặt hàng</Text>
+              <Text style={style1.dateTime}>25/04/2022 07:05</Text>
             </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 4,
-                marginBottom: 10,
-              }}>
-              <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
-              <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
+            <View style={style1.flexMBMT1}>
+              <View style={style1.line} />
+              <View style={style1.line} />
             </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                marginTop: 10,
-              }}>
-              <Text
-                style={{
-                  fontWeight: '500',
-                  fontSize: 12,
-                  lineHeight: 14,
-                  color: '#8E8E93',
-                }}>
-                Thời gian đặt hàng
-              </Text>
-              <Text
-                style={{
-                  fontWeight: '500',
-                  fontSize: 12,
-                  lineHeight: 14,
-                  color: '#8E8E93',
-                }}>
-                25/04/2022 07:05
-              </Text>
+            <View style={style1.flexMb}>
+              <Text style={style1.titleDate}>Thời gian đặt hàng</Text>
+              <Text style={style1.dateTime}>25/04/2022 07:05</Text>
             </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 4,
-                marginBottom: 42,
-              }}>
-              <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
-              <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
+            <View style={style1.flexMbMt}>
+              <View style={style1.line} />
+              <View style={style1.line} />
             </View>
-            <View style={{marginBottom: 10}}>
+            <View style={style1.mb10}>
               <BtnOrder
                 content="Thanh toán ngay"
-                onPress={() => navigation.navigate('Payment')}></BtnOrder>
+                onPress={navigatePayment}></BtnOrder>
             </View>
-            <BtnOrder
-              content="Abc"
-              onPress={() => navigation.navigate('DetailOrder')}></BtnOrder>
+            <BtnOrder content="Abc" onPress={navigateDetailOrder}></BtnOrder>
           </View>
         </View>
       </View>
     </ScrollView>
   );
 };
-
+const style1 = StyleSheet.create({
+  line: {flex: 1, height: 1, backgroundColor: '#F9F9F9'},
+  mb10: {marginBottom: 10},
+  dateTime: {
+    fontWeight: '500',
+    fontSize: 12,
+    lineHeight: 14,
+    color: '#8E8E93',
+  },
+  titleDate: {
+    fontWeight: '500',
+    fontSize: 12,
+    lineHeight: 14,
+    color: '#8E8E93',
+  },
+  flexMb: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 10,
+  },
+  flexMbMt: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 4,
+    marginBottom: 42,
+  },
+  flexMBMT1: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 4,
+    marginBottom: 10,
+  },
+  flex: {flexDirection: 'row', justifyContent: 'space-between'},
+  flex1: {flexDirection: 'row'},
+  code: {
+    marginLeft: 13,
+    fontWeight: '400',
+    fontSize: 14,
+    lineHeight: 17,
+    color: '#FC832D',
+    textAlign: 'center',
+  },
+  boxCode: {
+    height: 62,
+    backgroundColor: '#fff3ea',
+    paddingBottom: 11,
+    paddingTop: 11,
+    paddingLeft: 14,
+    borderRadius: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 30,
+  },
+  mt: {marginTop: 11},
+  wallet: {
+    marginLeft: 11.5,
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 22,
+    color: '#3A3A3C',
+  },
+  imgWallet: {width: 19, height: 19},
+  pttt: {
+    marginLeft: 24,
+    marginTop: 11,
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 18,
+    color: '#3A3A3C',
+  },
+  total: {
+    fontWeight: '400',
+    fontSize: 16,
+    lineHeight: 22,
+    color: '#48484A',
+  },
+  money: {
+    fontWeight: '400',
+    fontSize: 16,
+    lineHeight: 22,
+    color: '#48484A',
+  },
+  flexMt20: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20,
+  },
+  flexmbmte: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  flexMt10: {
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  flexAlign: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  mt5: {marginTop: 5},
+  address: {
+    fontWeight: '500',
+    fontSize: 12,
+    lineHeight: 14,
+    color: '#48484A',
+    marginTop: 2,
+  },
+  phoneN: {
+    fontWeight: '500',
+    fontSize: 12,
+    lineHeight: 14,
+    color: '#48484A',
+  },
+  name: {
+    fontWeight: '600',
+    fontSize: 16,
+    lineHeight: 22,
+    color: '#FC832D',
+  },
+  m1520: {marginLeft: 15, marginRight: 50},
+  row: {flexDirection: 'row'},
+  addressTitle: {
+    marginLeft: 24,
+    marginTop: 7,
+    marginBottom: 8,
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 18,
+    color: '#3A3A3C',
+  },
+  titleComfirm: {
+    marginLeft: 13,
+    fontWeight: '600',
+    fontSize: 14,
+    lineHeight: 18,
+    color: '#1F1F1F',
+  },
+  ImgLogo: {width: 40, height: 40},
+  box: {
+    //   flex: 1,
+    borderWidth: 1,
+    borderColor: '#feb27b',
+    height: 62,
+    backgroundColor: '#fff3ea',
+    paddingBottom: 11,
+    paddingTop: 11,
+    paddingLeft: 14,
+    borderRadius: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+});
 export default DetailOrder;

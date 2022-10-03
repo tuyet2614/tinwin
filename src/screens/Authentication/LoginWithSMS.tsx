@@ -1,10 +1,3 @@
-import {
-  faApple,
-  faFacebook,
-  faGooglePlus,
-} from '@fortawesome/free-brands-svg-icons';
-import {faEyeSlash} from '@fortawesome/free-regular-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useNavigation} from '@react-navigation/native';
 import {useEffect, useState} from 'react';
 import {
@@ -15,9 +8,10 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Keyboard,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {orangeDark, orangeLight} from '../../constant/const';
+import {lightGrey, orangeDark, orangeLight} from '../../constant/const';
 import {styleSMS as style} from './style';
 
 const LoginWithSMS: React.FC = ({}) => {
@@ -32,13 +26,14 @@ const LoginWithSMS: React.FC = ({}) => {
     headerShadowVisible: false, // applied here
   };
   const setUser = (text: string) => {
-    setUser(text);
+    setUserName(text);
   };
   const navigate = () => {
     navigation.navigate('OTPAuthen', {title: 'Đăng nhập OTP'});
   };
   useEffect(() => {
     navigation.setOptions(options);
+    Keyboard.dismiss();
   }, []);
   return (
     <SafeAreaView style={style.container}>
@@ -54,7 +49,8 @@ const LoginWithSMS: React.FC = ({}) => {
             style={style.input}
             value={userName}
             placeholder="Nhập Email / Số điện thoại"
-            onChange={text => setUser(text)}
+            onChange={setUser}
+            placeholderTextColor={lightGrey}
           />
         </View>
       </View>

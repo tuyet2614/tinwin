@@ -33,7 +33,6 @@ const OTP: React.FC = ({route}) => {
 
   useEffect(() => {
     navigation.setOptions(options);
-    textInput.focus();
   }, []);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -55,82 +54,92 @@ const OTP: React.FC = ({route}) => {
       navigation.navigate('FormResetPassword');
     }
   };
-
+  const focusTextInput = () => {
+    textInput.focus();
+  };
+  console.log(OTPComfirm);
   return (
-    <SafeAreaView style={style.container}>
-      <View className="self-center">
-        <Image
-          source={require('../../assets/authen/Frame.png')}
-          style={style.image}></Image>
-      </View>
+    <View>
+      <TextInput
+        ref={input => (textInput = input)}
+        value={OTPComfirm}
+        autoFocus={true}
+        onChangeText={onChangeText}
+        maxLength={lengthInput}
+        returnKeyType="done"
+        keyboardType="numeric"
+        // editable={true}
+        style={{position: 'absolute', bottom: -99999}}></TextInput>
+      <SafeAreaView style={style.container}>
+        <View className="self-center">
+          <Image
+            source={require('../../assets/authen/Frame.png')}
+            style={style.image}></Image>
+        </View>
 
-      <View style={{alignSelf: 'center'}}>
-        <TextInput
-          ref={input => (textInput = input)}
-          onChangeText={onChangeText}
-          maxLength={lengthInput}
-          returnKeyType="done"
-          keyboardType="numeric"
-          style={{display: 'none'}}></TextInput>
-        <View style={style1.OTPContainer}>
-          {Array(lengthInput)
-            .fill()
-            .map((data, index) => (
-              <View key={index} style={style1.boxOTP}>
-                <Text
-                  style={style1.numberOTP}
-                  onPress={() => textInput.focus()}>
-                  {OTPComfirm && OTPComfirm.length > 0 ? OTPComfirm[index] : ''}
-                </Text>
-              </View>
-            ))}
+        <View style={{alignSelf: 'center'}}>
+          <View style={style1.OTPContainer}>
+            {Array(lengthInput)
+              .fill()
+              .map((data, index) => (
+                <View key={index} style={style1.boxOTP}>
+                  <TouchableOpacity onPress={focusTextInput}>
+                    <Text style={style1.numberOTP}>
+                      {OTPComfirm && OTPComfirm.length > 0
+                        ? OTPComfirm[index]
+                        : ''}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              ))}
+          </View>
         </View>
-      </View>
-      <View style={style1.boxNoti}>
-        <Text style={style1.textNoti}>
-          Quý khách vui lòng nhập mã xác thực gồm 6 chữ số đã được gửi về số
-          điện thoại 091****678
-        </Text>
-      </View>
-      {OTPComfirm.length === lengthInput ? (
-        <View style={{marginTop: 40, marginBottom: 31}}>
-          <LinearGradient
-            className={` rounded-md`}
-            colors={[orangeLight, orangeDark]}
-            start={{x: 0, y: 0.5}}
-            end={{x: 1, y: 0.5}}
-            locations={[0, 1]}
-            style={style1.boxNext}>
-            <TouchableOpacity className="p-3" onPress={onNavigate}>
-              <Text style={style1.textNext}>Tiếp tục</Text>
-            </TouchableOpacity>
-          </LinearGradient>
-        </View>
-      ) : (
-        ''
-      )}
-      {OTPComfirm.length === lengthInput ? (
-        <></>
-      ) : timeOut !== 0 ? (
-        <View style={style1.boxWait}>
-          <Text style={style1.textWait}>
-            Vui lòng chờ <Text style={{color: red}}>{timeOut}s</Text> để nhận
-            lại mã xác thực{' '}
+        <View style={style1.boxNoti}>
+          <Text style={style1.textNoti}>
+            Quý khách vui lòng nhập mã xác thực gồm 6 chữ số đã được gửi về số
+            điện thoại 091****678
           </Text>
         </View>
-      ) : (
-        <View style={style1.boxAgain}>
-          <Text style={style1.textAgain}>Bạn vẫn chưa nhận được mã?</Text>
-          <TouchableOpacity style={style1.btnAgain}>
-            <FontAwesomeIcon
-              icon={faArrowRotateRight}
-              style={style1.icon}
-              size={12}></FontAwesomeIcon>
-            <Text style={style1.textSendAgain}>Nhấn gửi lại mã</Text>
-          </TouchableOpacity>
-        </View>
-      )}
-    </SafeAreaView>
+        {OTPComfirm.length === lengthInput ? (
+          <View style={style1.mtmb}>
+            <LinearGradient
+              className={` rounded-md`}
+              colors={[orangeLight, orangeDark]}
+              start={{x: 0, y: 0.5}}
+              end={{x: 1, y: 0.5}}
+              locations={[0, 1]}
+              style={style1.boxNext}>
+              <TouchableOpacity className="p-3" onPress={onNavigate}>
+                <Text style={style1.textNext}>Tiếp tục</Text>
+              </TouchableOpacity>
+            </LinearGradient>
+          </View>
+        ) : (
+          ''
+        )}
+        {OTPComfirm.length === lengthInput ? (
+          <></>
+        ) : timeOut !== 0 ? (
+          <View style={style1.boxWait}>
+            <Text style={style1.textWait}>
+              Vui lòng chờ <Text style={{color: red}}>{timeOut}s</Text> để nhận
+              lại mã xác thực{' '}
+            </Text>
+          </View>
+        ) : (
+          <View style={style1.boxAgain}>
+            <Text style={style1.textAgain}>Bạn vẫn chưa nhận được mã?</Text>
+            <TouchableOpacity style={style1.btnAgain}>
+              <FontAwesomeIcon
+                icon={faArrowRotateRight}
+                style={style1.icon}
+                size={12}></FontAwesomeIcon>
+              <Text style={style1.textSendAgain}>Nhấn gửi lại mã</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+      </SafeAreaView>
+    </View>
   );
 };
 const style1 = StyleSheet.create({
@@ -206,5 +215,6 @@ const style1 = StyleSheet.create({
     lineHeight: 14,
     marginTop: 9,
   },
+  mtmb: {marginTop: 40, marginBottom: 31},
 });
 export default OTP;

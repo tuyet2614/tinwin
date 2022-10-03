@@ -17,7 +17,7 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {orangeDark, orangeLight} from '../../constant/const';
+import {grey, lightGrey, orangeDark, orangeLight} from '../../constant/const';
 
 const ForgotPassword: React.FC = () => {
   const navigation = useNavigation();
@@ -51,6 +51,7 @@ const ForgotPassword: React.FC = () => {
             value={userName}
             placeholder="Nhập Email / Số điện thoại"
             onChange={setUser}
+            placeholderTextColor={lightGrey}
           />
         </View>
       </View>
@@ -116,6 +117,7 @@ export const style = StyleSheet.create({
     borderWidth: 1,
     borderStyle: 'solid',
     marginBottom: 30,
+    color: grey,
   },
   textSMS: {
     fontSize: 12,

@@ -1,6 +1,6 @@
 import {TouchableOpacity, Text} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {orangeDark, orangeLight} from '../constant/const';
+import {orangeDark, orangeLight, white} from '../constant/const';
 
 interface Props {
   style: string;
@@ -21,7 +21,7 @@ const BtnPrimary: React.FC<Props> = props => {
       end={{x: 1, y: 0.5}}
       locations={[0, 1]}>
       <TouchableOpacity className="p-3" onPress={onPress} {...prop}>
-        <Text style={{color: '#FFF'}}>Đăng nhập</Text>
+        <Text style={{color: white}}>Đăng nhập</Text>
       </TouchableOpacity>
     </LinearGradient>
   );

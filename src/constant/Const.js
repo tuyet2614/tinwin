@@ -11,3 +11,4 @@ export const darkBlue = '#5089E8';
 export const black = '#000000';
 export const white = '#f2f2f2';
 export const anotherGrey = '#7B7B80';
+export const blue = '007AFF';

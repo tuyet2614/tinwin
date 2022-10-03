@@ -2,6 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useEffect, useState} from 'react';
 import {
   Image,
+  Keyboard,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -10,7 +11,7 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {white} from '../../constant/const';
+import {lightGrey, white} from '../../constant/const';
 import {styleRegister as style} from './style';
 
 const Register: React.FC = ({}) => {
@@ -27,8 +28,12 @@ const Register: React.FC = ({}) => {
   const navigate = () => {
     navigation.navigate('OTPAuthen', {title: 'Đăng ký'});
   };
+  const setUser = (value: string) => {
+    setUserName(value);
+  };
   useEffect(() => {
     navigation.setOptions(options);
+    Keyboard.dismiss();
   }, []);
   return (
     <SafeAreaView>
@@ -51,7 +56,8 @@ const Register: React.FC = ({}) => {
               style={style.input}
               value={userName}
               placeholder="Nhập Email / Số điện thoại"
-              onChange={text => setUserName(text)}
+              onChange={setUser}
+              placeholderTextColor={lightGrey}
             />
           </View>
         </View>
@@ -62,7 +68,7 @@ const Register: React.FC = ({}) => {
             start={{x: 0, y: 0.5}}
             end={{x: 1, y: 0.5}}
             locations={[0, 1]}
-            style={{alignItems: 'center', height: 50}}>
+            style={style1.alignHeight}>
             <TouchableOpacity className="p-3" onPress={navigate}>
               <Text style={style1.textCreate}>Tạo tài khoản</Text>
             </TouchableOpacity>
@@ -101,5 +107,6 @@ const style1 = StyleSheet.create({
     marginTop: 70,
   },
   Img: {width: 375, height: 290},
+  alignHeight: {alignItems: 'center', height: 50},
 });
 export default Register;

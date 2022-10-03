@@ -1,10 +1,9 @@
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {
-  Alert,
   Image,
   Modal,
-  Pressable,
+  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
@@ -12,199 +11,91 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import BtnOrder from '../../components/buttons/BtnOrder';
-import {RadioButton} from '../../components/buttons/RadioButton';
+import {grey} from '../../constant/const';
+import BtnOrder from '../buttons/BtnOrder';
+import {RadioButton} from '../buttons/RadioButton';
+interface Props {
+  modalVisible: boolean;
+  setModalVisible: React.Dispatch<React.SetStateAction<any>>;
+}
 
-export const ModalPoup = ({modalVisible, setModalVisible}) => {
+const ModalCancel: React.FC<Props> = (props: Props) => {
+  const {modalVisible, setModalVisible} = props;
+  const reverseModal = () => {
+    setModalVisible(false);
+  };
+
   return (
-    <View style={styles1.centeredView}>
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
-        }}
-        supportedOrientations="portrait-upside-down">
-        <View style={styles1.centeredView}>
-          <Pressable style={styles1.modalView}>
+    <SafeAreaView>
+      <Modal animationType="slide" transparent={true} visible={modalVisible}>
+        <TouchableOpacity
+          style={{backgroundColor: 'rgba(90, 90, 90, 0.7)'}}
+          className={`flex-1 `}
+          onPress={() => {
+            setModalVisible(false);
+          }}></TouchableOpacity>
+        {/* <View
+          className={`bg-white  shadow-xl rounded-t-lg pt-5`}> */}
+        <View style={styles1.centeredView} className={`justify-end`}>
+          <View style={styles1.modalView}>
             <ScrollView>
-              <View
-                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Text
-                  style={{
-                    fontWeight: '700',
-                    fontSize: 16,
-                    lineHeight: 20,
-                    color: '#1F1F1F',
-                    marginBottom: 20,
-                  }}>
-                  Chọn lí do hủy
-                </Text>
-                <TouchableOpacity
-                  onPress={() => setModalVisible(!modalVisible)}>
+              <View style={styles1.flexBetween}>
+                <Text style={styles1.reasonCancel}>Chọn lí do hủy</Text>
+                <TouchableOpacity onPress={reverseModal}>
                   <FontAwesomeIcon
                     icon={faXmark}
                     size={14}
                     color="#000000"></FontAwesomeIcon>
                 </TouchableOpacity>
               </View>
-              <View
-                style={{
-                  //   flex: 1,
-                  borderWidth: 1,
-                  borderColor: '#fecfad',
-                  height: 78,
-                  backgroundColor: '#fff3ea',
-                  paddingBottom: 11,
-                  paddingTop: 11,
-                  paddingLeft: 14,
-                  borderRadius: 8,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
+              <View style={styles1.boxWarning}>
                 <Image
                   source={require('../../assets/order/warning.png')}
-                  style={{width: 24, height: 24}}
+                  style={styles1.imgWarning}
                 />
-                <Text
-                  style={{
-                    marginLeft: 13,
-                    fontWeight: '400',
-                    fontSize: 12,
-                    lineHeight: 18,
-                    color: '#FC832D',
-                    marginRight: 40,
-                  }}>
+                <Text style={styles1.textChoose}>
                   Vui lòng chọn lý do huỷ. Với lý do này, bạn sẽ huỷ tất cả sản
                   phẩm trong đơn hàng và không thể thay đổi sau đó
                 </Text>
               </View>
-              <TouchableOpacity
-                style={{
-                  marginTop: 19,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
+              <TouchableOpacity style={styles1.flexMt19}>
                 <RadioButton selected={true} />
-                <Text
-                  style={{
-                    marginLeft: 9,
-                    fontWeight: '500',
-                    fontSize: 14,
-                    lineHeight: 22,
-                    color: '#3A3A3C',
-                  }}>
+                <Text style={styles1.textChange}>
                   Muốn thay đổi địa chỉ giao hàng
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  marginTop: 19,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
+              <TouchableOpacity style={styles1.flexMt19}>
                 <RadioButton selected={true} />
-                <Text
-                  style={{
-                    marginLeft: 9,
-                    fontWeight: '500',
-                    fontSize: 14,
-                    lineHeight: 22,
-                    color: '#3A3A3C',
-                  }}>
+                <Text style={styles1.textChange}>
                   Muốn thay đổi sản phẩm trong đơn hàng{' '}
                   <Text>(size, màu sắc, số lượng,...)</Text>
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  marginTop: 19,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
+              <TouchableOpacity style={styles1.flexMt19}>
                 <RadioButton selected={true} />
-                <Text
-                  style={{
-                    marginLeft: 9,
-                    fontWeight: '500',
-                    fontSize: 14,
-                    lineHeight: 22,
-                    color: '#3A3A3C',
-                  }}>
+                <Text style={styles1.textChangeIdea}>
                   Thủ tục thanh toán quá rắc rối
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  marginTop: 19,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
+              <TouchableOpacity style={styles1.flexMt19}>
                 <RadioButton selected={true} />
-                <Text
-                  style={{
-                    marginLeft: 9,
-                    fontWeight: '500',
-                    fontSize: 14,
-                    lineHeight: 22,
-                    color: '#3A3A3C',
-                  }}>
+                <Text style={styles1.textChange}>
                   Tìm thấy giá rẻ hơn ở chỗ khác
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  marginTop: 19,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
+              <TouchableOpacity style={styles1.flexMt19}>
                 <RadioButton selected={true} />
-                <Text
-                  style={{
-                    marginLeft: 9,
-                    fontWeight: '500',
-                    fontSize: 14,
-                    lineHeight: 22,
-                    color: '#3A3A3C',
-                  }}>
+                <Text style={styles1.textChangeIdea}>
                   Đổi ý, không muốn mua nữa
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  marginTop: 19,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
+              <TouchableOpacity style={styles1.flexMt19}>
                 <RadioButton selected={true} />
-                <Text
-                  style={{
-                    marginLeft: 9,
-                    fontWeight: '500',
-                    fontSize: 14,
-                    lineHeight: 22,
-                    color: '#3A3A3C',
-                  }}>
-                  Lý do khác
-                </Text>
+                <Text style={styles1.anotherReason}>Lý do khác</Text>
               </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  marginTop: 19,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
+              <TouchableOpacity style={styles1.flexMt19}>
                 <RadioButton selected={true} />
-                <Text
-                  style={{
-                    marginLeft: 9,
-                    fontWeight: '500',
-                    fontSize: 14,
-                    lineHeight: 22,
-                    color: '#3A3A3C',
-                  }}>
+                <Text style={styles1.textChange}>
                   Muốn thay đổi địa chỉ giao hàng
                 </Text>
               </TouchableOpacity>
@@ -218,26 +109,16 @@ export const ModalPoup = ({modalVisible, setModalVisible}) => {
               />
               <BtnOrder content={'Hoàn thành'}></BtnOrder>
             </ScrollView>
-          </Pressable>
+          </View>
         </View>
+        {/* </View> */}
       </Modal>
-    </View>
+    </SafeAreaView>
   );
 };
 const styles1 = StyleSheet.create({
-  centeredView: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    // marginTop: 22,
-    height: '00%',
-    width: '100%',
-    borderStyle: 'solid',
-    backgroundColor: 'rgba(52, 52, 52, 0.8)',
-    elevation: 20,
-    // padding: 10,
-    // borderRadius: 4,
-  },
+  flexBetween: {flexDirection: 'row', justifyContent: 'space-between'},
+  centeredView: {backgroundColor: 'rgba(90, 90, 90, 0.7)'},
   modalView: {
     // margin: 20,
     backgroundColor: 'white',
@@ -249,11 +130,11 @@ const styles1 = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    // shadowOpacity: 0.25,
+    // shadowRadius: 4,
+    // elevation: 5,
     width: '100%',
-    height: '60%',
+    height: '90%',
   },
   button: {
     borderRadius: 20,
@@ -287,5 +168,68 @@ const styles1 = StyleSheet.create({
     borderStyle: 'solid',
     marginBottom: 30,
     marginTop: 9,
+    color: grey,
+  },
+  textChange: {
+    marginLeft: 9,
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 22,
+    color: '#3A3A3C',
+  },
+  flexMt19: {
+    marginTop: 19,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  anotherReason: {
+    marginLeft: 9,
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 22,
+    color: '#3A3A3C',
+  },
+  flexMt19: {
+    marginTop: 19,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  textChangeIdea: {
+    marginLeft: 9,
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 22,
+    color: '#3A3A3C',
+  },
+  textChoose: {
+    marginLeft: 13,
+    fontWeight: '400',
+    fontSize: 12,
+    lineHeight: 18,
+    color: '#FC832D',
+    marginRight: 40,
+  },
+  imgWarning: {width: 24, height: 24},
+  boxWarning: {
+    //   flex: 1,
+    borderWidth: 1,
+    borderColor: '#fecfad',
+    height: 78,
+    backgroundColor: '#fff3ea',
+    paddingBottom: 11,
+    paddingTop: 11,
+    paddingLeft: 14,
+    borderRadius: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  reasonCancel: {
+    fontWeight: '700',
+    fontSize: 16,
+    lineHeight: 20,
+    color: '#1F1F1F',
+    marginBottom: 20,
   },
 });
+
+export default ModalCancel;

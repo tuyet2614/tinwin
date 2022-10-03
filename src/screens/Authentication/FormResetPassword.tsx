@@ -1,28 +1,27 @@
-import {
-  faApple,
-  faFacebook,
-  faGooglePlus,
-} from '@fortawesome/free-brands-svg-icons';
 import {faEyeSlash} from '@fortawesome/free-regular-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useNavigation} from '@react-navigation/native';
 import {useEffect, useState} from 'react';
 import {
-  Image,
   SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
+  Keyboard,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {orangeDark, orangeLight, red} from '../../constant/const';
-import ModalAuthen from './ModalAuthen';
+import {
+  grey,
+  lightGrey,
+  orangeDark,
+  orangeLight,
+  red,
+} from '../../constant/const';
 
 const FormForgotPassword: React.FC = () => {
   const navigation = useNavigation();
-  const [userName, setUserName] = useState<string>('');
   const options = {
     title: 'Đặt lại mật khẩu',
     headerTintColor: 'black',
@@ -33,6 +32,7 @@ const FormForgotPassword: React.FC = () => {
   };
   useEffect(() => {
     navigation.setOptions(options);
+    Keyboard.dismiss();
   }, []);
 
   return (
@@ -49,6 +49,7 @@ const FormForgotPassword: React.FC = () => {
             // value={password}
             // secureTextEntry={isPasswordSecure}
             // onChange={value => setPassword(value)}
+            placeholderTextColor={lightGrey}
           />
           <View style={style.eye}>
             <TouchableOpacity
@@ -70,6 +71,7 @@ const FormForgotPassword: React.FC = () => {
             // value={password}
             // secureTextEntry={isPasswordSecure}
             // onChange={value => setPassword(value)}
+            placeholderTextColor={lightGrey}
           />
           <View style={style.eye}>
             <TouchableOpacity
@@ -155,6 +157,7 @@ export const style = StyleSheet.create({
     borderWidth: 1,
     borderStyle: 'solid',
     marginBottom: 30,
+    color: grey,
   },
   textSMS: {
     fontSize: 12,

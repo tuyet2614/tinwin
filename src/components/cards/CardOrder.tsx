@@ -2,11 +2,12 @@ import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useNavigation} from '@react-navigation/native';
 import {useState} from 'react';
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from '../../screens/StatusOrder/style';
 import BtnOrder from '../buttons/BtnOrder';
-import {ModalPoup} from '../modal/modalCancel';
 import {ModalBuyAgain} from '../modal/ModalAddToCart';
+import ModalCancel from '../modal/modalCancel';
+import UpdateAvatarModal from '../updateAvatar/UpdateAvatarModal';
 
 interface Props {
   style: string;
@@ -30,6 +31,9 @@ const CardOrder: React.FC<Props> = props => {
       navigation.navigate('OrderSuccess');
     }
   };
+  const naviReview = () => {
+    navigation.navigate('Review');
+  };
   return (
     <View style={styles.card}>
       <View style={styles.title}>
@@ -45,57 +49,26 @@ const CardOrder: React.FC<Props> = props => {
             Máy Lọc Không Khí Xiaomi Mi Air Purifier 4 lite
           </Text>
           <Text style={styles.productCode}>MÃ SP: a</Text>
-          <View
-            style={{
-              marginTop: 10,
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}>
+          <View style={style1.flexMt}>
             <Text style={styles.price}>{x}</Text>
             <Text style={styles.count}>x3</Text>
           </View>
         </View>
       </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          marginTop: 10,
-          marginBottom: 10,
-        }}>
-        <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
-        <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
+      <View style={style1.boxLine}>
+        <View style={style1.line} />
+        <View style={style1.line} />
       </View>
-      <TouchableOpacity
-        style={{
-          alignSelf: 'center',
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}>
-        <Text
-          style={{
-            fontWeight: '500',
-            fontSize: 12,
-            lineHeight: 14,
-            color: '#AEAEB2',
-            marginRight: 6,
-          }}>
-          Xem thêm sản phẩm
-        </Text>
+      <TouchableOpacity style={style1.alignSelfItem}>
+        <Text style={style1.textMore}>Xem thêm sản phẩm</Text>
         <FontAwesomeIcon
           icon={faAngleDown}
           size={12}
           color="#AEAEB2"></FontAwesomeIcon>
       </TouchableOpacity>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          marginTop: 10,
-          marginBottom: 10,
-        }}>
-        <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
-        <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
+      <View style={style1.boxLine}>
+        <View style={style1.line} />
+        <View style={style1.line} />
       </View>
       <View
         style={{
@@ -104,33 +77,14 @@ const CardOrder: React.FC<Props> = props => {
           alignItems: 'center',
         }}>
         <Text style={styles.totalCount}>20 sản phẩm</Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}>
-          <Text
-            style={{
-              fontWeight: '500',
-              fontSize: 14,
-              lineHeight: 18,
-              color: '#48484A',
-            }}>
-            Tổng thanh toán
-          </Text>
+        <View style={style1.flexAlign}>
+          <Text style={style1.titleTotal}>Tổng thanh toán</Text>
           <Text style={styles.totalPrice}>{x}</Text>
         </View>
       </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          marginTop: 10,
-          marginBottom: 10,
-        }}>
-        <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
-        <View style={{flex: 1, height: 1, backgroundColor: '#F9F9F9'}} />
+      <View style={style1.boxLine}>
+        <View style={style1.line} />
+        <View style={style1.line} />
       </View>
       <View
         style={{
@@ -140,22 +94,22 @@ const CardOrder: React.FC<Props> = props => {
           justifyContent: 'space-between',
         }}>
         {btnPrimary ? (
-          <View style={{marginRight: 0}}>
-            <BtnOrder
-              content={btnPrimary}
-              onPress={() => navigation.navigate('Review')}></BtnOrder>
+          <View style={style1.m0}>
+            <BtnOrder content={btnPrimary} onPress={naviReview} />
           </View>
         ) : (
           <View></View>
         )}
         <View>
-          <BtnOrder content={titleBtn} onPress={() => navi()}></BtnOrder>
+          <BtnOrder content={titleBtn} onPress={navi} />
         </View>
       </View>
       {titleBtn === 'Hủy đơn' ? (
-        <ModalPoup
+        // <UpdateAvatarModal modalVisible={modalVisible}
+        // setModalVisible={setModalVisible}/>
+        <ModalCancel
           modalVisible={modalVisible}
-          setModalVisible={() => setModalVisible(!modalVisible)}
+          setModalVisible={setModalVisible}
         />
       ) : (
         <></>
@@ -163,7 +117,7 @@ const CardOrder: React.FC<Props> = props => {
       {titleBtn === 'Mua lại' ? (
         <ModalBuyAgain
           modalVisible={modalVisible}
-          setModalVisible={() => setModalVisible(!modalVisible)}
+          setModalVisible={setModalVisible}
         />
       ) : (
         <></>
@@ -171,5 +125,42 @@ const CardOrder: React.FC<Props> = props => {
     </View>
   );
 };
-
+const style1 = StyleSheet.create({
+  m0: {marginRight: 10},
+  line: {flex: 1, height: 1, backgroundColor: '#F9F9F9'},
+  boxLine: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  titleTotal: {
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 18,
+    color: '#48484A',
+  },
+  flexAlign: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  textMore: {
+    fontWeight: '500',
+    fontSize: 12,
+    lineHeight: 14,
+    color: '#AEAEB2',
+    marginRight: 6,
+  },
+  alignSelfItem: {
+    alignSelf: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  flexMt: {
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+});
 export default CardOrder;

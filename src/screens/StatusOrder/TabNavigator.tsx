@@ -1,7 +1,7 @@
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {useNavigation} from '@react-navigation/native';
-import {useLayoutEffect} from 'react';
-import {Dimensions, Text} from 'react-native';
+import {useEffect, useLayoutEffect} from 'react';
+import {Dimensions, Text, Keyboard} from 'react-native';
 import Cancel from './CancelledTab';
 import Delivered from './DeliveredTab';
 import Delivering from './DeliveringTab';
@@ -20,6 +20,9 @@ const TabNavi: React.FC = ({}) => {
       headerTintColor: '#000',
     });
   }, [navigation]);
+  useEffect(() => {
+    Keyboard.dismiss();
+  }, []);
   return (
     <Tab.Navigator
       initialRouteName="WaitForPay"

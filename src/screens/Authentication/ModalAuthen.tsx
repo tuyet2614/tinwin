@@ -12,16 +12,19 @@ import {
 
 const ModalAuthen = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const visible = () => {
+    setModalVisible(true);
+  };
+  const notVisible = () => {
+    setModalVisible(!modalVisible);
+  };
   return (
     <View style={styles.centeredView}>
       <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
-        }}>
+        onRequestClose={notVisible}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Image source={require('../../assets/authen/Warning.png')} />
@@ -30,12 +33,7 @@ const ModalAuthen = () => {
               <Text style={styles.modalText}>Mã OTP không đúng.</Text>
               <Text style={styles.modalText}>Vui lòng nhập lại</Text>
             </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 32,
-              }}>
+            <View style={styles.flexMt}>
               <View style={styles.viewOk} />
               {/* <View>
                 <Text style={{width: 50, textAlign: 'center'}}>Hello</Text>
@@ -43,15 +41,13 @@ const ModalAuthen = () => {
               <View style={styles.abc} />
             </View>
 
-            <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
+            <TouchableOpacity onPress={notVisible}>
               <Text style={styles.textStyle}>Đồng ý</Text>
             </TouchableOpacity>
           </View>
         </View>
       </Modal>
-      <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}>
+      <Pressable style={[styles.button, styles.buttonOpen]} onPress={visible}>
         <Text style={styles.textStyle}>Show Modal</Text>
       </Pressable>
     </View>
@@ -124,6 +120,11 @@ const styles = StyleSheet.create({
     minWidth: 320,
   },
   abc: {flex: 1, height: 1, backgroundColor: '#0000001F'},
+  flexMt: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 32,
+  },
 });
 
 export default ModalAuthen;

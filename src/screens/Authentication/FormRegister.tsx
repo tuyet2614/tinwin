@@ -11,7 +11,13 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {lightGrey, orangeDark, orangeLight, red} from '../../constant/const';
+import {
+  grey,
+  lightGrey,
+  orangeDark,
+  orangeLight,
+  red,
+} from '../../constant/const';
 
 const FormRegister: React.FC = () => {
   const navigation = useNavigation();
@@ -45,6 +51,9 @@ const FormRegister: React.FC = () => {
   };
   const setPasswordSecureComfirm = () => {
     setIsPasswordSecureComfirm(!isPasswordSecureComfirm);
+  };
+  const navigateAuthen = () => {
+    navigation.navigate('OTPAuthen', {title: 'Nhập mã xác minh'});
   };
 
   return (
@@ -112,11 +121,7 @@ const FormRegister: React.FC = () => {
           end={{x: 1, y: 0.5}}
           locations={[0, 1]}
           style={style.btnNext}>
-          <TouchableOpacity
-            className="p-3"
-            onPress={() =>
-              navigation.navigate('OTPAuthen', {title: 'Nhập mã xác minh'})
-            }>
+          <TouchableOpacity className="p-3" onPress={navigateAuthen}>
             <Text style={style.textNext}>Tiếp theo</Text>
           </TouchableOpacity>
         </LinearGradient>
@@ -171,6 +176,7 @@ export const style = StyleSheet.create({
     borderWidth: 1,
     borderStyle: 'solid',
     marginBottom: 30,
+    color: grey,
   },
   textSMS: {
     fontSize: 12,

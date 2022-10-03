@@ -45,7 +45,7 @@ const DebitCard = (props: Props) => {
           </Text>
           <View
             className={`flex-row  h-[45px] py-3.5 rounded-lg border-solid border-[1px] border-gray-200 px-3.5 mb-2`}
-            style={{width: '100%'}}>
+            style={style1.w100}>
             <TextInput
               className={`pl-2`}
               placeholder={'Nhập số in trên thẻ'}
@@ -60,7 +60,7 @@ const DebitCard = (props: Props) => {
           </Text>
           <View
             className={`flex-row  h-[45px] py-3.5 rounded-lg border-solid border-[1px] border-gray-200 px-3.5`}
-            style={{width: '100%'}}>
+            style={style1.w100}>
             <TextInput
               className={`pl-2`}
               placeholder={'Nhập tên in trên thẻ'}
@@ -159,5 +159,6 @@ const style1 = StyleSheet.create({
   flex: {flexDirection: 'row', justifyContent: 'space-between'},
   w: {width: 181},
   w1: {width: 136},
+  w100: {width: '100%'},
 });
 export default DebitCard;
