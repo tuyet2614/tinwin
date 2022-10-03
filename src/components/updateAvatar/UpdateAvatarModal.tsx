@@ -1,6 +1,6 @@
-import {Dispatch, SetStateAction} from 'react';
-import {Alert, Modal, SafeAreaView, TouchableOpacity, View} from 'react-native';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import { Dispatch, SetStateAction } from 'react';
+import { Alert, Modal, SafeAreaView, TouchableOpacity, View } from 'react-native';
+import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import tw from 'tailwind-react-native-classnames';
 import ModalBtn from './ModalBtn';
 
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const UpdateAvatarModal: React.FC<Props> = (props: Props) => {
-  const {modalVisible, setModalVisible, setValue} = props;
+  const { modalVisible, setModalVisible, setValue } = props;
 
   const onLaunchImageLibrary = () => {
     launchImageLibrary(
@@ -20,7 +20,7 @@ const UpdateAvatarModal: React.FC<Props> = (props: Props) => {
       },
       response => {
         if (response.didCancel != true) {
-          setValue({uri: response.assets[0].uri});
+          setValue({ uri: response.assets[0].uri });
           setModalVisible(false);
         }
       },
@@ -37,7 +37,7 @@ const UpdateAvatarModal: React.FC<Props> = (props: Props) => {
         if (response.errorCode !== undefined) {
           Alert.alert(response.errorCode);
         } else if (response.didCancel != true) {
-          setValue({uri: response.assets[0].uri});
+          setValue({ uri: response.assets[0].uri });
           setModalVisible(false);
         }
       },

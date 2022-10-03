@@ -12,7 +12,13 @@ const NAVIGATE_RATING: string = 'Rating';
 const NAVIGATE_ADDRESS: string = 'Address';
 const NAVIGATE_UPDATE_INFO: string = 'UpdateInfo';
 const NAVIGATE_HOME: string = 'TabBar';
-const NAVIGATE_ORDER: string = 'Cart';
+const NAVIGATE_ORDER: string = 'Cart';const NAVIGATE_SHOP_DETAIL = 'ShopDetail'
+const NAVIGATE_REGISTER_SCREEN = 'Register'
+const NAVIGATE_FORGOT_PASSWORD = 'ForgotPassword'
+const NAVIGATE_LOGINSMS_SCREEN = 'LoginSMS'
+const NAVIGATE_SEARCH_SCREEN = 'Search'
+const NAVIGATE_SEARCH_DETAIL_SCREEN = ''
+
 export {
   NAVIGATE_ONBOARDING,
   NAVIGATE_LOGIN,

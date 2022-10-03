@@ -1,5 +1,5 @@
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AddressScreen from '../screens/account/AddressScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import Splash from '../screens/Splash';
@@ -94,9 +94,9 @@ const Navigator: React.FC = () => {
         />
         <Stack.Screen name="Cart" component={Cart} options={options} />
         <Stack.Screen
-          name="TabBar"
-          component={TabBar}
-          options={screenOptions}
+          name="FormRegister"
+          component={FormRegister}
+          options={options}
         />
         <Stack.Screen name="Review" component={Review} options={options} />
         <Stack.Screen

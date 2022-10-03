@@ -10,7 +10,6 @@ import ProductsContainer from '../../components/product/ProductsContainer';
 import {data} from '../home/HomeScreen';
 
 const CategoriesScreen: React.FC = () => {
-  const navigation = useNavigation();
   return (
     <SafeAreaView className="bg-white mb-20 h-full">
       <View className="flex-row mx-3 my-2">

@@ -5,10 +5,10 @@ import {
   faStore,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Platform, SafeAreaView} from 'react-native';
-import {colors} from '../assets/colors';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Platform, SafeAreaView } from 'react-native';
+import { colors } from '../assets/colors';
 import NotificationModal from '../components/cart/NotificationModal';
 import AccountNavigator from '../screens/account/AccountNavigator';
 import CategoriesScreen from '../screens/categories/CategoriesScreen';
@@ -27,10 +27,10 @@ const TabBar: React.FC = () => {
             route.name === 'Trang chủ'
               ? faHome
               : route.name === 'Danh mục'
-              ? faStore
-              : route.name === 'Thông báo'
-              ? faBell
-              : faUser
+                ? faStore
+                : route.name === 'Thông báo'
+                  ? faBell
+                  : faUser
           }
           color={color}
           size={20}

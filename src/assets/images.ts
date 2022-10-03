@@ -1,13 +1,10 @@
-const LOGO_TINWIN: string = '../../assets/logoTinwin.png'
-const LOGO_TINWIN_PRIMARY: string = '../../assets/logoTinwinPrimary.png'
-const ONBOARDING_1: string = '../../assets/onboarding/onboarding1.png'
-const ONBOARDING_2: string = '../../assets/onboarding/onboarding2.png'
-const ONBOARDING_3: string = '../../assets/onboarding/onboarding3.png'
 
-export {
-    LOGO_TINWIN,
-    LOGO_TINWIN_PRIMARY,
-    ONBOARDING_1,
-    ONBOARDING_2,
-    ONBOARDING_3
-}
+export const filter_img = require('./icons/filter.png')
+export const LOGO_TINWIN_PRIMARY = require('./logoTinwinPrimary.png')
+export const onboarding1 = require('./onboarding/onboarding1.png')
+export const onboarding2 = require('./onboarding/onboarding2.png')
+export const onboarding3 = require('./onboarding/onboarding3.png')
+export const Industry_icon = require('./icons/home/industry.png')
+export const stall_icon = require('./icons/home/stall.png')
+export const outstanding_icon = require('./icons/home/outstanding.png')
+export const cancel_icon = require('../images/cancel.png')

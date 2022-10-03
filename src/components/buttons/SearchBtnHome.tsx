@@ -1,13 +1,13 @@
-import {faSearch} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {Text, TouchableOpacity} from 'react-native';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { Text, TouchableOpacity } from 'react-native';
 
 interface Props {
   onPress?: () => void;
 }
 
 const SearchBtnHome: React.FC<Props> = (props: Props) => {
-  const {onPress} = props;
+  const { onPress } = props;
 
   return (
     <TouchableOpacity

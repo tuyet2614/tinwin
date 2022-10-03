@@ -8,12 +8,12 @@ import {
 
 interface Props {
   title: string;
-  icon: ImageSourcePropType;
+  icon?: ImageSourcePropType;
   textBtn?: string;
 }
 
 const HomeTitle: React.FC<Props> = (props: Props) => {
-  const {title, icon, textBtn} = props;
+  const { title, icon, textBtn } = props;
 
   return (
     <View className="m-3 flex-row items-center justify-between">
@@ -23,7 +23,7 @@ const HomeTitle: React.FC<Props> = (props: Props) => {
       </View>
 
       {textBtn !== '' && (
-        <TouchableOpacity className="rounded-lg bg-orange-100 py-1 px-3">
+        <TouchableOpacity className="rounded-lg py-1 px-3">
           <Text className="text-orange-primary">{textBtn}</Text>
         </TouchableOpacity>
       )}
