@@ -1,6 +1,6 @@
-import {IconProp} from '@fortawesome/fontawesome-svg-core';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {Text, TouchableOpacity, View} from 'react-native';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { Text, TouchableOpacity, View } from 'react-native';
 import CheckBoxItem from '../CheckBoxItem';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const SelectAllCartItem: React.FC<Props> = (props: Props) => {
-  const {icon, title, iconRight, onPress} = props;
+  const { icon, title, iconRight, onPress } = props;
 
   return (
     <View className="flex-row items-center justify-between p-3 px-5">
