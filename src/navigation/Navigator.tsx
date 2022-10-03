@@ -4,7 +4,7 @@ import AddressScreen from '../screens/account/AddressScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import Splash from '../screens/Splash';
 import TabBar from './TabBar';
-import AddNewAddressScreen from '../screens/account/AddNewAddressScreen';
+// import AddNewAddressScreen from '../screens/account/AddNewAddressScreen';
 import ProductDetailScreen from '../screens/ProductDetail/ProductDetailScreen';
 import RatingScreen from '../screens/ProductDetail/RatingScreen';
 import FilterScreen from '../screens/categories/FilterScreen';
@@ -15,7 +15,6 @@ import InternetBanking from '../screens/Payment/InternetBanking';
 import Payment from '../screens/Payment/Payment';
 import DebitCard from '../screens/Payment/DebitCard';
 import DetailOrder from '../screens/StatusOrder/DetailOrder';
-import Cart from '../screens/StatusOrder/CartScreen';
 import Review from '../screens/StatusOrder/ReviewScreen';
 import Login from '../screens/Authentication/Login';
 import ForgotPassword from '../screens/Authentication/ForgotPassword';
@@ -67,11 +66,7 @@ const Navigator: React.FC = () => {
           component={FormForgotPassword}
           options={options}
         />
-        <Stack.Screen
-          name="FormRegister"
-          component={FormRegister}
-          options={options}
-        />
+        <Stack.Screen name="TabBar" component={TabBar} options={options} />
         <Stack.Screen
           name="OrderSuccess"
           component={OrderSuccess}
@@ -105,11 +100,11 @@ const Navigator: React.FC = () => {
           component={AddressScreen}
           options={screenOptions}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="AddNewAddress"
           component={AddNewAddressScreen}
           options={screenOptions}
-        />
+        /> */}
         <Stack.Screen
           name="ProductDetail"
           component={ProductDetailScreen}
