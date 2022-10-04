@@ -57,12 +57,12 @@ const OTP: React.FC = ({route}) => {
     setOTP(val);
   };
   const onNavigate = () => {
-    if (title === 'Đăng ký') {
-      navigation.navigate('FormRegister');
-    }
-    if (title === 'Nhập mã xác minh') {
-      navigation.navigate('FormResetPassword');
-    }
+    // if (title === 'Đăng ký') {
+    //   navigation.navigate('FormRegister');
+    // }
+    // if (title === 'Nhập mã xác minh') {
+    //   navigation.navigate('FormResetPassword');
+    // }
   };
   const focusTextInput = () => {
     textInput.focus();
