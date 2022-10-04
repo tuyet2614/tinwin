@@ -12,6 +12,17 @@ import {
 } from 'react-native';
 import BtnOrder from '../../components/buttons/BtnOrder';
 import ModalCancel from '../../components/modal/modalCancel';
+import {
+  anotherGrey,
+  anotherOrange,
+  black,
+  darkerGrey,
+  darkestGrey,
+  LighterGrey,
+  orangeDark,
+  white,
+  whiteGrey,
+} from '../../constant/const';
 import {styles} from '../../screens/StatusOrder/style';
 
 const Review: React.FC = () => {
@@ -29,6 +40,21 @@ const Review: React.FC = () => {
   };
   const toggleModal = () => {
     setModalVisible(!modalVisible);
+  };
+  const setChoose1 = () => {
+    setChoose(1);
+  };
+  const setChoose2 = () => {
+    setChoose(2);
+  };
+  const setChoose3 = () => {
+    setChoose(3);
+  };
+  const setChoose4 = () => {
+    setChoose(4);
+  };
+  const setChoose5 = () => {
+    setChoose(5);
   };
 
   return (
@@ -70,7 +96,7 @@ const Review: React.FC = () => {
               <FontAwesomeIcon
                 icon={faStar}
                 size={48}
-                color="#FEB336"></FontAwesomeIcon>
+                color={orangeDark}></FontAwesomeIcon>
             )}
           </TouchableOpacity>
           <TouchableOpacity onPress={() => setStar(3)} style={style1.mr5}>
@@ -82,7 +108,7 @@ const Review: React.FC = () => {
               <FontAwesomeIcon
                 icon={faStar}
                 size={48}
-                color="#FEB336"></FontAwesomeIcon>
+                color={orangeDark}></FontAwesomeIcon>
             )}
           </TouchableOpacity>
           <TouchableOpacity onPress={() => setStar(4)} style={style1.mr5}>
@@ -94,7 +120,7 @@ const Review: React.FC = () => {
               <FontAwesomeIcon
                 icon={faStar}
                 size={48}
-                color="#FEB336"></FontAwesomeIcon>
+                color={orangeDark}></FontAwesomeIcon>
             )}
           </TouchableOpacity>
           <TouchableOpacity onPress={() => setStar(5)}>
@@ -106,7 +132,7 @@ const Review: React.FC = () => {
               <FontAwesomeIcon
                 icon={faStar}
                 size={48}
-                color="#FEB336"></FontAwesomeIcon>
+                color={orangeDark}></FontAwesomeIcon>
             )}
           </TouchableOpacity>
         </View>
@@ -120,20 +146,20 @@ const Review: React.FC = () => {
         <View style={style1.flexMb8}>
           <View style={style1.w160}>
             <TouchableOpacity
-              onPress={() => setChoose(1)}
+              onPress={setChoose1}
               className={`rounded-md`}
               style={{
                 height: 56,
                 alignItems: 'center',
                 justifyContent: 'center',
-                borderColor: choose === 1 ? '#FC832D' : '#F3F4F6',
+                borderColor: choose === 1 ? anotherOrange : LighterGrey,
                 borderWidth: 1,
                 paddingLeft: 11,
                 paddingRight: 13,
               }}>
               <Text
                 style={{
-                  color: choose === 1 ? '#FC832D' : '#636366',
+                  color: choose === 1 ? anotherOrange : LighterGrey,
                   fontWeight: '400',
                   fontSize: 14,
                   lineHeight: 18,
@@ -145,20 +171,20 @@ const Review: React.FC = () => {
           </View>
           <View style={style1.w160}>
             <TouchableOpacity
-              onPress={() => setChoose(2)}
+              onPress={setChoose2}
               className={`rounded-md`}
               style={{
                 height: 56,
                 alignItems: 'center',
                 justifyContent: 'center',
-                borderColor: choose === 2 ? '#FC832D' : '#F3F4F6',
+                borderColor: choose === 2 ? anotherOrange : LighterGrey,
                 borderWidth: 1,
                 paddingLeft: 11,
                 paddingRight: 13,
               }}>
               <Text
                 style={{
-                  color: choose === 2 ? '#FC832D' : '#636366',
+                  color: choose === 2 ? anotherOrange : LighterGrey,
                   fontWeight: '400',
                   fontSize: 14,
                   lineHeight: 18,
@@ -172,20 +198,20 @@ const Review: React.FC = () => {
         <View style={style1.flex}>
           <View style={style1.w160}>
             <TouchableOpacity
-              onPress={() => setChoose(3)}
+              onPress={setChoose3}
               className={`rounded-md`}
               style={{
                 height: 56,
                 alignItems: 'center',
                 justifyContent: 'center',
-                borderColor: choose === 3 ? '#FC832D' : '#F3F4F6',
+                borderColor: choose === 3 ? anotherOrange : LighterGrey,
                 borderWidth: 1,
                 paddingLeft: 11,
                 paddingRight: 13,
               }}>
               <Text
                 style={{
-                  color: choose === 3 ? '#FC832D' : '#636366',
+                  color: choose === 3 ? anotherOrange : LighterGrey,
                   fontWeight: '400',
                   fontSize: 14,
                   lineHeight: 18,
@@ -197,20 +223,20 @@ const Review: React.FC = () => {
           </View>
           <View style={style1.w160}>
             <TouchableOpacity
-              onPress={() => setChoose(4)}
+              onPress={setChoose4}
               className={`rounded-md`}
               style={{
                 height: 56,
                 alignItems: 'center',
                 justifyContent: 'center',
-                borderColor: choose === 4 ? '#FC832D' : '#F3F4F6',
+                borderColor: choose === 4 ? anotherOrange : LighterGrey,
                 borderWidth: 1,
                 paddingLeft: 11,
                 paddingRight: 13,
               }}>
               <Text
                 style={{
-                  color: choose === 4 ? '#FC832D' : '#636366',
+                  color: choose === 4 ? anotherOrange : LighterGrey,
                   fontWeight: '400',
                   fontSize: 14,
                   lineHeight: 18,
@@ -237,7 +263,7 @@ const Review: React.FC = () => {
 };
 const style1 = StyleSheet.create({
   flexColRe: {flexDirection: 'column-reverse', marginTop: 200},
-  line: {flex: 1, height: 1, backgroundColor: '#F9F9F9'},
+  line: {flex: 1, height: 1, backgroundColor: whiteGrey},
   boxLine: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -255,7 +281,7 @@ const style1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 18,
-    color: '#48484A',
+    color: darkestGrey,
   },
   flexAlign: {
     flexDirection: 'row',
@@ -266,7 +292,7 @@ const style1 = StyleSheet.create({
     fontWeight: '600',
     fontSize: 16,
     lineHeight: 22,
-    color: '#636366',
+    color: darkerGrey,
     marginTop: 45,
     marginBottom: 13,
   },
@@ -286,14 +312,14 @@ const style1 = StyleSheet.create({
     fontSize: 14,
     lineHeight: 18,
     fontWeight: '500',
-    color: '#1F1F1F',
+    color: black,
   },
   row: {
     marginTop: 0,
     flexDirection: 'row',
   },
   boxProduct: {
-    backgroundColor: '#fff',
+    backgroundColor: white,
     paddingBottom: 30,
     paddingLeft: 24,
     paddingRight: 24,
@@ -307,7 +333,7 @@ const style1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 12,
     lineHeight: 14,
-    color: '#7B7B80',
+    color: anotherGrey,
   },
 });
 export default Review;

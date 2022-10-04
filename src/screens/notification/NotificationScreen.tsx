@@ -13,7 +13,19 @@ import {styles} from '../StatusOrder/style';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faAngleDown, faAngleUp} from '@fortawesome/free-solid-svg-icons';
 import LinearGradient from 'react-native-linear-gradient';
-import {blue} from '../../constant/const';
+import {
+  anotherGrey,
+  anotherOrange,
+  beige,
+  black,
+  blue,
+  colorTextTitleNotifi,
+  grey,
+  greyNoti,
+  orangeDark,
+  orangeLight,
+  white,
+} from '../../constant/const';
 
 const NotificationScreen: React.FC = () => {
   const [bool, setBool] = useState(true);
@@ -59,7 +71,7 @@ const NotificationScreen: React.FC = () => {
         </View>
       </TouchableOpacity>
       <View
-        style={{backgroundColor: '#00000005', display: bool ? 'flex' : 'none'}}>
+        style={{backgroundColor: greyNoti, display: bool ? 'flex' : 'none'}}>
         <View style={styles1.boxNotiOpen}>
           <Text style={styles1.titleContent}>Xác nhận đơn hàng</Text>
           <Text style={styles1.title}>
@@ -119,7 +131,7 @@ const NotificationScreen: React.FC = () => {
         <View style={styles1.row}>
           <LinearGradient
             className={`rounded-md`}
-            colors={['#FD7D00', '#FEB336']}
+            colors={[orangeLight, orangeDark]}
             start={{x: 0, y: 0.5}}
             end={{x: 1, y: 0.5}}
             locations={[0, 1]}
@@ -152,7 +164,7 @@ const styles1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 12,
     lineHeight: 14,
-    color: '#FC832D',
+    color: anotherOrange,
     marginRight: 20,
     marginTop: 7,
     marginBottom: 7,
@@ -161,7 +173,7 @@ const styles1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 18,
-    color: '#1F1F1F',
+    color: black,
     marginLeft: 20,
     marginTop: 7,
     marginBottom: 7,
@@ -172,7 +184,7 @@ const styles1 = StyleSheet.create({
     alignItems: 'center',
   },
   open: {
-    backgroundColor: '#fff',
+    backgroundColor: white,
     paddingBottom: 12,
     paddingLeft: 20,
     paddingRight: 12,
@@ -182,21 +194,21 @@ const styles1 = StyleSheet.create({
     fontWeight: '400',
     fontSize: 10,
     lineHeight: 12,
-    color: '#8E8E93',
+    color: grey,
     marginTop: 6,
   },
   title: {
     fontWeight: '400',
     fontSize: 10,
     lineHeight: 12,
-    color: '#7B7B80',
+    color: anotherGrey,
   },
   content: {color: blue},
   titleContent: {
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 18,
-    color: '#3A3A3C',
+    color: colorTextTitleNotifi,
     marginBottom: 4,
     marginRight: 115,
   },
@@ -214,7 +226,7 @@ const styles1 = StyleSheet.create({
   },
   ml30: {marginLeft: 30},
   btnNoti: {
-    backgroundColor: '#fff',
+    backgroundColor: white,
     paddingBottom: 12,
     paddingLeft: 20,
     paddingRight: 12,
@@ -223,7 +235,7 @@ const styles1 = StyleSheet.create({
   row: {flexDirection: 'row'},
   mw272: {maxWidth: 272},
   boxNotiWhite: {
-    backgroundColor: '#FFF4E5',
+    backgroundColor: beige,
     paddingBottom: 12,
     paddingLeft: 20,
     paddingRight: 12,
