@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
+import {anotherOrange, beige, black, white} from '../../constant/const';
 
 type Props = {};
 
@@ -45,12 +46,12 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 12,
     lineHeight: 18,
-    color: '#FC832D',
+    color: anotherOrange,
     textAlign: 'center',
   },
   boxCode: {
     //   flex: 1,
-    backgroundColor: '#fff3ea',
+    backgroundColor: beige,
     paddingBottom: 11,
     paddingTop: 11,
     paddingLeft: 18,
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 16,
     lineHeight: 18,
-    color: '#434343',
+    color: black,
     alignSelf: 'center',
     width: 212,
     textAlign: 'center',
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 19,
     lineHeight: 21,
-    color: '#FC832D',
+    color: anotherOrange,
     alignSelf: 'center',
     width: 212,
     textAlign: 'center',
@@ -90,5 +91,5 @@ const styles = StyleSheet.create({
   },
   imgLogO: {width: 101, height: 85, alignSelf: 'center'},
   padding: {padding: 24},
-  container: {backgroundColor: '#fff', height: '100%'},
+  container: {backgroundColor: white, height: '100%'},
 });

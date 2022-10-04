@@ -18,6 +18,9 @@ import {
   moreLightGrey,
   orangeDark,
   orangeLight,
+  colorTextTitleNotifi,
+  white,
+  anotherGrey,
 } from '../../constant/const';
 type Props = {};
 
@@ -127,7 +130,7 @@ const style1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 18,
-    color: '#3A3A3C',
+    color: colorTextTitleNotifi,
   },
   boxCard: {
     justifyContent: 'center',
@@ -136,7 +139,7 @@ const style1 = StyleSheet.create({
   },
   imageCard: {width: 23, height: 18},
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: white,
     paddingBottom: 30,
     paddingLeft: 24,
     paddingRight: 24,
@@ -148,7 +151,7 @@ const style1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 20,
-    color: '#7B7B80',
+    color: anotherGrey,
     marginBottom: 5,
   },
   margin: {

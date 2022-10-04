@@ -2,6 +2,7 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import {useNavigation} from '@react-navigation/native';
 import {useEffect, useLayoutEffect} from 'react';
 import {Dimensions, Text, Keyboard} from 'react-native';
+import {anotherOrange, black, darkerGrey, white} from '../../constant/const';
 import Cancel from './CancelledTab';
 import Delivered from './DeliveredTab';
 import Delivering from './DeliveringTab';
@@ -15,9 +16,9 @@ const TabNavi: React.FC = ({}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       title: 'Đơn mua',
-      headerStyle: {backgroundColor: '#fff', borderBottomWidth: 0},
-      headerTitleStyle: {color: '#000'},
-      headerTintColor: '#000',
+      headerStyle: {backgroundColor: white, borderBottomWidth: 0},
+      headerTitleStyle: {color: black},
+      headerTintColor: black,
     });
   }, [navigation]);
   useEffect(() => {
@@ -27,31 +28,7 @@ const TabNavi: React.FC = ({}) => {
     <Tab.Navigator
       initialRouteName="WaitForPay"
       screenOptions={{tabBarScrollEnabled: true}}
-      tabBarOptions={{
-        style: {
-          backgroundColor: 'white',
-          paddingLeft: 15,
-          //   paddingHorizontal: 25,
-          //   width: '15%',
-        },
-        indicatorStyle: {
-          //   borderBottomColor: colorScheme.teal,
-          borderBottomWidth: 3,
-          width: 97,
-          left: 24,
-          borderColor: '#FC832D',
-          zIndex: 1000,
-        },
-        tabStyle: {
-          justifyContent: 'center',
-          width: Dimensions.get('window').width / 3.45,
-          //   borderBottomWidth: 2,
-          //   borderColor: '#D7D7D7',
-          //   borderWidth: Dimensions.get('window').width / 0.9,
-          //   right: 24,
-          //   left: 24,
-        },
-      }}>
+      tabBarOptions={options}>
       <Tab.Screen
         name="WaitForPay"
         component={WaitPay}
@@ -62,7 +39,7 @@ const TabNavi: React.FC = ({}) => {
                 fontSize: 12,
                 fontWeight: '500',
                 lineHeight: 14,
-                color: focused ? '#FC832D' : '#636366',
+                color: focused ? anotherOrange : darkerGrey,
                 flexWrap: 'nowrap',
               }}>
               {' '}
@@ -81,7 +58,7 @@ const TabNavi: React.FC = ({}) => {
                 fontSize: 12,
                 fontWeight: '500',
                 lineHeight: 14,
-                color: focused ? '#FC832D' : '#636366',
+                color: focused ? anotherOrange : darkerGrey,
               }}>
               {' '}
               Chờ xác nhận{' '}
@@ -99,7 +76,7 @@ const TabNavi: React.FC = ({}) => {
                 fontSize: 12,
                 fontWeight: '500',
                 lineHeight: 14,
-                color: focused ? '#FC832D' : '#636366',
+                color: focused ? anotherOrange : darkerGrey,
               }}>
               {' '}
               Đang chuẩn bị{' '}
@@ -117,7 +94,7 @@ const TabNavi: React.FC = ({}) => {
                 fontSize: 12,
                 fontWeight: '500',
                 lineHeight: 14,
-                color: focused ? '#FC832D' : '#636366',
+                color: focused ? anotherOrange : darkerGrey,
               }}>
               {' '}
               Đang giao{' '}
@@ -135,7 +112,7 @@ const TabNavi: React.FC = ({}) => {
                 fontSize: 12,
                 fontWeight: '500',
                 lineHeight: 14,
-                color: focused ? '#FC832D' : '#636366',
+                color: focused ? anotherOrange : darkerGrey,
               }}>
               {' '}
               Đã giao{' '}
@@ -153,7 +130,7 @@ const TabNavi: React.FC = ({}) => {
                 fontSize: 12,
                 fontWeight: '500',
                 lineHeight: 14,
-                color: focused ? '#FC832D' : '#636366',
+                color: focused ? anotherOrange : darkerGrey,
               }}>
               {' '}
               Đã hủy{' '}
@@ -164,5 +141,22 @@ const TabNavi: React.FC = ({}) => {
     </Tab.Navigator>
   );
 };
-
+const options = {
+  style: {
+    backgroundColor: white,
+    paddingLeft: 15,
+  },
+  indicatorStyle: {
+    //   borderBottomColor: colorScheme.teal,
+    borderBottomWidth: 3,
+    width: 97,
+    left: 24,
+    borderColor: anotherOrange,
+    zIndex: 1000,
+  },
+  tabStyle: {
+    justifyContent: 'center',
+    width: Dimensions.get('window').width / 3.45,
+  },
+};
 export default TabNavi;

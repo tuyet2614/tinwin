@@ -5,6 +5,16 @@ import {useNavigation} from '@react-navigation/native';
 import BtnOrder from '../../components/buttons/BtnOrder';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faAngleRight} from '@fortawesome/free-solid-svg-icons';
+import {
+  anotherOrange,
+  beige,
+  black,
+  colorTextTitleNotifi,
+  darkestGrey,
+  grey,
+  orangeBeige,
+  whiteGrey,
+} from '../../constant/const';
 
 type Props = {};
 
@@ -144,19 +154,19 @@ const DetailOrder: React.FC = (props: Props) => {
   );
 };
 const style1 = StyleSheet.create({
-  line: {flex: 1, height: 1, backgroundColor: '#F9F9F9'},
+  line: {flex: 1, height: 1, backgroundColor: whiteGrey},
   mb10: {marginBottom: 10},
   dateTime: {
     fontWeight: '500',
     fontSize: 12,
     lineHeight: 14,
-    color: '#8E8E93',
+    color: grey,
   },
   titleDate: {
     fontWeight: '500',
     fontSize: 12,
     lineHeight: 14,
-    color: '#8E8E93',
+    color: grey,
   },
   flexMb: {
     flexDirection: 'row',
@@ -182,12 +192,12 @@ const style1 = StyleSheet.create({
     fontWeight: '400',
     fontSize: 14,
     lineHeight: 17,
-    color: '#FC832D',
+    color: anotherOrange,
     textAlign: 'center',
   },
   boxCode: {
     height: 62,
-    backgroundColor: '#fff3ea',
+    backgroundColor: beige,
     paddingBottom: 11,
     paddingTop: 11,
     paddingLeft: 14,
@@ -202,7 +212,7 @@ const style1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 22,
-    color: '#3A3A3C',
+    color: colorTextTitleNotifi,
   },
   imgWallet: {width: 19, height: 19},
   pttt: {
@@ -211,19 +221,19 @@ const style1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 18,
-    color: '#3A3A3C',
+    color: colorTextTitleNotifi,
   },
   total: {
     fontWeight: '400',
     fontSize: 16,
     lineHeight: 22,
-    color: '#48484A',
+    color: darkestGrey,
   },
   money: {
     fontWeight: '400',
     fontSize: 16,
     lineHeight: 22,
-    color: '#48484A',
+    color: darkestGrey,
   },
   flexMt20: {
     flexDirection: 'row',
@@ -251,20 +261,20 @@ const style1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 12,
     lineHeight: 14,
-    color: '#48484A',
+    color: darkestGrey,
     marginTop: 2,
   },
   phoneN: {
     fontWeight: '500',
     fontSize: 12,
     lineHeight: 14,
-    color: '#48484A',
+    color: darkestGrey,
   },
   name: {
     fontWeight: '600',
     fontSize: 16,
     lineHeight: 22,
-    color: '#FC832D',
+    color: anotherOrange,
   },
   m1520: {marginLeft: 15, marginRight: 50},
   row: {flexDirection: 'row'},
@@ -275,22 +285,22 @@ const style1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 18,
-    color: '#3A3A3C',
+    color: colorTextTitleNotifi,
   },
   titleComfirm: {
     marginLeft: 13,
     fontWeight: '600',
     fontSize: 14,
     lineHeight: 18,
-    color: '#1F1F1F',
+    color: black,
   },
   ImgLogo: {width: 40, height: 40},
   box: {
     //   flex: 1,
     borderWidth: 1,
-    borderColor: '#feb27b',
+    borderColor: orangeBeige,
     height: 62,
-    backgroundColor: '#fff3ea',
+    backgroundColor: whiteGrey,
     paddingBottom: 11,
     paddingTop: 11,
     paddingLeft: 14,

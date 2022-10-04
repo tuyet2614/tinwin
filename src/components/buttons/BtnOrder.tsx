@@ -1,6 +1,6 @@
 import {TouchableOpacity, Text, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {orangeDark, orangeLight} from '../../constant/const';
+import {orangeDark, orangeLight, white} from '../../constant/const';
 
 interface Props {
   style: string;
@@ -27,7 +27,7 @@ const BtnOrder: React.FC<Props> = props => {
 };
 const styles1 = StyleSheet.create({
   text: {
-    color: '#FFF',
+    color: white,
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 22,

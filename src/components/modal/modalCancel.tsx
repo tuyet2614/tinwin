@@ -11,7 +11,17 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {black, grey} from '../../constant/const';
+import {
+  anotherOrange,
+  black,
+  borderBeige,
+  borderColorWhiteBeige,
+  colorForInput,
+  colorOpacity,
+  colorTextTitleNotifi,
+  grey,
+  white,
+} from '../../constant/const';
 import BtnOrder from '../buttons/BtnOrder';
 import {RadioButton} from '../buttons/RadioButton';
 interface Props {
@@ -118,14 +128,14 @@ const ModalCancel: React.FC<Props> = (props: Props) => {
 };
 const styles1 = StyleSheet.create({
   flexBetween: {flexDirection: 'row', justifyContent: 'space-between'},
-  centeredView: {backgroundColor: 'rgba(90, 90, 90, 0.7)'},
+  centeredView: {backgroundColor: colorOpacity},
   modalView: {
     // margin: 20,
-    backgroundColor: 'white',
+    backgroundColor: white,
     // borderRadius: 20,
     padding: 28,
     // alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: black,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -141,14 +151,8 @@ const styles1 = StyleSheet.create({
     padding: 10,
     elevation: 2,
   },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-  buttonClose: {
-    backgroundColor: '#2196F3',
-  },
   textStyle: {
-    color: 'white',
+    color: white,
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -161,7 +165,7 @@ const styles1 = StyleSheet.create({
     flex: 1,
     // alignItems: 'baseline',
     minHeight: 182,
-    borderColor: '#0000001F',
+    borderColor: colorForInput,
     borderRadius: 10,
     padding: 20,
     borderWidth: 1,
@@ -175,7 +179,7 @@ const styles1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 22,
-    color: '#3A3A3C',
+    color: colorTextTitleNotifi,
   },
   flexMt19: {
     marginTop: 19,
@@ -187,35 +191,30 @@ const styles1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 22,
-    color: '#3A3A3C',
-  },
-  flexMt19: {
-    marginTop: 19,
-    flexDirection: 'row',
-    alignItems: 'center',
+    color: colorTextTitleNotifi,
   },
   textChangeIdea: {
     marginLeft: 9,
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 22,
-    color: '#3A3A3C',
+    color: colorTextTitleNotifi,
   },
   textChoose: {
     marginLeft: 13,
     fontWeight: '400',
     fontSize: 12,
     lineHeight: 18,
-    color: '#FC832D',
+    color: anotherOrange,
     marginRight: 40,
   },
   imgWarning: {width: 24, height: 24},
   boxWarning: {
     //   flex: 1,
     borderWidth: 1,
-    borderColor: '#fecfad',
+    borderColor: borderBeige,
     height: 78,
-    backgroundColor: '#fff3ea',
+    backgroundColor: borderColorWhiteBeige,
     paddingBottom: 11,
     paddingTop: 11,
     paddingLeft: 14,
@@ -227,10 +226,10 @@ const styles1 = StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
     lineHeight: 20,
-    color: '#1F1F1F',
+    color: black,
     marginBottom: 20,
   },
-  bgColor: {backgroundColor: 'rgba(90, 90, 90, 0.7)'},
+  bgColor: {backgroundColor: colorOpacity},
 });
 
 export default ModalCancel;

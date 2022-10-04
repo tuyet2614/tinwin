@@ -9,6 +9,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import {anotherOrange, black, colorForInput} from '../../constant/const';
 
 const ModalAuthen = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -44,9 +45,6 @@ const ModalAuthen = () => {
           </View>
         </View>
       </Modal>
-      <Pressable style={[styles.button, styles.buttonOpen]} onPress={visible}>
-        <Text style={styles.textStyle}>Show Modal</Text>
-      </Pressable>
     </View>
   );
 };
@@ -64,7 +62,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 35,
     alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: black,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -80,14 +78,8 @@ const styles = StyleSheet.create({
     padding: 10,
     elevation: 2,
   },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-  buttonClose: {
-    backgroundColor: '#2196F3',
-  },
   textStyle: {
-    color: '#FC832D',
+    color: anotherOrange,
     fontWeight: '600',
     fontSize: 16,
     lineHeight: 22,
@@ -113,10 +105,10 @@ const styles = StyleSheet.create({
   viewOk: {
     flex: 1,
     height: 1,
-    backgroundColor: '#0000001F',
+    backgroundColor: colorForInput,
     minWidth: 320,
   },
-  abc: {flex: 1, height: 1, backgroundColor: '#0000001F'},
+  abc: {flex: 1, height: 1, backgroundColor: colorForInput},
   flexMt: {
     flexDirection: 'row',
     alignItems: 'center',

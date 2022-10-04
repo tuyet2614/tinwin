@@ -3,6 +3,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useNavigation} from '@react-navigation/native';
 import {useState} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {darkestGrey, lightGrey, whiteGrey} from '../../constant/const';
 import {styles} from '../../screens/StatusOrder/style';
 import BtnOrder from '../buttons/BtnOrder';
 import {ModalBuyAgain} from '../modal/ModalAddToCart';
@@ -63,7 +64,7 @@ const CardOrder: React.FC<Props> = props => {
         <FontAwesomeIcon
           icon={faAngleDown}
           size={12}
-          color="#AEAEB2"></FontAwesomeIcon>
+          color={lightGrey}></FontAwesomeIcon>
       </TouchableOpacity>
       <View style={style1.boxLine}>
         <View style={style1.line} />
@@ -126,7 +127,7 @@ const CardOrder: React.FC<Props> = props => {
 };
 const style1 = StyleSheet.create({
   m0: {marginRight: 10},
-  line: {flex: 1, height: 1, backgroundColor: '#F9F9F9'},
+  line: {flex: 1, height: 1, backgroundColor: whiteGrey},
   boxLine: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -137,7 +138,7 @@ const style1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 18,
-    color: '#48484A',
+    color: darkestGrey,
   },
   flexAlign: {
     flexDirection: 'row',
@@ -148,7 +149,7 @@ const style1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 12,
     lineHeight: 14,
-    color: '#AEAEB2',
+    color: lightGrey,
     marginRight: 6,
   },
   alignSelfItem: {

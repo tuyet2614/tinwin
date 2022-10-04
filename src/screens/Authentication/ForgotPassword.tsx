@@ -17,7 +17,16 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {grey, lightGrey, orangeDark, orangeLight} from '../../constant/const';
+import {
+  anotherOrange,
+  colorForInput,
+  grey,
+  lightGrey,
+  moreLightGrey,
+  orangeDark,
+  orangeLight,
+  white,
+} from '../../constant/const';
 
 const ForgotPassword: React.FC = () => {
   const navigation = useNavigation();
@@ -26,7 +35,7 @@ const ForgotPassword: React.FC = () => {
     title: 'Gửi lại mật khẩu',
     headerTintColor: 'black',
     headerStyle: {
-      backgroundColor: '#f2f2f2',
+      backgroundColor: moreLightGrey,
     },
     headerShadowVisible: false, // applied here
   };
@@ -93,7 +102,7 @@ export const style = StyleSheet.create({
     lineHeight: 35,
   },
   textPrimary: {
-    color: '#FC832D',
+    color: anotherOrange,
   },
   loginView: {
     marginTop: 40,
@@ -111,7 +120,7 @@ export const style = StyleSheet.create({
     flex: 1,
     // alignItems: 'stretch',
     minHeight: 50,
-    borderColor: '#0000001F 12%',
+    borderColor: colorForInput,
     borderRadius: 10,
     padding: 10,
     borderWidth: 1,
@@ -123,7 +132,7 @@ export const style = StyleSheet.create({
     fontSize: 12,
     fontWeight: '500',
     lineHeight: 22,
-    color: '#FC832D',
+    color: anotherOrange,
     marginTop: 10,
     // marginRight: 12,
   },
@@ -131,10 +140,10 @@ export const style = StyleSheet.create({
     fontSize: 12,
     fontWeight: '500',
     lineHeight: 22,
-    color: '#FC832D',
+    color: anotherOrange,
   },
   textNext: {
-    color: '#FFF',
+    color: white,
     alignSelf: 'center',
     fontSize: 16,
     fontWeight: '600',

@@ -13,11 +13,16 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {
+  anotherOrange,
+  colorForInput,
+  darkerGrey,
   grey,
   lightGrey,
+  moreLightGrey,
   orangeDark,
   orangeLight,
   red,
+  white,
 } from '../../constant/const';
 
 const FormForgotPassword: React.FC = () => {
@@ -26,7 +31,7 @@ const FormForgotPassword: React.FC = () => {
     title: 'Đặt lại mật khẩu',
     headerTintColor: 'black',
     headerStyle: {
-      backgroundColor: '#f2f2f2',
+      backgroundColor: moreLightGrey,
     },
     headerShadowVisible: false, // applied here
   };
@@ -56,7 +61,7 @@ const FormForgotPassword: React.FC = () => {
             // onPressIn={() => setIsPasswordSecure(!isPasswordSecure)}
             // onPressOut={() => setIsPasswordSecure(!isPasswordSecure)}
             >
-              <FontAwesomeIcon icon={faEyeSlash} size={20} color="#AEAEB2" />
+              <FontAwesomeIcon icon={faEyeSlash} size={20} color={lightGrey} />
             </TouchableOpacity>
           </View>
         </View>
@@ -78,7 +83,7 @@ const FormForgotPassword: React.FC = () => {
             // onPressIn={() => setIsPasswordSecure(!isPasswordSecure)}
             // onPressOut={() => setIsPasswordSecure(!isPasswordSecure)}
             >
-              <FontAwesomeIcon icon={faEyeSlash} size={20} color="#AEAEB2" />
+              <FontAwesomeIcon icon={faEyeSlash} size={20} color={lightGrey} />
             </TouchableOpacity>
           </View>
         </View>
@@ -133,7 +138,7 @@ export const style = StyleSheet.create({
     lineHeight: 35,
   },
   textPrimary: {
-    color: '#FC832D',
+    color: anotherOrange,
   },
   loginView: {
     marginTop: 40,
@@ -151,7 +156,7 @@ export const style = StyleSheet.create({
     flex: 1,
     // alignItems: 'stretch',
     minHeight: 50,
-    borderColor: '#0000001F 12%',
+    borderColor: colorForInput,
     borderRadius: 10,
     padding: 10,
     borderWidth: 1,
@@ -163,7 +168,7 @@ export const style = StyleSheet.create({
     fontSize: 12,
     fontWeight: '500',
     lineHeight: 22,
-    color: '#FC832D',
+    color: anotherOrange,
     marginTop: 10,
     // marginRight: 12,
   },
@@ -171,7 +176,7 @@ export const style = StyleSheet.create({
     fontSize: 12,
     fontWeight: '500',
     lineHeight: 22,
-    color: '#FC832D',
+    color: anotherOrange,
   },
   marginBot: {marginBottom: 20},
   redText: {color: red},
@@ -189,7 +194,7 @@ export const style = StyleSheet.create({
     marginBottom: 40,
   },
   textWarning: {
-    color: '#636366',
+    color: darkerGrey,
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 18,
@@ -197,7 +202,7 @@ export const style = StyleSheet.create({
   },
   btnNext: {alignItems: 'center', height: 50},
   textNext: {
-    color: '#FFF',
+    color: white,
     alignSelf: 'center',
     fontSize: 16,
     fontWeight: '600',

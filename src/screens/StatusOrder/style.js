@@ -1,8 +1,14 @@
 import {Dimensions, StyleSheet} from 'react-native';
+import {
+  anotherOrange,
+  colorStyleGrey,
+  darkestGrey,
+  white,
+} from '../../constant/const';
 
 export const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: white,
     paddingBottom: 30,
     paddingLeft: 24,
     paddingRight: 24,
@@ -15,7 +21,7 @@ export const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
     lineHeight: 20,
-    color: '#48484A',
+    color: darkestGrey,
     marginLeft: 6,
   },
   infor: {
@@ -34,7 +40,7 @@ export const styles = StyleSheet.create({
   },
   productTitle: {
     flexWrap: 'wrap',
-    color: '#48484A',
+    color: darkestGrey,
     fontSize: 16,
     lineHeight: 22,
     fontWeight: '400',
@@ -44,31 +50,31 @@ export const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 12,
     lineHeight: 14,
-    color: '#48484A',
+    color: darkestGrey,
   },
   price: {
     fontWeight: '500',
     fontSize: 16,
     lineHeight: 22,
-    color: '#48484A',
+    color: darkestGrey,
   },
   count: {
     fontSize: 12,
     lineHeight: 14,
     fontWeight: '500',
-    color: '#FC832D',
+    color: anotherOrange,
   },
   totalCount: {
     fontWeight: '400',
     fontSize: 12,
     lineHeight: 14,
-    color: '#9B9B9B',
+    color: colorStyleGrey,
   },
   totalPrice: {
     marginLeft: 8,
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 18,
-    color: '#FC832D',
+    color: anotherOrange,
   },
 });

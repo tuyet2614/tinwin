@@ -29,6 +29,7 @@ import {
   moreLightGrey,
   orangeDark,
   orangeLight,
+  white,
 } from '../../constant/const';
 import {style} from './style';
 import {ScrollView} from 'react-native';
@@ -157,7 +158,7 @@ const Login: React.FC = ({}) => {
 };
 const style1 = StyleSheet.create({
   textLogin: {
-    color: '#FFF',
+    color: white,
     alignSelf: 'center',
     fontSize: 16,
     fontWeight: '600',
@@ -179,7 +180,7 @@ const style1 = StyleSheet.create({
     flexDirection: 'row',
   },
   textRegister: {
-    color: '#8E8E93',
+    color: grey,
     fontSize: 14,
     fontWeight: '400',
     lineHeight: 18,

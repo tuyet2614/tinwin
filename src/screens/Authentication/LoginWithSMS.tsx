@@ -11,7 +11,13 @@ import {
   Keyboard,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {lightGrey, orangeDark, orangeLight} from '../../constant/const';
+import {
+  lightGrey,
+  moreLightGrey,
+  orangeDark,
+  orangeLight,
+  white,
+} from '../../constant/const';
 import {styleSMS as style} from './style';
 
 const LoginWithSMS: React.FC = ({}) => {
@@ -21,7 +27,7 @@ const LoginWithSMS: React.FC = ({}) => {
     title: 'Đăng nhập OTP',
     headerTintColor: 'black',
     headerStyle: {
-      backgroundColor: '#f2f2f2',
+      backgroundColor: moreLightGrey,
     },
     headerShadowVisible: false, // applied here
   };
@@ -80,7 +86,7 @@ const style1 = StyleSheet.create({
   mb20: {marginBottom: 20},
   mt40mt31: {marginTop: 40, marginBottom: 31},
   continue: {
-    color: '#FFF',
+    color: white,
     alignSelf: 'center',
     fontSize: 16,
     fontWeight: '600',

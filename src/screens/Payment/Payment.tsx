@@ -18,6 +18,13 @@ import {RadioButton} from '../../components/buttons/RadioButton';
 import {RadioOrangeBtn} from '../../components/buttons/RadioOrangeBtn';
 import BtnOrder from '../../components/buttons/BtnOrder';
 import {useNavigation} from '@react-navigation/native';
+import {
+  anotherOrange,
+  colorTextTitleNotifi,
+  darkestGrey,
+  white,
+  whiteGrey,
+} from '../../constant/const';
 
 type Props = {};
 
@@ -197,16 +204,16 @@ const styles1 = StyleSheet.create({
     fontWeight: '600',
     fontSize: 16,
     lineHeight: 22,
-    color: '#FC832D',
+    color: anotherOrange,
   },
   btntt: {marginTop: 15},
   titleTotalMoney: {
     fontWeight: '400',
     fontSize: 16,
     lineHeight: 22,
-    color: '#48484A',
+    color: darkestGrey,
   },
-  line: {flex: 1, height: 1, backgroundColor: '#F9F9F9'},
+  line: {flex: 1, height: 1, backgroundColor: whiteGrey},
   boxLine: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -218,7 +225,7 @@ const styles1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 22,
-    color: '#3A3A3C',
+    color: colorTextTitleNotifi,
   },
   imgCredit: {width: 19, height: 19},
   boxImgCredit: {
@@ -235,28 +242,28 @@ const styles1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 22,
-    color: '#3A3A3C',
+    color: colorTextTitleNotifi,
   },
-  BoxPay: {marginTop: 11, height: 387, backgroundColor: '#fff'},
+  BoxPay: {marginTop: 11, height: 387, backgroundColor: white},
   textpttt: {
     marginLeft: 24,
     marginTop: 11,
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 18,
-    color: '#3A3A3C',
+    color: colorTextTitleNotifi,
   },
   totalMoneyVc: {
     fontWeight: '400',
     fontSize: 16,
     lineHeight: 22,
-    color: '#48484A',
+    color: colorTextTitleNotifi,
   },
   textTitleVc: {
     fontWeight: '400',
     fontSize: 16,
     lineHeight: 22,
-    color: '#48484A',
+    color: colorTextTitleNotifi,
   },
   flexMargin: {
     flexDirection: 'row',
@@ -270,7 +277,7 @@ const styles1 = StyleSheet.create({
     fontWeight: '400',
     fontSize: 19,
     lineHeight: 25,
-    color: '#48484A',
+    color: colorTextTitleNotifi,
   },
   a27: {
     marginLeft: '27%',
@@ -298,20 +305,20 @@ const styles1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 12,
     lineHeight: 14,
-    color: '#48484A',
+    color: colorTextTitleNotifi,
     marginTop: 2,
   },
   phone: {
     fontWeight: '500',
     fontSize: 12,
     lineHeight: 14,
-    color: '#48484A',
+    color: colorTextTitleNotifi,
   },
   name: {
     fontWeight: '600',
     fontSize: 16,
     lineHeight: 22,
-    color: '#FC832D',
+    color: anotherOrange,
   },
   boxAddress: {marginLeft: 15, marginRight: 50},
   styFlex: {flexDirection: 'row'},

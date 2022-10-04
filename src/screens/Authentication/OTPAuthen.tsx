@@ -12,7 +12,17 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {orangeDark, orangeLight, red, white} from '../../constant/const';
+import {
+  anotherGrey,
+  darkerGrey,
+  darkestGrey,
+  grey,
+  greyOTP,
+  orangeDark,
+  orangeLight,
+  red,
+  white,
+} from '../../constant/const';
 import {styleSMS as style} from './style';
 
 const OTP: React.FC = ({route}) => {
@@ -155,18 +165,18 @@ const style1 = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderBottomWidth: 1.5,
-    borderColor: '#E5E5EA',
+    borderColor: greyOTP,
   },
   numberOTP: {
     textAlign: 'center',
     fontSize: 32,
     fontWeight: '400',
     lineHeight: 40,
-    color: '#48484A',
+    color: darkestGrey,
   },
   boxNoti: {width: 288, alignSelf: 'center'},
   textNoti: {
-    color: '#636366',
+    color: darkerGrey,
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 18,
@@ -174,7 +184,7 @@ const style1 = StyleSheet.create({
   },
   boxNext: {alignItems: 'center', height: 50},
   textNext: {
-    color: '#FFF',
+    color: white,
     alignSelf: 'center',
     fontSize: 16,
     fontWeight: '600',
@@ -183,7 +193,7 @@ const style1 = StyleSheet.create({
   boxWait: {marginTop: 47, alignSelf: 'center'},
   textWait: {
     textAlign: 'center',
-    color: '#7B7B80',
+    color: anotherGrey,
     fontSize: 12,
     fontWeight: '500',
     lineHeight: 14,
@@ -191,7 +201,7 @@ const style1 = StyleSheet.create({
   boxAgain: {marginTop: 40, alignSelf: 'center'},
   textAgain: {
     textAlign: 'center',
-    color: '#8E8E93',
+    color: grey,
     fontSize: 12,
     fontWeight: '500',
     lineHeight: 14,
@@ -202,13 +212,13 @@ const style1 = StyleSheet.create({
     alignSelf: 'center',
   },
   icon: {
-    color: '#FF3B30',
+    color: red,
     marginRight: 5,
     marginTop: 9,
   },
   textSendAgain: {
     textAlign: 'center',
-    color: '#FF3B30',
+    color: red,
     fontSize: 12,
     fontWeight: '500',
     lineHeight: 14,

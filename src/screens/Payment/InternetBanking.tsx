@@ -3,7 +3,7 @@ import React from 'react';
 import {styles} from '../StatusOrder/style';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
-import {anotherGrey} from '../../constant/const';
+import {anotherGrey, colorBoxBank, darkerGrey} from '../../constant/const';
 
 type Props = {};
 
@@ -45,7 +45,7 @@ const style1 = StyleSheet.create({
     height: 107,
     borderWidth: 1,
     borderRadius: 8,
-    borderColor: '#0000001A',
+    borderColor: colorBoxBank,
     marginTop: 11,
     justifyContent: 'center',
   },
@@ -54,7 +54,7 @@ const style1 = StyleSheet.create({
     fontWeight: '400',
     fontSize: 10,
     lineHeight: 12,
-    color: '#636366',
+    color: darkerGrey,
   },
   imgBank: {alignSelf: 'center', width: 48, height: 48},
   viewBox: {

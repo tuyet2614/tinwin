@@ -12,6 +12,14 @@ import {
   SafeAreaView,
 } from 'react-native';
 import BtnOrder from '../../components/buttons/BtnOrder';
+import {
+  anotherOrange,
+  black,
+  colorForInput,
+  darkestGrey,
+  modalColor,
+  modalColorBeige,
+} from '../../constant/const';
 
 export const ModalBuyAgain = (props: any) => {
   const {modalVisible, setModalVisible} = props;
@@ -39,7 +47,7 @@ export const ModalBuyAgain = (props: any) => {
                   <FontAwesomeIcon
                     icon={faXmark}
                     size={14}
-                    color="#000000"></FontAwesomeIcon>
+                    color={black}></FontAwesomeIcon>
                 </TouchableOpacity>
               </View>
               <View style={styles1.boxP}>
@@ -88,20 +96,20 @@ const styles1 = StyleSheet.create({
     fontSize: 12,
     lineHeight: 14,
     fontWeight: '500',
-    color: '#FC832D',
+    color: anotherOrange,
     marginRight: 70,
   },
   code: {
     fontWeight: '400',
     fontSize: 12,
     lineHeight: 14,
-    color: '#48484A',
+    color: darkestGrey,
   },
   textAddToCart: {
     fontWeight: '700',
     fontSize: 16,
     lineHeight: 20,
-    color: '#1F1F1F',
+    color: black,
   },
   textP: {
     marginRight: 70,
@@ -109,7 +117,7 @@ const styles1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 12,
     lineHeight: 14,
-    color: '#48484A',
+    color: darkestGrey,
   },
   boxP: {
     flexDirection: 'row',
@@ -120,13 +128,13 @@ const styles1 = StyleSheet.create({
     fontWeight: '400',
     fontSize: 12,
     lineHeight: 14,
-    color: '#bfbfc0',
+    color: modalColor,
   },
   x3SoldOut: {
     fontSize: 12,
     lineHeight: 14,
     fontWeight: '500',
-    color: '#fecdab',
+    color: modalColorBeige,
     marginRight: 70,
   },
   mt42: {marginTop: 42},
@@ -149,7 +157,7 @@ const styles1 = StyleSheet.create({
     // borderRadius: 20,
     padding: 28,
     // alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: black,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -165,12 +173,6 @@ const styles1 = StyleSheet.create({
     padding: 10,
     elevation: 2,
   },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-  buttonClose: {
-    backgroundColor: '#2196F3',
-  },
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
@@ -185,7 +187,7 @@ const styles1 = StyleSheet.create({
     flex: 1,
     // alignItems: 'baseline',
     minHeight: 182,
-    borderColor: '#0000001F',
+    borderColor: colorForInput,
     borderRadius: 10,
     padding: 20,
     borderWidth: 1,
@@ -205,7 +207,7 @@ const styles1 = StyleSheet.create({
     fontWeight: '500',
     fontSize: 12,
     lineHeight: 14,
-    color: '#bfbfc0',
+    color: modalColor,
   },
   ml17: {marginLeft: 17},
   borderRa: {borderRadius: 5},

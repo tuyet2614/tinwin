@@ -11,7 +11,7 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {lightGrey, white} from '../../constant/const';
+import {lightGrey, orangeDark, orangeLight, white} from '../../constant/const';
 import {styleRegister as style} from './style';
 
 const Register: React.FC = ({}) => {
@@ -64,7 +64,7 @@ const Register: React.FC = ({}) => {
         <View>
           <LinearGradient
             className={`${style} rounded-md`}
-            colors={['#FD7D00', '#FEB336']}
+            colors={[orangeLight, orangeDark]}
             start={{x: 0, y: 0.5}}
             end={{x: 1, y: 0.5}}
             locations={[0, 1]}
@@ -93,7 +93,7 @@ const Register: React.FC = ({}) => {
 };
 const style1 = StyleSheet.create({
   textCreate: {
-    color: '#FFF',
+    color: white,
     alignSelf: 'center',
     fontSize: 16,
     fontWeight: '600',
