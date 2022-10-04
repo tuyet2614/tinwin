@@ -70,12 +70,7 @@ const CardOrder: React.FC<Props> = props => {
         <View style={style1.line} />
         <View style={style1.line} />
       </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}>
+      <View style={style1.flexAlign}>
         <Text style={styles.totalCount}>20 sản phẩm</Text>
         <View style={style1.flexAlign}>
           <Text style={style1.titleTotal}>Tổng thanh toán</Text>
