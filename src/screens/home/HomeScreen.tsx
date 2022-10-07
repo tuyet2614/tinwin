@@ -11,6 +11,7 @@ import { LOGO_TINWIN_PRIMARY, Industry_icon, stall_icon, outstanding_icon } from
 import { NAVIGATE_SEARCH_SCREEN } from '../../navigation/navigate';
 import { useNavigation } from '@react-navigation/native';
 import useGetShops from '../../hooks/shops/useGetShops';
+import axios from 'axios';
 
 export const data = [
   {
@@ -74,7 +75,11 @@ export const data = [
 
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation();
-  const listData = useGetShops(5)
+
+  const check = useGetShops('9fe2f64f-9a1d-6f4e-9dec-3a06337aaf58')
+  // if (!check) {
+  //   return (data)
+  // }
   return (
 
     <SafeAreaView className="bg-white h-full">
@@ -94,7 +99,7 @@ const HomeScreen: React.FC = () => {
           flatlistStyle={[tw`flex-wrap`, { width: 500 }]}
           title="Ngành hàng"
           icon={Industry_icon}
-          data={listData}
+          data={data}
         />
 
         <CategoriesContainer
@@ -102,7 +107,7 @@ const HomeScreen: React.FC = () => {
           flatlistStyle={[tw`flex-wrap`, { width: 750 }]}
           title="Gian hàng nổi bật"
           icon={stall_icon}
-          data={data}
+          data={check}
           style="items-center mb-5 "
 
         />

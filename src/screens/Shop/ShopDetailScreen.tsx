@@ -1,5 +1,5 @@
 import { useRoute } from '@react-navigation/native';
-import { Image, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { Image, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import CartBtn from '../../components/buttons/CartBtn';
 import SearchBtnHome from '../../components/buttons/SearchBtnHome';
 import GoBackBtn from '../../components/buttons/GoBackBtn';
@@ -12,6 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import BtnFilter from '../../components/Search/BtnFilter';
 import { white } from '../../constant/const';
 import { avatar_img, shop_img } from '../../assets/images';
+import useGetShops from '../../hooks/shops/useGetShops';
 
 
 const item = [
@@ -24,6 +25,9 @@ const ShopDetailScreen: React.FC = () => {
     const route = useRoute();
     const { id } = route.params;
     const navigation = useNavigation()
+    const data = useGetShops(id)
+    console.log('data shop: ', data[0])
+
 
     return (
         <SafeAreaView className="bg-white flex-1">
@@ -49,9 +53,9 @@ const ShopDetailScreen: React.FC = () => {
                     className="w-full h-48 bg-blue-400"
                 />
                 <View className=" p-5 absolute top-20 flex-row">
-                    <Image source={avatar_img} />
+                    <Image source={{ uri: (data[0].logo) }} style={style.logo_image} />
                     <View className={`ml-5`}>
-                        <IntroductDetailShop title='Gian hàng An An' value='1234k' rating={4.5} />
+                        <IntroductDetailShop title={data[0].storeName} value='7' rating={4.5} />
                     </View>
                 </View>
 
@@ -66,5 +70,14 @@ const ShopDetailScreen: React.FC = () => {
         </SafeAreaView>
     );
 };
+
+const style = StyleSheet.create({
+    logo_image: {
+        borderRadius: 30,
+        width: 55,
+        height: 55,
+
+    }
+})
 
 export default ShopDetailScreen;

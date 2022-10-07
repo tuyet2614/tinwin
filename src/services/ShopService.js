@@ -2,9 +2,10 @@ import { get } from './AxiosHelper';
 import axios from 'axios';
 
 const listShopService = {
-    getAll(params) {
-        return get(`/partnership/api/app/report/store-access-for-admin`, params)
-    }
+    getShop(params) {
+        return get('/partnership/api/app/supplier/supplier-by-list-id', params)
+    },
+
 
 }
 

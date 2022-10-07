@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react"
 import listShopService from "../../services/ShopService"
 
-const useGetShops = (count: number) => {
+const useGetShops = (shopId?: string) => {
     const [res, setRes] = useState()
 
     const params = {
-        'Take': count
+        'ids': shopId,
+
     }
 
     useEffect(() => {
-        listShopService.getAll(params).then(res => {
+        listShopService.getShop(params).then(res => {
             setRes(res.data)
-            console.log(res)
-        }).catch(err => console.log(err.response.data))
+            console.log("list", res.data)
+        }).catch(err => console.log('error: ', err.response.data))
     }, [])
 
     return res

@@ -5,16 +5,20 @@ import ProductsContainer from '../../components/product/ProductsContainer';
 import { data } from '../../Data/Data';
 import { outstanding_icon, panel_icon } from '../../assets/images';
 
-const item = [
-    { id: 1, title: 'Công ty', value: 'Công Ty TNHH Cổ Phần An An' },
-    { id: 2, title: 'Địa chỉ', value: '196 Dương Đình Nghệ, Cầu Giấy HN', },
-    { id: 3, title: 'Mã số thuế', value: '0105926126', },
-    { id: 4, title: 'Số điện thoại', value: '0123 124 124', },
-    { id: 5, title: 'Email', value: 'emailname@gmail.com', },
-    { id: 6, title: 'Link website', value: 'https://www.figma.com', }
-]
+interface Props {
+    label: object;
+}
 
-const ShopDescription: React.FC = () => {
+const ShopDescription: React.FC<Props> = (props) => {
+    const { label } = props
+    const item = [
+        { id: 1, title: 'Công ty', value: 'Công Ty TNHH Cổ Phần An An' },
+        { id: 2, title: 'Địa chỉ', value: '196 Dương Đình Nghệ, Cầu Giấy HN', },
+        { id: 3, title: 'Mã số thuế', value: '0105926126', },
+        { id: 4, title: 'Số điện thoại', value: '0123 124 124', },
+        { id: 5, title: 'Email', value: 'emailname@gmail.com', },
+        { id: 6, title: 'Link website', value: 'https://www.figma.com', }
+    ]
     return (
         <ScrollView nestedScrollEnabled={true} className="bg-white flex-1">
 
