@@ -16,10 +16,10 @@ import CategoryCard from './CategoryCard';
 interface Props {
   data: object[];
   title: string;
-  icon: ImageSourcePropType;
+  icon?: ImageSourcePropType;
   flatlistStyle?: object;
-  textBtn: string;
-  onPress: () => void
+  textBtn?: string;
+  onPress?: () => void
 }
 
 const CategoriesContainer: React.FC<Props> = (props: Props) => {

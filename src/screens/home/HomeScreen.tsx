@@ -10,6 +10,7 @@ import ProductsContainer from '../../components/product/ProductsContainer';
 import { LOGO_TINWIN_PRIMARY, Industry_icon, stall_icon, outstanding_icon } from '../../assets/images';
 import { NAVIGATE_SEARCH_SCREEN } from '../../navigation/navigate';
 import { useNavigation } from '@react-navigation/native';
+import useGetShops from '../../hooks/shops/useGetShops';
 
 export const data = [
   {
@@ -73,7 +74,7 @@ export const data = [
 
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation();
-
+  const listData = useGetShops(5)
   return (
 
     <SafeAreaView className="bg-white h-full">
@@ -93,7 +94,7 @@ const HomeScreen: React.FC = () => {
           flatlistStyle={[tw`flex-wrap`, { width: 500 }]}
           title="Ngành hàng"
           icon={Industry_icon}
-          data={data}
+          data={listData}
         />
 
         <CategoriesContainer
