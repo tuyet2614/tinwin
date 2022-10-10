@@ -15,7 +15,7 @@ const StallCard: React.FC<Props> = (props: Props) => {
   }
   return (
     <TouchableOpacity onPress={onPressRoute} className="items-center m-3" >
-      <Image source={{ uri: (item.logo) }} className="bg-blue-300 h-28 w-40 rounded-lg" />
+      <Image source={{ uri: (item.businessLicense) }} className="bg-blue-300 h-28 w-40 rounded-lg" />
       <Text className="text-black">{item.nameCompany}</Text>
     </TouchableOpacity>
   );

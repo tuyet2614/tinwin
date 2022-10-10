@@ -35,11 +35,11 @@ const ProductCard: React.FC<Props> = (props: Props) => {
       className="p-3 border border-gray-200 rounded-lg mb-3 w-44">
       <Image source={item.image} className={`w-full h-32`} />
       <Text className="text-lg font-medium text-black">{item.name}</Text>
-      <Text>Đã bán 200</Text>
+      <Text>Đã bán {item.soldByCustomer}</Text>
       <Rating
         style={tw`items-start mt-3`}
         type="star"
-        startingValue={item.rating}
+        startingValue={item.totalRate}
         imageSize={10}
         readonly
         ratingCount={5}

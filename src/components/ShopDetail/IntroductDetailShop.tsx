@@ -9,6 +9,7 @@ import { orangeLight } from '../../constant/const';
 
 
 interface Props {
+    data: object,
     title: string;
     value: string;
     rating: number

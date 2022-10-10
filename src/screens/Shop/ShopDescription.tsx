@@ -1,23 +1,26 @@
 
-import { SafeAreaView, Text, View, Image, ScrollView } from 'react-native';
+import { SafeAreaView, Text, View, Image, ScrollView, Linking, StyleSheet } from 'react-native';
 import ShopDetailContainer from '../../components/ShopDetail/ShopDetailContainer';
 import ProductsContainer from '../../components/product/ProductsContainer';
 import { data } from '../../Data/Data';
 import { outstanding_icon, panel_icon } from '../../assets/images';
+import { linkKing } from '../../constant/const';
+
 
 interface Props {
-    label: object;
+    shop: object
+
 }
 
 const ShopDescription: React.FC<Props> = (props) => {
-    const { label } = props
+    const { shop } = props
     const item = [
-        { id: 1, title: 'Công ty', value: 'Công Ty TNHH Cổ Phần An An' },
-        { id: 2, title: 'Địa chỉ', value: '196 Dương Đình Nghệ, Cầu Giấy HN', },
-        { id: 3, title: 'Mã số thuế', value: '0105926126', },
-        { id: 4, title: 'Số điện thoại', value: '0123 124 124', },
-        { id: 5, title: 'Email', value: 'emailname@gmail.com', },
-        { id: 6, title: 'Link website', value: 'https://www.figma.com', }
+        { id: 1, title: 'Công ty', value: shop.nameCompany },
+        { id: 2, title: 'Địa chỉ', value: `${shop.address}, ${shop.wardName}, ${shop.districtName}, ${shop.provinceName}`, },
+        { id: 3, title: 'Mã số thuế', value: shop.taxCode },
+        { id: 4, title: 'Số điện thoại', value: shop.phoneNumber },
+        { id: 5, title: 'Email', value: shop.email },
+        { id: 6, title: 'Link website', value: <Text style={styles.website} onPress={() => Linking.openURL('http://google.com')}>{shop.websiteUrl}</Text> }
     ]
     return (
         <ScrollView nestedScrollEnabled={true} className="bg-white flex-1">
@@ -49,4 +52,10 @@ const ShopDescription: React.FC<Props> = (props) => {
 };
 
 export default ShopDescription;
+
+const styles = StyleSheet.create({
+    website: {
+        color: linkKing
+    }
+})
 

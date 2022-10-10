@@ -12,7 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import BtnFilter from '../../components/Search/BtnFilter';
 import { white } from '../../constant/const';
 import { avatar_img, shop_img } from '../../assets/images';
-import useGetShops from '../../hooks/shops/useGetShops';
+import { getRateOfShop, getShopById } from '../../hooks/shops/useGetShops';
 
 
 const item = [
@@ -25,9 +25,8 @@ const ShopDetailScreen: React.FC = () => {
     const route = useRoute();
     const { id } = route.params;
     const navigation = useNavigation()
-    const data = useGetShops(id)
-    console.log('data shop: ', data[0])
-
+    const data = getShopById('9fe2f64f-9a1d-6f4e-9dec-3a06337aaf58')
+    const voteOfShop = getRateOfShop('9fe2f64f-9a1d-6f4e-9dec-3a06337aaf58')
 
     return (
         <SafeAreaView className="bg-white flex-1">
@@ -53,15 +52,15 @@ const ShopDetailScreen: React.FC = () => {
                     className="w-full h-48 bg-blue-400"
                 />
                 <View className=" p-5 absolute top-20 flex-row">
-                    <Image source={{ uri: (data[0].logo) }} style={style.logo_image} />
+                    <Image source={{ uri: (data.logo) }} style={style.logo_image} />
                     <View className={`ml-5`}>
-                        <IntroductDetailShop title={data[0].storeName} value='7' rating={4.5} />
+                        <IntroductDetailShop title={data.storeName} value={data.totalProduct} rating={voteOfShop.rateAvg} />
                     </View>
                 </View>
 
                 <View className={`flex-1`}>
-                    {/* <TopBar title={item} /> */}
-                    <BtnFilter label={item} />
+
+                    <BtnFilter label={item} shop={data} id={id} />
                 </View>
 
             </ScrollView>
