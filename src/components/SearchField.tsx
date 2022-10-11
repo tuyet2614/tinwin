@@ -9,7 +9,9 @@ import {
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { getListProductByKeyword } from '../hooks/search/SearchProduct';
 import { colors } from '../assets/colors';
+
 
 interface TextFieldProps {
     width: number;
@@ -21,6 +23,9 @@ export const SearchBar: React.FC<TextFieldProps> = ({
     placeholder = 'Tìm kiếm',
 }) => {
     const [searchText, setSearchText] = useState('');
+
+    const product = getListProductByKeyword('son')
+    console.log('search: ', product)
 
     return (
         <View
