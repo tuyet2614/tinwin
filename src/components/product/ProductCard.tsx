@@ -33,7 +33,14 @@ const ProductCard: React.FC<Props> = (props: Props) => {
     <TouchableOpacity
       onPress={navigateProductDetail}
       className="p-3 border border-gray-200 rounded-lg mb-3 w-44">
-      <Image source={item.image} className={`w-full h-32`} />
+      <Image
+        source={
+          item.image !== null
+            ? { uri: item.image[0] }
+            : require('../../assets/logoTinwinPrimary.png')
+        }
+        className={`w-full h-32`}
+      />
       <Text className="text-lg font-medium text-black">{item.name}</Text>
       <Text>Đã bán {item.soldByCustomer}</Text>
       <Rating

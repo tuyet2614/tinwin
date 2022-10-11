@@ -14,7 +14,7 @@ export const useGetListShops = () => {
 }
 
 export const getShopById = (id: string) => {
-    const [res, setRes] = useState([{}])
+    const [res, setRes] = useState({})
     useEffect(() => {
         listShopService.getShopById(id).then(res => {
             setRes(res.data)
@@ -38,17 +38,32 @@ export const getRateOfShop = (shopId: string) => {
     return res
 }
 
-export const getProductOfShop = (shopId: string) => {
+export const getProductOfShop = (shopId: string, categoryId?: string) => {
     const [res, setRes] = useState({})
-    const params = {
+    const params = categoryId ? {
+        'ListSupplierId': shopId,
+        'ListCategoryId': categoryId
+    } : {
         'ListSupplierId': shopId,
     }
     useEffect(() => {
-        listShopService.getProductOfShop(params).then(res => {
-            setRes(res.data)
+        listShopService.getProductsByCategoryOfShop(params).then(res => {
+            setRes(res.data.items)
         }).catch(err => console.log('error: ', err.response.data))
     }, [])
 
     return res
 }
+export const getCategoriesOfShop = (id: string) => {
+    const [res, setRes] = useState([{}])
+    useEffect(() => {
+        listShopService.getCategoriesOfShop(id).then(res => {
+            setRes(res.data.items)
+        }).catch(err => console.log('error: ', err.response.data))
+    }, [])
+
+    return res
+}
+
+
 

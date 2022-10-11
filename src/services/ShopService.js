@@ -15,6 +15,12 @@ const listShopService = {
 
     getProductOfShop(params) {
         return get('/sales/api/app/product/for-customer', params)
+    },
+    getCategoriesOfShop(params) {
+        return get(`/sales/api/app/category/for-supplier/${params}`)
+    },
+    getProductsByCategoryOfShop(params) {
+        return get('/sales/api/app/product/for-customer', params)
     }
 
 }

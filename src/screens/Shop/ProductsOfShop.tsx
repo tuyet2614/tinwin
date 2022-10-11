@@ -7,7 +7,7 @@ import { getProductOfShop } from '../../hooks/shops/useGetShops';
 
 const sortLabel = [
     { id: 1, title: "Mới nhất" },
-    { id: 2, title: "Bán chạy" },
+    { id: 2, title: "Bán chạy", style: 'border-x' },
     { id: 3, title: "Giá" }
 
 ]
@@ -17,13 +17,11 @@ interface Props {
 
 const ProductsOfShop: React.FC<Props> = (props) => {
     const { id } = props
-    const data = getProductOfShop('9fe2f64f-9a1d-6f4e-9dec-3a06337aaf58')
-    console.log('check: ', data.items)
-
+    const data = getProductOfShop(id)
     return (
         <SafeAreaView className={`bg-white flex-1`}>
             <View>
-                <SortOption label={sortLabel} data={data.items} />
+                <SortOption label={sortLabel} data={data} />
             </View>
 
         </SafeAreaView>

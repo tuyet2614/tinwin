@@ -4,23 +4,30 @@ import ProductsContainer from '../product/ProductsContainer';
 import { Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 interface Props {
-    data: object[]
+    data: object
     label: object[]
 }
 
-const sortLabel = [
-    { id: 1, title: "Mới nhất" },
-    { id: 2, title: "Bán chạy", },
-    { id: 3, title: "Giá" }
-]
-
 const SortOption: React.FC<Props> = (props) => {
     const { data, label } = props
-    console.log("check route: ", data)
-
+    const [renderData, setRenderData] = useState(data)
     const [status, setStatus] = useState('Mới nhất')
     const setStatusFilter = (item: string) => {
         setStatus(item)
+    }
+
+    const getNewProduct = () => {
+        if (status === 'Mới nhất') {
+            let newProduct: [] = []
+            Array.isArray(data)
+                ? data.map(item => item.retailerTotalQuantity > 0 ? newProduct.push(item) : '') : ''
+
+            setRenderData(newProduct)
+        }
+        else {
+            setRenderData(data)
+        }
+
     }
 
     return (
@@ -30,14 +37,14 @@ const SortOption: React.FC<Props> = (props) => {
                     <TouchableOpacity
                         className={`w-28 items-center ${item.style}`}
                         key={item.id}
-                        onPress={() => { setStatusFilter(item.title) }}>
+                        onPress={() => { setStatusFilter(item.title), getNewProduct() }}>
                         <Text className={`${status === item.title ? 'text-[#FC832D]' : 'text-[#48484A]'}`}>{item.title}</Text>
                     </TouchableOpacity>)}
             </View>
             <View>
                 <ProductsContainer
                     flatlistStyle={{ justifyContent: 'space-evenly' }}
-                    data={data}
+                    data={renderData}
 
                 />
             </View>

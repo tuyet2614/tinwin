@@ -14,12 +14,13 @@ import {
 interface Props {
     label: object[];
     shop: object
-    id: string
+    id: string;
+    productData: object
 }
 
 
 const BtnFilter: React.FC<Props> = props => {
-    const { label, shop, id } = props;
+    const { label, shop, id, productData } = props;
     const [status, setStatus] = useState(label[0].title);
 
     const renderItem = ({ item }) => (
@@ -51,7 +52,7 @@ const BtnFilter: React.FC<Props> = props => {
                     <View key={item.id} >
                         {status === item.title && item.component ?
                             <View>
-                                <item.component shop={shop} id={id} />
+                                <item.component shop={shop} id={id} productData={productData} />
                             </View> : ''
                         }
 

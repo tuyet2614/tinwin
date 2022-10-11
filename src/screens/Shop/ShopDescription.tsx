@@ -2,18 +2,27 @@
 import { SafeAreaView, Text, View, Image, ScrollView, Linking, StyleSheet } from 'react-native';
 import ShopDetailContainer from '../../components/ShopDetail/ShopDetailContainer';
 import ProductsContainer from '../../components/product/ProductsContainer';
-import { data } from '../../Data/Data';
+// import { data } from '../../Data/Data';
 import { outstanding_icon, panel_icon } from '../../assets/images';
+import { getProductOfShop } from '../../hooks/shops/useGetShops';
 import { linkKing } from '../../constant/const';
 
 
-interface Props {
-    shop: object
 
+interface Props {
+    id: string
+    shop: object
+    productData: object
 }
 
 const ShopDescription: React.FC<Props> = (props) => {
-    const { shop } = props
+    const { id, shop, productData } = props
+
+
+    let newProduct: [] = []
+    Array.isArray(productData)
+        ? productData.map(item => item.retailerTotalQuantity > 0 ? newProduct.push(item) : '') : ''
+
     const item = [
         { id: 1, title: 'Công ty', value: shop.nameCompany },
         { id: 2, title: 'Địa chỉ', value: `${shop.address}, ${shop.wardName}, ${shop.districtName}, ${shop.provinceName}`, },
@@ -40,7 +49,7 @@ const ShopDescription: React.FC<Props> = (props) => {
                 <ProductsContainer
                     flatlistStyle={{ justifyContent: 'space-evenly' }}
                     textBtn="Xem tất cả"
-                    data={data}
+                    data={newProduct}
                     title="Sản phẩm mới"
                     icon={outstanding_icon}
                 />

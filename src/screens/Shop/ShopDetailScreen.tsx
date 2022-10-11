@@ -12,7 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import BtnFilter from '../../components/Search/BtnFilter';
 import { white } from '../../constant/const';
 import { avatar_img, shop_img } from '../../assets/images';
-import { getRateOfShop, getShopById } from '../../hooks/shops/useGetShops';
+import { getProductOfShop, getRateOfShop, getShopById } from '../../hooks/shops/useGetShops';
 
 
 const item = [
@@ -23,15 +23,16 @@ const item = [
 
 const ShopDetailScreen: React.FC = () => {
     const route = useRoute();
-    const { id } = route.params;
+    // const { id } = '9fe2f64f-9a1d-6f4e-9dec-3a06337aaf58'
     const navigation = useNavigation()
     const data = getShopById('9fe2f64f-9a1d-6f4e-9dec-3a06337aaf58')
+    const productData = getProductOfShop('9fe2f64f-9a1d-6f4e-9dec-3a06337aaf58')
     const voteOfShop = getRateOfShop('9fe2f64f-9a1d-6f4e-9dec-3a06337aaf58')
 
     return (
         <SafeAreaView className="bg-white flex-1">
 
-            <ScrollView View className={`flex-none`}>
+            <ScrollView className={`flex-none`}>
                 <View className="flex-row justify-between p-5 absolute z-10 w-full">
                     <GoBackBtn
                         style="py-3 px-6 bg-black-opacity rounded-lg w-10 items-center justify-center"
@@ -51,8 +52,10 @@ const ShopDetailScreen: React.FC = () => {
                     source={shop_img}
                     className="w-full h-48 bg-blue-400"
                 />
+
+
                 <View className=" p-5 absolute top-20 flex-row">
-                    <Image source={{ uri: (data.logo) }} style={style.logo_image} />
+                    <Image source={{ uri: data.logo }} style={style.logo_image} />
                     <View className={`ml-5`}>
                         <IntroductDetailShop title={data.storeName} value={data.totalProduct} rating={voteOfShop.rateAvg} />
                     </View>
@@ -60,8 +63,10 @@ const ShopDetailScreen: React.FC = () => {
 
                 <View className={`flex-1`}>
 
-                    <BtnFilter label={item} shop={data} id={id} />
+                    <BtnFilter label={item} shop={data} id={'9fe2f64f-9a1d-6f4e-9dec-3a06337aaf58'} productData={productData} />
                 </View>
+
+
 
             </ScrollView>
 
