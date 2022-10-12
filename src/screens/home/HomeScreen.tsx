@@ -13,6 +13,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useGetListShops } from '../../hooks/shops/useGetShops';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import useGetSupplier from '../../hooks/home/useGetSupplier';
 
 export const data = [
   {
@@ -76,7 +77,7 @@ export const data = [
 
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation();
-
+  const suppliers = useGetSupplier();
   return (
 
     <SafeAreaView className="bg-white h-full">
@@ -104,9 +105,16 @@ const HomeScreen: React.FC = () => {
           flatlistStyle={[tw`flex-wrap`, { width: 750 }]}
           title="Gian hàng nổi bật"
           icon={stall_icon}
-          data={data}
-          style="items-center mb-5 "
-
+          data={
+            suppliers !== undefined &&
+            suppliers.map((item: object) => {
+              return {
+                id: item.id,
+                name: item.storeName,
+                avatar: item.logo,
+              };
+            })
+          }
         />
 
         <ProductsContainer

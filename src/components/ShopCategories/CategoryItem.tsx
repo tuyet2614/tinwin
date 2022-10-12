@@ -17,7 +17,7 @@ const CategoryItem: React.FC<category> = (item) => {
             <TouchableOpacity className={`mx-6 mb-5 flex-row h-[75px]`} onPress={item.onPress}>
                 {item.image &&
                     <View className={`w-[75px] h-[75px] mr-6 border border-[#D7D7D7] rounded-[10px] justify-center items-center`}>
-                        <Image source={{ uri: 'https://www.google.com/search?q=image+react+native&sxsrf=ALiCzsYyJm0ZvZZ4y20KkUtV53hrpsvOpg:1665470120411&source=lnms&tbm=isch&sa=X&ved=2ahUKEwioxaTXx9f6AhUnmFYBHXvYBtYQ_AUoAXoECAEQAw&biw=1889&bih=837&dpr=1#imgrc=NHEC8ThBQMNPAM' }} />
+                        <Image source={{ uri: item.image }} className={`w-full h-full`} />
                     </View>
                 }
 

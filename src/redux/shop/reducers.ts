@@ -1,30 +1,22 @@
-import { FETCH_SHOP_SUCCESS, FETCH_SHOP_ERROR } from "./action"
+import { GET_ALL_PRODUCT_OF_SHOP } from './constants'
 
-
-interface ShopInfoState {
-    shopInfo: object,
-    error: any
-
+interface ProductState {
+    product: object[]
 }
 
-const initState: ShopInfoState = {
-    shopInfo: {
-        // visible: false
-    },
-    error: null,
+const initState: ProductState = {
 
+    product: [],
 }
 
-const shopInfoReducer = (state = initState, action: any) => {
+const productReducer = (state = initState, action: any) => {
+    console.log('state:', state, action)
     switch (action?.type) {
-        case FETCH_SHOP_SUCCESS:
-            return { ...state, shopInfo: action.payload }
-
-        case FETCH_SHOP_ERROR:
-            return { ...state, error: action.error }
+        case GET_ALL_PRODUCT_OF_SHOP:
+            return { ...state, product: action.payload }
         default:
-            return state
+            return state;
     }
 }
 
-export default shopInfoReducer
+export default productReducer

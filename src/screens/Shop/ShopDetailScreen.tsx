@@ -23,11 +23,11 @@ const item = [
 
 const ShopDetailScreen: React.FC = () => {
     const route = useRoute();
-    // const { id } = '9fe2f64f-9a1d-6f4e-9dec-3a06337aaf58'
+    const { id } = route.params
     const navigation = useNavigation()
-    const data = getShopById('9fe2f64f-9a1d-6f4e-9dec-3a06337aaf58')
-    const productData = getProductOfShop('9fe2f64f-9a1d-6f4e-9dec-3a06337aaf58')
-    const voteOfShop = getRateOfShop('9fe2f64f-9a1d-6f4e-9dec-3a06337aaf58')
+    const data = getShopById(id)
+    const productData = getProductOfShop(id)
+    const voteOfShop = getRateOfShop(id)
 
     return (
         <SafeAreaView className="bg-white flex-1">
@@ -63,7 +63,7 @@ const ShopDetailScreen: React.FC = () => {
 
                 <View className={`flex-1`}>
 
-                    <BtnFilter label={item} shop={data} id={'9fe2f64f-9a1d-6f4e-9dec-3a06337aaf58'} productData={productData} />
+                    <BtnFilter label={item} shop={data} id={id} productData={productData} />
                 </View>
 
 

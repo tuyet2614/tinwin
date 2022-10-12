@@ -1,5 +1,1 @@
-import { createSelector } from 'reselect';
-
-const shopReducer = (state: any) => state.auth;
-
-export const getShop = createSelector(shopReducer, state => state);
+export const getProductState = (state: any) => state.product
