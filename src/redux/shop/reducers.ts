@@ -14,6 +14,7 @@ const productReducer = (state = initState, action: any) => {
     switch (action?.type) {
         case GET_ALL_PRODUCT_OF_SHOP:
             return { ...state, product: action.payload }
+
         default:
             return state;
     }
