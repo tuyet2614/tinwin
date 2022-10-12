@@ -20,8 +20,10 @@ const productReducer = (state = initState, action: any) => {
             let sortedArr = action.payload.field ? SortProductAsc(action.payload.product, 'price') : SortProductDesc(action.payload.product, 'price')
             return { ...state, product: sortedArr }
         case SORT_PRODUCT_BY_NEWER:
-
-            return { ...state, product: action.payload }
+            // const [...product] = action.payload
+            let newProduct = sortNewProduct(action.payload)
+            
+            return { ...state, product: newProduct }
         case SORT_PRODUCT_BY_SELLER:
             let soldProduct = SortProductDesc(action.payload, 'soldByCustomer')
             return { ...state, product: soldProduct }
