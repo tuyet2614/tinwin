@@ -13,7 +13,6 @@ interface Props {
 }
 const ShopCaregories: React.FC<Props> = (props) => {
     const { data, shopId } = props
-    console.log('shopId check: ', shopId)
     const navigation = useNavigation()
     const onPressRoute = (id?: string) => {
         navigation.navigate(NAVIGATE_DETAIL_CATEGORIES, { shopId: shopId, id: id, })
