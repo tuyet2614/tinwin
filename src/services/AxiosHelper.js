@@ -1,7 +1,7 @@
 import axios from 'axios';
-import {useEffect} from 'react';
-import {useNavigate} from 'react-router';
-import {baseUrl} from 'Utils/Constant';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
+import { baseUrl } from '../Ultils/Const/const';
 
 export const get = (path, params) => {
   //   const token = localStorage.getItem('token');
@@ -21,6 +21,7 @@ export const get = (path, params) => {
       headers: {
         'Content-Type': 'application/json',
         // 'Authorization': Bearer ${token},
+
       },
     })
     .then(res => {
