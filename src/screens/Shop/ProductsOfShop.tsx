@@ -4,11 +4,15 @@ import ProductsContainer from '../../components/product/ProductsContainer';
 // import { data } from '../../Data/Data';
 import { useState } from 'react';
 import { getProductOfShop } from '../../hooks/shops/useGetShops';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+
+
 
 const sortLabel = [
     { id: 1, title: "Mới nhất" },
     { id: 2, title: "Bán chạy", style: 'border-x' },
-    { id: 3, title: "Giá" }
+    { id: 3, title: "Giá", icon: { icon1: faArrowUp, icon2: faArrowDown } }
 
 ]
 interface Props {

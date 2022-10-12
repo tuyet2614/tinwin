@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import listShopService from "../../services/ShopService"
 import { useDispatch, useSelector } from "react-redux"
 import { getProductState } from "../../redux/shop/selector"
-import { setProducts } from "../../redux/shop/action"
+import { setProducts, sortProductByPrice } from "../../redux/shop/action"
 
 export const useGetListShops = () => {
     const [res, setRes] = useState([{}])
@@ -44,9 +44,11 @@ export const getRateOfShop = (shopId: string) => {
 export const getProductOfShop = (shopId: string, categoryId?: string) => {
     const dispatch = useDispatch()
     const product = useSelector(getProductState)
+
     const dispatchProduct = (data: object) => {
         dispatch(setProducts(data));
     };
+
     const params = categoryId ? {
         'ListSupplierId': shopId,
         'ListCategoryId': categoryId
